@@ -44,16 +44,16 @@
             >
                 <div class="flex items-center justify-between">
                     <flux:heading size="md">Item Tagihan</flux:heading>
-                    <flux:button size="sm" variant="subtle" icon="plus" @click="addItem()">Tambah Baris</flux:button>
+                    <flux:button type="button" size="sm" variant="subtle" icon="plus" @click="addItem()">Tambah Baris</flux:button>
                 </div>
 
                 <div class="border rounded-lg overflow-hidden border-zinc-200 dark:border-zinc-700">
                     <table class="w-full text-sm">
                         <thead class="bg-zinc-50 dark:bg-zinc-800 text-left">
                             <tr>
-                                <th class="p-3 font-medium text-zinc-500 w-1/3">Produk / Layanan</th>
+                                <th class="p-3 font-medium text-zinc-500 w-[45%]">Produk / Layanan</th>
                                 <th class="p-3 font-medium text-zinc-500 w-24">Kuantitas</th>
-                                <th class="p-3 font-medium text-zinc-500">Harga Satuan</th>
+                                <th class="p-3 font-medium text-zinc-500 w-32">Harga Satuan</th>
                                 <th class="p-3 font-medium text-zinc-500 text-right">Subtotal</th>
                                 <th class="p-3 font-medium text-zinc-500 w-12 text-center">Aksi</th>
                             </tr>
@@ -82,16 +82,16 @@
                                         </div>
                                     </td>
                                     <td class="p-2 align-top">
-                                        <flux:input x-model.number="item.quantity" type="number" step="0.01" min="0.01" required />
+                                        <flux:input x-model.number="item.quantity" type="number" step="0.01" min="0.01" class="min-w-[4rem]" required />
                                     </td>
                                     <td class="p-2 align-top">
-                                        <flux:input x-model.number="item.unit_price" type="number" step="100" min="0" required />
+                                        <flux:input x-model.number="item.unit_price" type="number" step="100" min="0" class="min-w-[8rem]" required />
                                     </td>
-                                    <td class="p-2 align-top text-right pt-4 font-semibold text-zinc-700 dark:text-zinc-300">
+                                    <td class="p-2 align-top text-right pt-4 font-semibold text-zinc-700 dark:text-zinc-300 whitespace-nowrap">
                                         Rp <span x-text="formatCurrency(item.quantity * item.unit_price)"></span>
                                     </td>
                                     <td class="p-2 align-top text-center pt-3">
-                                        <flux:button variant="ghost" icon="trash" size="sm" @click="removeItem(index)" class="text-red-500 hover:text-red-700" />
+                                        <flux:button type="button" variant="ghost" icon="trash" size="sm" @click="removeItem(index)" class="text-red-500 hover:text-red-700" />
                                     </td>
                                 </tr>
                             </template>

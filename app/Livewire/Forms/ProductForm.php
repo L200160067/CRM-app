@@ -3,7 +3,6 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Product;
-use Illuminate\Validation\Rule;
 use Livewire\Form;
 
 class ProductForm extends Form

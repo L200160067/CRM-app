@@ -102,9 +102,7 @@ class Index extends Component
     }
 
     #[On('product-saved')]
-    public function refreshTable()
-    {
-    }
+    public function refreshTable() {}
 
     public function render()
     {

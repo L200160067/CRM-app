@@ -52,7 +52,7 @@ class ProductSeeder extends Seeder
                 'name' => 'Konsultasi IT & Arsitektur Sistem (Per Jam)',
                 'description' => 'Sesi briefing, code-review teknikal, dan perancangan topologi infrastruktur cloud / optimasi performa database bersama Principal Engineer.',
                 'default_price' => 750000.00,
-            ]
+            ],
         ];
 
         foreach ($products as $product) {

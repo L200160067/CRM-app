@@ -3,7 +3,6 @@
 namespace App\Livewire\Client;
 
 use App\Models\Client;
-use Flux;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
