@@ -1,0 +1,127 @@
+<div>
+    <flux:modal name="invoice-show-modal" class="md:w-[50rem]">
+        @if($invoice)
+        <div class="mb-6 border-b border-zinc-200 dark:border-zinc-700 pb-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <flux:heading size="xl">{{ $invoice->invoice_number }}</flux:heading>
+                    <flux:subheading>Dibuat oleh: {{ $invoice->creator->name ?? 'System' }}</flux:subheading>
+                </div>
+                <div>
+                    @php
+                        $color = match($invoice->status->value ?? $invoice->status) {
+                            'draft' => 'zinc',
+                            'sent' => 'blue',
+                            'paid' => 'green',
+                            'overdue' => 'red',
+                            'canceled' => 'stone',
+                            default => 'zinc',
+                        };
+                        $label = match($invoice->status->value ?? $invoice->status) {
+                            'draft' => 'Draft',
+                            'sent' => 'Terkirim',
+                            'paid' => 'Lunas',
+                            'overdue' => 'Jatuh Tempo',
+                            'canceled' => 'Dibatalkan',
+                            default => 'Unknown',
+                        };
+                    @endphp
+                    <flux:badge color="{{ $color }}">{{ $label }}</flux:badge>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 mb-8">
+            <div>
+                <flux:heading size="sm" class="text-zinc-500 uppercase tracking-wider mb-2">Ditagihkan Kepada</flux:heading>
+                <div class="font-bold text-lg">{{ $invoice->client->name }}</div>
+                <div class="text-zinc-600 dark:text-zinc-400">{{ $invoice->client->company_name }}</div>
+                <div class="text-zinc-500 text-sm mt-1 whitespace-pre-line">{{ $invoice->client->address ?? '-' }}</div>
+                <div class="text-zinc-500 text-sm mt-1">{{ $invoice->client->phone ?? '-' }}</div>
+            </div>
+            
+            <div class="space-y-3">
+                <div class="flex justify-between">
+                    <span class="text-zinc-500">Tanggal Terbit</span>
+                    <span class="font-medium">{{ $invoice->issue_date->format('d M Y') }}</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-zinc-500">Jatuh Tempo</span>
+                    <span class="font-medium text-red-600 dark:text-red-400">{{ $invoice->due_date->format('d M Y') }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Items Table -->
+        <div class="border rounded-lg overflow-hidden border-zinc-200 dark:border-zinc-700 mb-6">
+            <table class="w-full text-sm">
+                <thead class="bg-zinc-50 dark:bg-zinc-800 text-left">
+                    <tr>
+                        <th class="p-3 font-medium text-zinc-500">Item</th>
+                        <th class="p-3 font-medium text-zinc-500 text-center">Qty</th>
+                        <th class="p-3 font-medium text-zinc-500 text-right">Harga</th>
+                        <th class="p-3 font-medium text-zinc-500 text-right">Total</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-zinc-200 dark:divide-zinc-700">
+                    @foreach($invoice->items as $item)
+                        <tr>
+                            <td class="p-3 align-top">
+                                <div class="font-medium">{{ $item->item_name }}</div>
+                                @if($item->description)
+                                    <div class="text-xs text-zinc-500 mt-1">{{ $item->description }}</div>
+                                @endif
+                            </td>
+                            <td class="p-3 align-top text-center">{{ (float) $item->quantity }}</td>
+                            <td class="p-3 align-top text-right">Rp {{ number_format($item->unit_price, 2, ',', '.') }}</td>
+                            <td class="p-3 align-top text-right font-medium">Rp {{ number_format($item->total_price, 2, ',', '.') }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Totals -->
+        <div class="flex justify-end mb-8">
+            <div class="w-1/2 space-y-3">
+                <div class="flex justify-between text-sm">
+                    <span class="text-zinc-500">Subtotal</span>
+                    <span>Rp {{ number_format($invoice->subtotal, 2, ',', '.') }}</span>
+                </div>
+                
+                @if($invoice->discount > 0)
+                    <div class="flex justify-between text-sm text-green-600 dark:text-green-400">
+                        <span>Diskon @if($invoice->discount_rate) ({{ (float) $invoice->discount_rate }}%) @endif</span>
+                        <span>- Rp {{ number_format($invoice->discount, 2, ',', '.') }}</span>
+                    </div>
+                @endif
+                
+                @if($invoice->tax > 0)
+                    <div class="flex justify-between text-sm">
+                        <span class="text-zinc-500">Pajak ({{ (float) $invoice->tax_rate }}%)</span>
+                        <span>Rp {{ number_format($invoice->tax, 2, ',', '.') }}</span>
+                    </div>
+                @endif
+                
+                <div class="flex justify-between text-lg font-bold border-t border-zinc-200 dark:border-zinc-700 pt-3">
+                    <span>Total Tagihan</span>
+                    <span>Rp {{ number_format($invoice->grand_total, 2, ',', '.') }}</span>
+                </div>
+            </div>
+        </div>
+
+        @if($invoice->notes)
+            <div class="bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-lg text-sm text-zinc-600 dark:text-zinc-400 whitespace-pre-line">
+                <strong>Catatan:</strong><br>
+                {{ $invoice->notes }}
+            </div>
+        @endif
+
+        <div class="flex justify-end pt-6">
+            <flux:modal.close>
+                <flux:button variant="ghost">Tutup</flux:button>
+            </flux:modal.close>
+        </div>
+        @endif
+    </flux:modal>
+</div>
