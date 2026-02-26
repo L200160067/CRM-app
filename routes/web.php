@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InvoicePrintController;
 use App\Livewire\Client\Index as ClientIndex;
 use App\Livewire\Invoice\Index as InvoiceIndex;
 use App\Livewire\Product\Index as ProductIndex;
@@ -14,6 +15,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('clients', ClientIndex::class)->name('clients.index');
     Route::get('products', ProductIndex::class)->name('products.index');
     Route::get('invoices', InvoiceIndex::class)->name('invoices.index');
+    Route::get('invoices/{invoice}/print', InvoicePrintController::class)->name('invoices.print');
 });
 
 require __DIR__.'/settings.php';
