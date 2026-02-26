@@ -1,5 +1,7 @@
 <?php
 
+/** @var \Tests\TestCase $this */
+
 use App\Livewire\Product\Form;
 use App\Livewire\Product\Index;
 use App\Models\Product;

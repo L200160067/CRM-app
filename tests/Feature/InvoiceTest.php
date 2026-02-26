@@ -1,5 +1,7 @@
 <?php
 
+/** @var \Tests\TestCase $this */
+
 use App\Actions\Invoices\CalculateInvoiceTotalAction;
 use App\Enums\DiscountType;
 use App\Enums\InvoiceStatus;
