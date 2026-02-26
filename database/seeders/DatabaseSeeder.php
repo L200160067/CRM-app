@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Staff Operasional',
                 'password' => Hash::make('password'),
-                'role' => 'regular',
+                'role' => 'staff',
             ]
         );
 

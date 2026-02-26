@@ -84,7 +84,7 @@ class Index extends Component
     #[Computed]
     public function invoices()
     {
-        $query = Invoice::query()->with('client');
+        $query = Invoice::query()->with('client', 'creator');
 
         if ($this->status === 'trashed') {
             $query->onlyTrashed();

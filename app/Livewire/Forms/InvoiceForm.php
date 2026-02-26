@@ -37,7 +37,9 @@ class InvoiceForm extends Form
     public string|float|int $tax_rate = 0;
 
     // Items Repeater Array for Alpine.js Binding
-    public array $items = [];
+    public array $items = [
+        ['id' => null, 'product_id' => null, 'item_name' => '', 'quantity' => 1, 'unit_price' => 0, 'description' => ''],
+    ];
 
     public function rules()
     {

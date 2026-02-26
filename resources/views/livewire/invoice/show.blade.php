@@ -62,10 +62,9 @@
             </div>
         </div>
 
-        <!-- Invoice Code & Creator Reference -->
+        <!-- Invoice Code -->
         <div class="flex flex-col items-center justify-center mb-10 text-center bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-100 dark:border-zinc-700/50 py-6 rounded-xl">
             <h1 class="text-3xl font-bold tracking-widest text-zinc-900 dark:text-white">{{ $invoice->invoice_number }}</h1>
-            <div class="text-sm font-medium text-zinc-500 dark:text-zinc-400 mt-2">Dibuat oleh: {{ $invoice->creator->name ?? 'System' }}</div>
         </div>
 
         <div class="grid grid-cols-2 gap-8 mb-8">

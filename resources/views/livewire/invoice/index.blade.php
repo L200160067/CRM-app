@@ -30,6 +30,7 @@
         <flux:table.columns>
             <flux:table.column>Invoice / Tanggal</flux:table.column>
             <flux:table.column>Klien</flux:table.column>
+            <flux:table.column>Pembuat</flux:table.column>
             <flux:table.column>Status</flux:table.column>
             <flux:table.column>Total Tagihan</flux:table.column>
             <flux:table.column>Aksi</flux:table.column>
@@ -46,6 +47,9 @@
                     <flux:table.cell>
                         <div class="font-medium">{{ $invoice->client->name }}</div>
                         <div class="text-sm text-zinc-500">{{ $invoice->client->company_name ?? '-' }}</div>
+                    </flux:table.cell>
+                    <flux:table.cell>
+                        <div class="text-sm font-medium text-zinc-700 dark:text-zinc-300">{{ $invoice->creator->name ?? 'System' }}</div>
                     </flux:table.cell>
                     <flux:table.cell>
                         @php
