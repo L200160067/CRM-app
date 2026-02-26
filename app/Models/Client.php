@@ -19,11 +19,6 @@ class Client extends Model
         'city',
     ];
 
-    protected function casts(): array
-    {
-        return [];
-    }
-
     public function invoices()
     {
         return $this->hasMany(Invoice::class);

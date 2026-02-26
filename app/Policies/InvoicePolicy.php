@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Enums\Role;
 use App\Models\Invoice;
 use App\Models\User;
 
@@ -28,7 +29,7 @@ class InvoicePolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->role === Role::Admin;
     }
 
     /**
@@ -36,7 +37,7 @@ class InvoicePolicy
      */
     public function update(User $user, Invoice $invoice): bool
     {
-        return true;
+        return $user->role === Role::Admin;
     }
 
     /**
@@ -44,7 +45,7 @@ class InvoicePolicy
      */
     public function delete(User $user, Invoice $invoice): bool
     {
-        return true;
+        return $user->role === Role::Admin;
     }
 
     /**
@@ -52,7 +53,7 @@ class InvoicePolicy
      */
     public function restore(User $user, Invoice $invoice): bool
     {
-        return true;
+        return $user->role === Role::Admin;
     }
 
     /**
@@ -60,6 +61,6 @@ class InvoicePolicy
      */
     public function forceDelete(User $user, Invoice $invoice): bool
     {
-        return true;
+        return $user->role === Role::Admin;
     }
 }

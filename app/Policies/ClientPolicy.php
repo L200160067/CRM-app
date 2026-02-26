@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Enums\Role;
 use App\Models\Client;
 use App\Models\User;
 
@@ -28,7 +29,7 @@ class ClientPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->role === Role::Admin;
     }
 
     /**
@@ -36,7 +37,7 @@ class ClientPolicy
      */
     public function update(User $user, Client $client): bool
     {
-        return true;
+        return $user->role === Role::Admin;
     }
 
     /**
@@ -44,7 +45,7 @@ class ClientPolicy
      */
     public function delete(User $user, Client $client): bool
     {
-        return true;
+        return $user->role === Role::Admin;
     }
 
     /**
@@ -52,7 +53,7 @@ class ClientPolicy
      */
     public function restore(User $user, Client $client): bool
     {
-        return true;
+        return $user->role === Role::Admin;
     }
 
     /**
@@ -60,6 +61,6 @@ class ClientPolicy
      */
     public function forceDelete(User $user, Client $client): bool
     {
-        return true;
+        return $user->role === Role::Admin;
     }
 }

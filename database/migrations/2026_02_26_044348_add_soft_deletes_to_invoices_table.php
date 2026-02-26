@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default('staff')->after('password');
+        Schema::table('invoices', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role');
+        Schema::table('invoices', function (Blueprint $table) {
+            $table->dropSoftDeletes();
         });
     }
 };
