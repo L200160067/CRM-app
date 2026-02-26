@@ -234,3 +234,52 @@ test('discount cannot exceed subtotal', function () {
     expect((float) $invoice->discount)->toBe(10000.0)
         ->and((float) $invoice->grand_total)->toBe(0.0);
 });
+
+// --- Print Route ---
+
+test('guests cannot access invoice print page', function () {
+    $admin = User::factory()->admin()->create();
+    $client = Client::factory()->create();
+    $invoice = Invoice::factory()->create([
+        'client_id' => $client->id,
+        'created_by' => $admin->id,
+        'status' => InvoiceStatus::Draft,
+    ]);
+
+    $this->withoutVite()
+        ->get(route('invoices.print', $invoice))
+        ->assertRedirect(route('login'));
+});
+
+test('staff can access invoice print page', function () {
+    $staff = User::factory()->staff()->create();
+    $client = Client::factory()->create();
+    $invoice = Invoice::factory()->create([
+        'client_id' => $client->id,
+        'created_by' => $staff->id,
+        'status' => InvoiceStatus::Draft,
+    ]);
+
+    $this->withoutVite()
+        ->actingAs($staff)
+        ->get(route('invoices.print', $invoice))
+        ->assertOk();
+});
+
+test('invoice print page displays invoice number and client name', function () {
+    $admin = User::factory()->admin()->create();
+    $client = Client::factory()->create(['name' => 'PT Contoh Klien']);
+    $invoice = Invoice::factory()->create([
+        'client_id' => $client->id,
+        'created_by' => $admin->id,
+        'invoice_number' => 'INV-PRINT-0001',
+        'status' => InvoiceStatus::Draft,
+    ]);
+
+    $this->withoutVite()
+        ->actingAs($admin)
+        ->get(route('invoices.print', $invoice))
+        ->assertOk()
+        ->assertSee('INV-PRINT-0001')
+        ->assertSee('PT Contoh Klien');
+});
