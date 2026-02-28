@@ -19,22 +19,36 @@
                     wire:navigate>
                     {{ __('Dashboard') }}
                 </flux:sidebar.item>
-                <flux:sidebar.item icon="users" :href="route('clients.index')"
-                    :current="request()->routeIs('clients.*')" wire:navigate>
-                    {{ __('Clients') }}
-                </flux:sidebar.item>
+
+                {{-- Klien: SuperAdmin & Marketing --}}
+                @if (auth()->user()->isSuperAdmin() || auth()->user()->isMarketing())
+                    <flux:sidebar.item icon="users" :href="route('clients.index')"
+                        :current="request()->routeIs('clients.*')" wire:navigate>
+                        {{ __('Clients') }}
+                    </flux:sidebar.item>
+                @endif
+
+                {{-- Produk: Semua role (read-only untuk referensi) --}}
                 <flux:sidebar.item icon="squares-2x2" :href="route('products.index')"
                     :current="request()->routeIs('products.*')" wire:navigate>
                     {{ __('Products') }}
                 </flux:sidebar.item>
-                <flux:sidebar.item icon="cube" :href="route('client-services.index')"
-                    :current="request()->routeIs('client-services.*')" wire:navigate>
-                    {{ __('Services') }}
-                </flux:sidebar.item>
-                <flux:sidebar.item icon="document-text" :href="route('invoices.index')"
-                    :current="request()->routeIs('invoices.*')" wire:navigate>
-                    {{ __('Invoices') }}
-                </flux:sidebar.item>
+
+                {{-- Client Services: SuperAdmin & Server Manager --}}
+                @if (auth()->user()->isSuperAdmin() || auth()->user()->isServerManager())
+                    <flux:sidebar.item icon="server-stack" :href="route('client-services.index')"
+                        :current="request()->routeIs('client-services.*')" wire:navigate>
+                        {{ __('Services') }}
+                    </flux:sidebar.item>
+                @endif
+
+                {{-- Invoice: SuperAdmin & Admin --}}
+                @if (auth()->user()->isSuperAdmin() || auth()->user()->isAdmin())
+                    <flux:sidebar.item icon="document-text" :href="route('invoices.index')"
+                        :current="request()->routeIs('invoices.*')" wire:navigate>
+                        {{ __('Invoices') }}
+                    </flux:sidebar.item>
+                @endif
             </flux:sidebar.group>
         </flux:sidebar.nav>
 

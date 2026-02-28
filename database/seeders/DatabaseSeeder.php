@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Role;
 use App\Models\Client;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,32 +15,47 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Buat Akun Level Admin 1
+        // 1. SuperAdmin — Manajer (akses penuh)
         User::updateOrCreate(
             ['email' => 'admin@m-onesolution.com'],
             [
                 'name' => 'Super Admin',
                 'password' => Hash::make('password'),
-                'role' => 'admin',
+                'role' => Role::SuperAdmin->value,
             ]
         );
 
-        // 2. Buat Akun User Reguler 1
+        // 2. Admin — Hanya kelola Invoice
         User::updateOrCreate(
-            ['email' => 'staff@m-onesolution.com'],
+            ['email' => 'admin-billing@m-onesolution.com'],
             [
-                'name' => 'Staff Operasional',
+                'name' => 'Admin Billing',
                 'password' => Hash::make('password'),
-                'role' => 'staff',
+                'role' => Role::Admin->value,
             ]
         );
 
-        // 3. Buat 100 Data Client dengan Bahasa Indonesia yang realistis
-        $faker = Faker::create('id_ID');
+        // 3. Marketing — Hanya kelola Klien
+        User::updateOrCreate(
+            ['email' => 'marketing@m-onesolution.com'],
+            [
+                'name' => 'Tim Marketing',
+                'password' => Hash::make('password'),
+                'role' => Role::Marketing->value,
+            ]
+        );
 
-        // Loop directly or use Factory
-        // Since we created ClientFactory, we can just use the factory.
-        // But to be sure it uses id_ID, the factory already configures id_ID.
+        // 4. Server Manager — Hanya kelola Client Services
+        User::updateOrCreate(
+            ['email' => 'server@m-onesolution.com'],
+            [
+                'name' => 'Server Manager',
+                'password' => Hash::make('password'),
+                'role' => Role::ServerManager->value,
+            ]
+        );
+
+        // 5. Buat 100 Data Client realistis
         $this->command->info('Seeding 100 Indonesian Clients...');
         Client::factory()->count(100)->create();
 
@@ -51,5 +65,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->command->info('Database Seeding Completed Successfully!');
+        $this->command->table(
+            ['Role', 'Email', 'Password'],
+            [
+                [Role::SuperAdmin->label(), 'admin@m-onesolution.com', 'password'],
+                [Role::Admin->label(), 'admin-billing@m-onesolution.com', 'password'],
+                [Role::Marketing->label(), 'marketing@m-onesolution.com', 'password'],
+                [Role::ServerManager->label(), 'server@m-onesolution.com', 'password'],
+            ]
+        );
     }
 }

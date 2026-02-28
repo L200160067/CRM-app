@@ -7,11 +7,14 @@ use App\Models\Client;
 use App\Models\ClientService;
 use App\Models\Product;
 use Flux;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Form extends Component
 {
+    use AuthorizesRequests;
+
     public ClientServiceForm $form;
 
     public string $mode = 'create';
@@ -36,8 +39,10 @@ class Form extends Component
     public function save(): void
     {
         if ($this->mode === 'create') {
+            $this->authorize('create', ClientService::class);
             $this->form->store();
         } else {
+            $this->authorize('update', $this->form->clientService);
             $this->form->update();
         }
 

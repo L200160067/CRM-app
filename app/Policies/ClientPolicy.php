@@ -29,7 +29,7 @@ class ClientPolicy
      */
     public function create(User $user): bool
     {
-        return $user->role === Role::Admin;
+        return in_array($user->role, [Role::SuperAdmin, Role::Marketing]);
     }
 
     /**
@@ -37,7 +37,7 @@ class ClientPolicy
      */
     public function update(User $user, Client $client): bool
     {
-        return $user->role === Role::Admin;
+        return in_array($user->role, [Role::SuperAdmin, Role::Marketing]);
     }
 
     /**
@@ -45,7 +45,7 @@ class ClientPolicy
      */
     public function delete(User $user, Client $client): bool
     {
-        return $user->role === Role::Admin;
+        return in_array($user->role, [Role::SuperAdmin, Role::Marketing]);
     }
 
     /**
@@ -53,7 +53,7 @@ class ClientPolicy
      */
     public function restore(User $user, Client $client): bool
     {
-        return $user->role === Role::Admin;
+        return in_array($user->role, [Role::SuperAdmin, Role::Marketing]);
     }
 
     /**
@@ -61,6 +61,6 @@ class ClientPolicy
      */
     public function forceDelete(User $user, Client $client): bool
     {
-        return $user->role === Role::Admin;
+        return in_array($user->role, [Role::SuperAdmin, Role::Marketing]);
     }
 }

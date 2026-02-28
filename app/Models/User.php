@@ -64,4 +64,24 @@ class User extends Authenticatable
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
     }
+
+    public function isSuperAdmin(): bool
+    {
+        return $this->role === Role::SuperAdmin;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === Role::Admin;
+    }
+
+    public function isMarketing(): bool
+    {
+        return $this->role === Role::Marketing;
+    }
+
+    public function isServerManager(): bool
+    {
+        return $this->role === Role::ServerManager;
+    }
 }

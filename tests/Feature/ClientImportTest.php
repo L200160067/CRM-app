@@ -10,10 +10,10 @@ use Livewire\Livewire;
 
 // --- Authorization ---
 
-test('staff cannot import clients', function () {
-    $staff = User::factory()->staff()->create();
+test('admin cannot import clients', function () {
+    $admin = User::factory()->admin()->create();
 
-    Livewire::actingAs($staff)
+    Livewire::actingAs($admin)
         ->test(Import::class)
         ->call('processImport')
         ->assertForbidden();
@@ -22,7 +22,7 @@ test('staff cannot import clients', function () {
 // --- CSV Parsing & Preview ---
 
 test('uploading a valid csv parses rows correctly', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->marketing()->create();
 
     $csv = "name,company_name,email,phone,address,city\n"
          ."Budi Santoso,PT Budi,budi@example.com,08111,Jl. A,Jakarta\n"
@@ -44,7 +44,7 @@ test('uploading a valid csv parses rows correctly', function () {
 });
 
 test('row with missing name is marked invalid', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->marketing()->create();
 
     $csv = "name,company_name,email\n"
          .",PT Tanpa Nama,tanpanama@example.com\n";
@@ -62,7 +62,7 @@ test('row with missing name is marked invalid', function () {
 });
 
 test('row with duplicate email is marked invalid', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->marketing()->create();
     Client::factory()->create(['email' => 'existing@example.com']);
 
     $csv = "name,email\n"
@@ -82,7 +82,7 @@ test('row with duplicate email is marked invalid', function () {
 // --- Process Import ---
 
 test('admin can import valid csv rows into database', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->marketing()->create();
 
     $csv = "name,company_name,email,phone,city\n"
          ."Klien Import A,PT A,kliena@test.com,08100,Surabaya\n"
@@ -101,7 +101,7 @@ test('admin can import valid csv rows into database', function () {
 });
 
 test('invalid rows are skipped during import', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->marketing()->create();
 
     $csv = "name,email\n"
          ."Klien Valid,valid@test.com\n"
@@ -122,7 +122,7 @@ test('invalid rows are skipped during import', function () {
 });
 
 test('import resets state after completion', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->marketing()->create();
 
     $csv = "name\nKlien Reset\n";
     $file = UploadedFile::fake()->createWithContent('clients.csv', $csv);
@@ -135,3 +135,4 @@ test('import resets state after completion', function () {
     expect($component->get('rows'))->toBeEmpty()
         ->and($component->get('importDone'))->toBeTrue();
 });
+

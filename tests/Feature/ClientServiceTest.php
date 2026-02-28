@@ -11,7 +11,7 @@ use Livewire\Livewire;
 uses()->group('client-services');
 
 beforeEach(function () {
-    $this->user = User::factory()->create();
+    $this->user = User::factory()->serverManager()->create();
     $this->client = Client::factory()->create();
     $this->product = Product::factory()->create();
 });

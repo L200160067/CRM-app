@@ -13,15 +13,15 @@ test('guests cannot access clients page', function () {
     $this->withoutVite()->get(route('clients.index'))->assertRedirect(route('login'));
 });
 
-test('staff users can view the clients page', function () {
-    $user = User::factory()->staff()->create();
+test('marketing users can view the clients page', function () {
+    $user = User::factory()->marketing()->create();
     $this->withoutVite()->actingAs($user)->get(route('clients.index'))->assertOk();
 });
 
 // --- Client Index (Livewire) ---
 
 test('clients index shows list of clients', function () {
-    $user = User::factory()->staff()->create();
+    $user = User::factory()->marketing()->create();
     $clients = Client::factory()->count(3)->create();
 
     \Livewire\Livewire::actingAs($user)
@@ -30,7 +30,7 @@ test('clients index shows list of clients', function () {
 });
 
 test('clients index search filters results', function () {
-    $user = User::factory()->staff()->create();
+    $user = User::factory()->marketing()->create();
     $target = Client::factory()->create(['name' => 'Budi Santoso']);
     Client::factory()->create(['name' => 'Andi Wijaya']);
 
@@ -43,10 +43,10 @@ test('clients index search filters results', function () {
 
 // --- Create Client ---
 
-test('admin can create a client', function () {
-    $admin = User::factory()->admin()->create();
+test('marketing can create a client', function () {
+    $marketing = User::factory()->marketing()->create();
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($marketing)
         ->test(Form::class)
         ->call('loadClient')
         ->set('form.name', 'PT Maju Jaya')
@@ -59,19 +59,19 @@ test('admin can create a client', function () {
     $this->assertDatabaseHas('clients', ['name' => 'PT Maju Jaya', 'email' => 'contact@majujaya.id']);
 });
 
-test('staff cannot create a client', function () {
-    $staff = User::factory()->staff()->create();
+test('admin cannot create a client', function () {
+    $admin = User::factory()->admin()->create();
 
-    \Livewire\Livewire::actingAs($staff)
+    \Livewire\Livewire::actingAs($admin)
         ->test(Form::class)
         ->call('loadClient')
         ->assertForbidden();
 });
 
 test('client name is required', function () {
-    $admin = User::factory()->admin()->create();
+    $marketing = User::factory()->marketing()->create();
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($marketing)
         ->test(Form::class)
         ->call('loadClient')
         ->set('form.name', '')
@@ -81,11 +81,11 @@ test('client name is required', function () {
 
 // --- Update Client ---
 
-test('admin can update a client', function () {
-    $admin = User::factory()->admin()->create();
+test('marketing can update a client', function () {
+    $marketing = User::factory()->marketing()->create();
     $client = Client::factory()->create(['name' => 'Lama']);
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($marketing)
         ->test(Form::class)
         ->call('loadClient', $client->id)
         ->set('form.name', 'Baru')
@@ -95,11 +95,11 @@ test('admin can update a client', function () {
     $this->assertDatabaseHas('clients', ['id' => $client->id, 'name' => 'Baru']);
 });
 
-test('staff cannot update a client', function () {
-    $staff = User::factory()->staff()->create();
+test('admin cannot update a client', function () {
+    $admin = User::factory()->admin()->create();
     $client = Client::factory()->create();
 
-    \Livewire\Livewire::actingAs($staff)
+    \Livewire\Livewire::actingAs($admin)
         ->test(Form::class)
         ->call('loadClient', $client->id)
         ->assertForbidden();
@@ -107,11 +107,11 @@ test('staff cannot update a client', function () {
 
 // --- Delete & Restore (SoftDeletes) ---
 
-test('admin can soft delete a client', function () {
-    $admin = User::factory()->admin()->create();
+test('marketing can soft delete a client', function () {
+    $marketing = User::factory()->marketing()->create();
     $client = Client::factory()->create();
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($marketing)
         ->test(Index::class)
         ->call('confirmDelete', $client->id)
         ->call('delete');
@@ -119,23 +119,23 @@ test('admin can soft delete a client', function () {
     $this->assertSoftDeleted('clients', ['id' => $client->id]);
 });
 
-test('staff cannot delete a client', function () {
-    $staff = User::factory()->staff()->create();
+test('admin cannot delete a client', function () {
+    $admin = User::factory()->admin()->create();
     $client = Client::factory()->create();
 
-    \Livewire\Livewire::actingAs($staff)
+    \Livewire\Livewire::actingAs($admin)
         ->test(Index::class)
         ->call('confirmDelete', $client->id)
         ->call('delete')
         ->assertForbidden();
 });
 
-test('admin can restore a soft-deleted client', function () {
-    $admin = User::factory()->admin()->create();
+test('marketing can restore a soft-deleted client', function () {
+    $marketing = User::factory()->marketing()->create();
     $client = Client::factory()->create();
     $client->delete();
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($marketing)
         ->test(Index::class)
         ->call('restore', $client->id);
 

@@ -13,15 +13,15 @@ test('guests cannot access products page', function () {
     $this->withoutVite()->get(route('products.index'))->assertRedirect(route('login'));
 });
 
-test('staff users can view the products page', function () {
-    $user = User::factory()->staff()->create();
+test('all authenticated users can view the products page', function () {
+    $user = User::factory()->marketing()->create();
     $this->withoutVite()->actingAs($user)->get(route('products.index'))->assertOk();
 });
 
 // --- Product Index ---
 
 test('products index shows list of products', function () {
-    $user = User::factory()->staff()->create();
+    $user = User::factory()->marketing()->create();
     $product = Product::factory()->create(['name' => 'Jasa Desain Logo']);
 
     \Livewire\Livewire::actingAs($user)
@@ -30,7 +30,7 @@ test('products index shows list of products', function () {
 });
 
 test('products index search filters results', function () {
-    $user = User::factory()->staff()->create();
+    $user = User::factory()->marketing()->create();
     Product::factory()->create(['name' => 'Jasa Cetak']);
     Product::factory()->create(['name' => 'Jasa Video']);
 
@@ -43,10 +43,10 @@ test('products index search filters results', function () {
 
 // --- Create Product ---
 
-test('admin can create a product', function () {
-    $admin = User::factory()->admin()->create();
+test('super admin can create a product', function () {
+    $superAdmin = User::factory()->superAdmin()->create();
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($superAdmin)
         ->test(Form::class)
         ->call('loadProduct')
         ->set('form.name', 'Jasa Konsultasi')
@@ -57,19 +57,19 @@ test('admin can create a product', function () {
     $this->assertDatabaseHas('products', ['name' => 'Jasa Konsultasi', 'default_price' => 500000]);
 });
 
-test('staff cannot create a product', function () {
-    $staff = User::factory()->staff()->create();
+test('admin cannot create a product', function () {
+    $admin = User::factory()->admin()->create();
 
-    \Livewire\Livewire::actingAs($staff)
+    \Livewire\Livewire::actingAs($admin)
         ->test(Form::class)
         ->call('loadProduct')
         ->assertForbidden();
 });
 
 test('product name is required', function () {
-    $admin = User::factory()->admin()->create();
+    $superAdmin = User::factory()->superAdmin()->create();
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($superAdmin)
         ->test(Form::class)
         ->call('loadProduct')
         ->set('form.name', '')
@@ -78,9 +78,9 @@ test('product name is required', function () {
 });
 
 test('product price must be numeric and non-negative', function () {
-    $admin = User::factory()->admin()->create();
+    $superAdmin = User::factory()->superAdmin()->create();
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($superAdmin)
         ->test(Form::class)
         ->call('loadProduct')
         ->set('form.name', 'Test Produk')
@@ -91,11 +91,11 @@ test('product price must be numeric and non-negative', function () {
 
 // --- Update Product ---
 
-test('admin can update a product', function () {
-    $admin = User::factory()->admin()->create();
+test('super admin can update a product', function () {
+    $superAdmin = User::factory()->superAdmin()->create();
     $product = Product::factory()->create(['name' => 'Nama Lama']);
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($superAdmin)
         ->test(Form::class)
         ->call('loadProduct', $product->id)
         ->set('form.name', 'Nama Baru')
@@ -107,11 +107,11 @@ test('admin can update a product', function () {
 
 // --- Delete & Restore ---
 
-test('admin can soft delete a product', function () {
-    $admin = User::factory()->admin()->create();
+test('super admin can soft delete a product', function () {
+    $superAdmin = User::factory()->superAdmin()->create();
     $product = Product::factory()->create();
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($superAdmin)
         ->test(Index::class)
         ->call('confirmDelete', $product->id)
         ->call('delete');
@@ -119,12 +119,12 @@ test('admin can soft delete a product', function () {
     $this->assertSoftDeleted('products', ['id' => $product->id]);
 });
 
-test('admin can restore a soft-deleted product', function () {
-    $admin = User::factory()->admin()->create();
+test('super admin can restore a soft-deleted product', function () {
+    $superAdmin = User::factory()->superAdmin()->create();
     $product = Product::factory()->create();
     $product->delete();
 
-    \Livewire\Livewire::actingAs($admin)
+    \Livewire\Livewire::actingAs($superAdmin)
         ->test(Index::class)
         ->call('restore', $product->id);
 

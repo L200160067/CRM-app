@@ -58,6 +58,16 @@ class UserFactory extends Factory
     }
 
     /**
+     * Indicate that the user has the SuperAdmin role.
+     */
+    public function superAdmin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'super_admin',
+        ]);
+    }
+
+    /**
      * Indicate that the user has the Admin role.
      */
     public function admin(): static
@@ -68,12 +78,30 @@ class UserFactory extends Factory
     }
 
     /**
-     * Indicate that the user has the Staff role.
+     * Indicate that the user has the Marketing role.
+     */
+    public function marketing(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'marketing',
+        ]);
+    }
+
+    /**
+     * Indicate that the user has the ServerManager role.
+     */
+    public function serverManager(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'server_manager',
+        ]);
+    }
+
+    /**
+     * Alias for marketing() — backward compatibility.
      */
     public function staff(): static
     {
-        return $this->state(fn (array $attributes) => [
-            'role' => 'staff',
-        ]);
+        return $this->marketing();
     }
 }

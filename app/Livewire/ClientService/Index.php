@@ -4,6 +4,7 @@ namespace App\Livewire\ClientService;
 
 use App\Models\ClientService;
 use Flux;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -11,6 +12,7 @@ use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use AuthorizesRequests;
     use WithPagination;
 
     public string $search = '';
@@ -31,6 +33,7 @@ class Index extends Component
     {
         if ($this->clientServiceIdToDelete) {
             $service = ClientService::findOrFail($this->clientServiceIdToDelete);
+            $this->authorize('delete', $service);
             $service->delete();
 
             Flux::modal('client-service-delete-modal')->close();

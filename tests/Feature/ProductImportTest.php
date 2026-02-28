@@ -21,7 +21,7 @@ test('staff cannot import products', function () {
 // --- CSV Parsing & Preview ---
 
 test('uploading a valid product csv parses rows correctly', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->superAdmin()->create();
 
     $csv = "name,description,default_price\n"
          ."Jasa Desain Web,Pembuatan website,2500000\n"
@@ -44,7 +44,7 @@ test('uploading a valid product csv parses rows correctly', function () {
 });
 
 test('row with missing name is marked invalid', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->superAdmin()->create();
 
     $csv = "name,default_price\n"
          .",500000\n";
@@ -62,7 +62,7 @@ test('row with missing name is marked invalid', function () {
 });
 
 test('row with missing price is marked invalid', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->superAdmin()->create();
 
     $csv = "name,default_price\n"
          ."Produk Tanpa Harga,\n";
@@ -79,7 +79,7 @@ test('row with missing price is marked invalid', function () {
 });
 
 test('row with non-numeric price is marked invalid', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->superAdmin()->create();
 
     $csv = "name,default_price\n"
          ."Produk Harga Salah,dua juta\n";
@@ -96,7 +96,7 @@ test('row with non-numeric price is marked invalid', function () {
 // --- Process Import ---
 
 test('admin can import valid product csv rows into database', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->superAdmin()->create();
 
     $csv = "name,description,default_price\n"
          ."Produk Import A,Deskripsi A,1000000\n"
@@ -115,7 +115,7 @@ test('admin can import valid product csv rows into database', function () {
 });
 
 test('invalid product rows are skipped during import', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->superAdmin()->create();
 
     $csv = "name,default_price\n"
          ."Produk Valid,300000\n"
@@ -136,7 +136,7 @@ test('invalid product rows are skipped during import', function () {
 });
 
 test('product import resets state after completion', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->superAdmin()->create();
 
     $csv = "name,default_price\nProduk Reset,100000\n";
     $file = UploadedFile::fake()->createWithContent('products.csv', $csv);

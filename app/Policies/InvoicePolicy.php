@@ -13,7 +13,7 @@ class InvoicePolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return in_array($user->role, [Role::SuperAdmin, Role::Admin]);
     }
 
     /**
@@ -21,7 +21,7 @@ class InvoicePolicy
      */
     public function view(User $user, Invoice $invoice): bool
     {
-        return true;
+        return in_array($user->role, [Role::SuperAdmin, Role::Admin]);
     }
 
     /**
@@ -29,7 +29,7 @@ class InvoicePolicy
      */
     public function create(User $user): bool
     {
-        return $user->role === Role::Admin;
+        return in_array($user->role, [Role::SuperAdmin, Role::Admin]);
     }
 
     /**
@@ -37,7 +37,7 @@ class InvoicePolicy
      */
     public function update(User $user, Invoice $invoice): bool
     {
-        return $user->role === Role::Admin;
+        return in_array($user->role, [Role::SuperAdmin, Role::Admin]);
     }
 
     /**
@@ -45,7 +45,7 @@ class InvoicePolicy
      */
     public function delete(User $user, Invoice $invoice): bool
     {
-        return $user->role === Role::Admin;
+        return in_array($user->role, [Role::SuperAdmin, Role::Admin]);
     }
 
     /**
@@ -53,7 +53,7 @@ class InvoicePolicy
      */
     public function restore(User $user, Invoice $invoice): bool
     {
-        return $user->role === Role::Admin;
+        return in_array($user->role, [Role::SuperAdmin, Role::Admin]);
     }
 
     /**
@@ -61,6 +61,6 @@ class InvoicePolicy
      */
     public function forceDelete(User $user, Invoice $invoice): bool
     {
-        return $user->role === Role::Admin;
+        return in_array($user->role, [Role::SuperAdmin, Role::Admin]);
     }
 }
