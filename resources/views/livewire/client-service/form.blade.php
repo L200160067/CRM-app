@@ -23,19 +23,18 @@
             <flux:input wire:model="form.domain_name" label="Nama Domain"
                 placeholder="contoh: namadomain.com (opsional)" />
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <flux:radio.group wire:model="form.status" label="Status" variant="segmented">
-                    <flux:radio value="Active" label="Aktif" />
-                    <flux:radio value="Pending" label="Pending" />
-                    <flux:radio value="Suspended" label="Ditangguhkan" />
-                    <flux:radio value="Expired" label="Kadaluarsa" />
-                </flux:radio.group>
+            <flux:radio.group wire:model="form.status" label="Status" variant="segmented">
+                <flux:radio value="Active" label="Aktif" />
+                <flux:radio value="Pending" label="Pending" />
+                <flux:radio value="Suspended" label="Ditangguhkan" />
+                <flux:radio value="Expired" label="Kadaluarsa" />
+            </flux:radio.group>
 
-                <flux:radio.group wire:model="form.billing_cycle" label="Siklus Tagihan" variant="segmented">
-                    <flux:radio value="Monthly" label="Bulanan" />
-                    <flux:radio value="Yearly" label="Tahunan" />
-                </flux:radio.group>
-            </div>
+            <flux:radio.group wire:model="form.billing_cycle" label="Siklus Tagihan" variant="segmented"
+                class="max-w-fit">
+                <flux:radio value="Monthly" label="Bulanan" />
+                <flux:radio value="Yearly" label="Tahunan" />
+            </flux:radio.group>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <flux:input type="date" wire:model="form.started_at" label="Tanggal Mulai *" />
