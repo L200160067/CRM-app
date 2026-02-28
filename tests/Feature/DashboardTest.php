@@ -5,6 +5,7 @@
 use App\Enums\InvoiceStatus;
 use App\Livewire\Dashboard;
 use App\Models\Client;
+use App\Models\ClientService;
 use App\Models\Invoice;
 use App\Models\User;
 
@@ -26,16 +27,16 @@ test('dashboard shows total revenue from paid invoices', function () {
     $client = Client::factory()->create();
 
     Invoice::factory()->create([
-        'client_id'   => $client->id,
-        'created_by'  => $admin->id,
-        'status'      => InvoiceStatus::Paid,
+        'client_id' => $client->id,
+        'created_by' => $admin->id,
+        'status' => InvoiceStatus::Paid,
         'grand_total' => 1_000_000,
     ]);
 
     Invoice::factory()->create([
-        'client_id'   => $client->id,
-        'created_by'  => $admin->id,
-        'status'      => InvoiceStatus::Draft,
+        'client_id' => $client->id,
+        'created_by' => $admin->id,
+        'status' => InvoiceStatus::Draft,
         'grand_total' => 500_000,
     ]);
 
@@ -58,9 +59,9 @@ test('dashboard shows five most recent invoices', function () {
     $client = Client::factory()->create();
 
     Invoice::factory()->count(6)->create([
-        'client_id'  => $client->id,
+        'client_id' => $client->id,
         'created_by' => $admin->id,
-        'status'     => InvoiceStatus::Draft,
+        'status' => InvoiceStatus::Draft,
     ]);
 
     $component = \Livewire\Livewire::actingAs($admin)->test(Dashboard::class);
@@ -73,18 +74,77 @@ test('dashboard overdue count only includes overdue invoices', function () {
     $client = Client::factory()->create();
 
     Invoice::factory()->create([
-        'client_id'  => $client->id,
+        'client_id' => $client->id,
         'created_by' => $admin->id,
-        'status'     => InvoiceStatus::Overdue,
+        'status' => InvoiceStatus::Overdue,
     ]);
 
     Invoice::factory()->create([
-        'client_id'  => $client->id,
+        'client_id' => $client->id,
         'created_by' => $admin->id,
-        'status'     => InvoiceStatus::Paid,
+        'status' => InvoiceStatus::Paid,
     ]);
 
     $component = \Livewire\Livewire::actingAs($admin)->test(Dashboard::class);
 
     expect($component->instance()->overdueCount)->toBe(1);
+});
+
+test('marketing user does not see financial data on dashboard', function () {
+    $marketing = User::factory()->marketing()->create();
+    $client = Client::factory()->create();
+
+    Invoice::factory()->create([
+        'client_id' => $client->id,
+        'created_by' => $marketing->id,
+        'status' => InvoiceStatus::Paid,
+        'grand_total' => 9_999_999,
+    ]);
+
+    \Livewire\Livewire::actingAs($marketing)
+        ->test(Dashboard::class)
+        ->assertDontSeeText('Total Pendapatan')
+        ->assertDontSeeText('Piutang Beredar')
+        ->assertDontSeeText('9.999.999');
+});
+
+test('marketing user sees recent clients on dashboard', function () {
+    $marketing = User::factory()->marketing()->create();
+    Client::factory()->count(3)->create();
+
+    \Livewire\Livewire::actingAs($marketing)
+        ->test(Dashboard::class)
+        ->assertSeeText('Klien Terbaru');
+});
+
+test('server manager does not see financial data on dashboard', function () {
+    $serverManager = User::factory()->serverManager()->create();
+    $client = Client::factory()->create();
+
+    Invoice::factory()->create([
+        'client_id' => $client->id,
+        'created_by' => $serverManager->id,
+        'status' => InvoiceStatus::Paid,
+        'grand_total' => 8_888_888,
+    ]);
+
+    \Livewire\Livewire::actingAs($serverManager)
+        ->test(Dashboard::class)
+        ->assertDontSeeText('Total Pendapatan')
+        ->assertDontSeeText('Piutang Beredar')
+        ->assertDontSeeText('8.888.888');
+});
+
+test('server manager sees expiring services section on dashboard', function () {
+    $serverManager = User::factory()->serverManager()->create();
+    $client = Client::factory()->create();
+
+    ClientService::factory()->create([
+        'client_id' => $client->id,
+        'expires_at' => now()->addDays(10),
+    ]);
+
+    \Livewire\Livewire::actingAs($serverManager)
+        ->test(Dashboard::class)
+        ->assertSeeText('Layanan Akan Expired');
 });

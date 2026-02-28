@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Enums\InvoiceStatus;
 use App\Models\Client;
+use App\Models\ClientService;
 use App\Models\Invoice;
 use App\Models\Product;
 use Livewire\Attributes\Computed;
@@ -47,6 +48,12 @@ class Dashboard extends Component
         return Product::query()->count();
     }
 
+    #[Computed]
+    public function totalServices(): int
+    {
+        return ClientService::query()->count();
+    }
+
     /** @return array<string, int> */
     #[Computed]
     public function invoicesByStatus(): array
@@ -64,6 +71,27 @@ class Dashboard extends Component
         return Invoice::query()
             ->with('client')
             ->latest()
+            ->limit(5)
+            ->get();
+    }
+
+    #[Computed]
+    public function recentClients()
+    {
+        return Client::query()
+            ->latest()
+            ->limit(5)
+            ->get();
+    }
+
+    #[Computed]
+    public function expiringSoonServices()
+    {
+        return ClientService::query()
+            ->with(['client', 'product'])
+            ->whereNotNull('expires_at')
+            ->whereBetween('expires_at', [now(), now()->addDays(30)])
+            ->orderBy('expires_at')
             ->limit(5)
             ->get();
     }
