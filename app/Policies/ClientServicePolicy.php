@@ -29,7 +29,7 @@ class ClientServicePolicy
      */
     public function create(User $user): bool
     {
-        return $user->role === Role::SuperAdmin;
+        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager]);
     }
 
     /**
@@ -45,7 +45,7 @@ class ClientServicePolicy
      */
     public function delete(User $user, ClientService $clientService): bool
     {
-        return $user->role === Role::SuperAdmin;
+        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager]);
     }
 
     /**
@@ -61,6 +61,6 @@ class ClientServicePolicy
      */
     public function forceDelete(User $user, ClientService $clientService): bool
     {
-        return $user->role === Role::SuperAdmin;
+        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager]);
     }
 }

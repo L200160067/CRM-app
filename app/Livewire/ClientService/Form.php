@@ -34,8 +34,23 @@ class Form extends Component
             $this->mode = 'create';
             $this->authorize('create', ClientService::class);
             $this->form->started_at = today()->format('Y-m-d');
-            $this->form->expires_at = today()->addYear()->format('Y-m-d');
+            $this->form->calculateExpiresAt();
         }
+    }
+
+    public function updatedFormStartedAt(): void
+    {
+        $this->form->calculateExpiresAt();
+    }
+
+    public function updatedFormBillingCycle(): void
+    {
+        $this->form->calculateExpiresAt();
+    }
+
+    public function updatedFormProductId(): void
+    {
+        $this->form->autoFillPrice();
     }
 
     public function save(): void

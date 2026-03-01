@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Enums\InvoiceStatus;
 use App\Enums\Role;
 use App\Models\Invoice;
 use App\Models\User;
@@ -37,7 +38,7 @@ class InvoicePolicy
      */
     public function update(User $user, Invoice $invoice): bool
     {
-        $status = $invoice->status instanceof \App\Enums\InvoiceStatus ? $invoice->status->value : $invoice->status;
+        $status = $invoice->status instanceof InvoiceStatus ? $invoice->status->value : $invoice->status;
 
         if (in_array($status, ['paid', 'canceled'])) {
             return $user->role === Role::SuperAdmin;
@@ -51,7 +52,7 @@ class InvoicePolicy
      */
     public function delete(User $user, Invoice $invoice): bool
     {
-        $status = $invoice->status instanceof \App\Enums\InvoiceStatus ? $invoice->status->value : $invoice->status;
+        $status = $invoice->status instanceof InvoiceStatus ? $invoice->status->value : $invoice->status;
 
         if (in_array($status, ['paid', 'canceled'])) {
             return $user->role === Role::SuperAdmin;
@@ -65,7 +66,7 @@ class InvoicePolicy
      */
     public function restore(User $user, Invoice $invoice): bool
     {
-        $status = $invoice->status instanceof \App\Enums\InvoiceStatus ? $invoice->status->value : $invoice->status;
+        $status = $invoice->status instanceof InvoiceStatus ? $invoice->status->value : $invoice->status;
 
         if (in_array($status, ['paid', 'canceled'])) {
             return $user->role === Role::SuperAdmin;

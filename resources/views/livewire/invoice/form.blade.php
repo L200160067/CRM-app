@@ -10,7 +10,7 @@
                 <flux:select wire:model="form.client_id" label="Pilih Klien *">
                     <option value="">-- Pilih --</option>
                     @foreach($this->clients as $client)
-                        <option value="{{ $client->id }}">{{ $client->name }} {{ $client->company_name ? "({$client->company_name})" : '' }}</option>
+                        <option value="{{ $client->id }}" wire:key="inv-client-{{ $client->id }}">{{ $client->name }} {{ $client->company_name ? "({$client->company_name})" : '' }}</option>
                     @endforeach
                 </flux:select>
                 

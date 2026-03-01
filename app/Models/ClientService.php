@@ -17,6 +17,7 @@ class ClientService extends Model
         'domain_name',
         'status',
         'billing_cycle',
+        'recurring_price',
         'started_at',
         'expires_at',
     ];
@@ -24,6 +25,9 @@ class ClientService extends Model
     protected function casts(): array
     {
         return [
+            'status' => \App\Enums\ServiceStatus::class,
+            'billing_cycle' => \App\Enums\ServiceBillingCycle::class,
+            'recurring_price' => 'decimal:2',
             'started_at' => 'date',
             'expires_at' => 'date',
         ];

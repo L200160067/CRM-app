@@ -15,9 +15,11 @@ class ClientServiceForm extends Form
 
     public ?string $domain_name = null;
 
-    public string $status = 'Active';
+    public string $status = \App\Enums\ServiceStatus::Active->value;
 
-    public string $billing_cycle = 'Yearly';
+    public string $billing_cycle = \App\Enums\ServiceBillingCycle::Yearly->value;
+
+    public ?float $recurring_price = null;
 
     public string $started_at = '';
 
@@ -29,8 +31,9 @@ class ClientServiceForm extends Form
             'client_id' => ['required', 'exists:clients,id'],
             'product_id' => ['required', 'exists:products,id'],
             'domain_name' => ['nullable', 'string', 'max:255'],
-            'status' => ['required', 'in:Active,Suspended,Expired,Pending'],
-            'billing_cycle' => ['required', 'in:Monthly,Yearly'],
+            'status' => ['required', \Illuminate\Validation\Rule::enum(\App\Enums\ServiceStatus::class)],
+            'billing_cycle' => ['required', \Illuminate\Validation\Rule::enum(\App\Enums\ServiceBillingCycle::class)],
+            'recurring_price' => ['nullable', 'numeric', 'min:0'],
             'started_at' => ['required', 'date'],
             'expires_at' => ['required', 'date', 'after_or_equal:started_at'],
         ];
@@ -53,10 +56,39 @@ class ClientServiceForm extends Form
         $this->client_id = $clientService->client_id;
         $this->product_id = $clientService->product_id;
         $this->domain_name = $clientService->domain_name;
-        $this->status = $clientService->status;
-        $this->billing_cycle = $clientService->billing_cycle;
+        $this->status = $clientService->status->value;
+        $this->billing_cycle = $clientService->billing_cycle->value;
+        $this->recurring_price = $clientService->recurring_price;
         $this->started_at = $clientService->started_at ? $clientService->started_at->format('Y-m-d') : '';
         $this->expires_at = $clientService->expires_at ? $clientService->expires_at->format('Y-m-d') : '';
+    }
+
+    public function calculateExpiresAt(): void
+    {
+        if (empty($this->started_at)) {
+            return;
+        }
+
+        try {
+            $start = \Carbon\Carbon::parse($this->started_at);
+            if ($this->billing_cycle === \App\Enums\ServiceBillingCycle::Monthly->value) {
+                $this->expires_at = $start->addMonth()->format('Y-m-d');
+            } elseif ($this->billing_cycle === \App\Enums\ServiceBillingCycle::Yearly->value) {
+                $this->expires_at = $start->addYear()->format('Y-m-d');
+            }
+        } catch (\Exception $e) {
+            // Invalid date format, ignore
+        }
+    }
+
+    public function autoFillPrice(): void
+    {
+        if ($this->product_id) {
+            $product = \App\Models\Product::find($this->product_id);
+            if ($product) {
+                $this->recurring_price = (float) $product->default_price;
+            }
+        }
     }
 
     public function store(): void

@@ -6,39 +6,47 @@
         </div>
 
         <form wire:submit="save" class="space-y-4">
-            <flux:select wire:model="form.client_id" label="Klien *" placeholder="Pilih klien...">
+            <flux:select wire:model="form.client_id" label="Klien *">
+                <option value="" disabled selected>Pilih klien...</option>
                 @foreach ($clients as $client)
-                    <flux:select.option value="{{ $client->id }}">
+                    <option value="{{ $client->id }}" wire:key="client-{{ $client->id }}">
                         {{ $client->name }}{{ $client->company_name ? ' — ' . $client->company_name : '' }}
-                    </flux:select.option>
+                    </option>
                 @endforeach
             </flux:select>
 
-            <flux:select wire:model="form.product_id" label="Produk / Layanan *" placeholder="Pilih produk...">
+            <flux:select wire:model.live="form.product_id" label="Produk / Layanan *">
+                <option value="" disabled selected>Pilih produk...</option>
                 @foreach ($products as $product)
-                    <flux:select.option value="{{ $product->id }}">{{ $product->name }}</flux:select.option>
+                    <option value="{{ $product->id }}" wire:key="product-{{ $product->id }}">{{ $product->name }}</option>
                 @endforeach
             </flux:select>
 
-            <flux:input wire:model="form.domain_name" label="Nama Domain"
-                placeholder="contoh: namadomain.com (opsional)" />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <flux:input wire:model="form.domain_name" label="Nama Domain"
+                    placeholder="contoh: namadomain.com (opsional)" />
+                    
+                <flux:input type="number" step="1000" min="0" wire:model="form.recurring_price" label="Harga Langganan (Rp)" 
+                    placeholder="Otomatis dari produk..." />
+            </div>
 
             <flux:radio.group wire:model="form.status" label="Status" variant="segmented">
-                <flux:radio value="Active" label="Aktif" />
-                <flux:radio value="Pending" label="Pending" />
-                <flux:radio value="Suspended" label="Ditangguhkan" />
-                <flux:radio value="Expired" label="Kadaluarsa" />
+                @foreach(\App\Enums\ServiceStatus::cases() as $status)
+                    <flux:radio value="{{ $status->value }}" label="{{ $status->label() }}" />
+                @endforeach
             </flux:radio.group>
 
-            <flux:radio.group wire:model="form.billing_cycle" label="Siklus Tagihan" variant="segmented"
+            <flux:radio.group wire:model.live="form.billing_cycle" label="Siklus Tagihan" variant="segmented"
                 class="max-w-fit">
-                <flux:radio value="Monthly" label="Bulanan" />
-                <flux:radio value="Yearly" label="Tahunan" />
+                @foreach(\App\Enums\ServiceBillingCycle::cases() as $cycle)
+                    <flux:radio value="{{ $cycle->value }}" label="{{ $cycle->label() }}" />
+                @endforeach
             </flux:radio.group>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <flux:input type="date" wire:model="form.started_at" label="Tanggal Mulai *" />
-                <flux:input type="date" wire:model="form.expires_at" label="Tanggal Berakhir *" />
+                <flux:input type="date" wire:model.live="form.started_at" label="Tanggal Mulai *" />
+                <flux:input type="date" wire:model="form.expires_at" label="Tanggal Berakhir *" readonly 
+                    description="Otomatis dihitung mesin, bisa disesuaikan manual." />
             </div>
 
             <div class="flex justify-end space-x-2 pt-4">
