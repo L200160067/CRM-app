@@ -4,6 +4,7 @@
 
 use App\Livewire\Product\Form;
 use App\Livewire\Product\Index;
+use Livewire\Livewire;
 use App\Models\Product;
 use App\Models\User;
 
@@ -24,7 +25,7 @@ test('products index shows list of products', function () {
     $user = User::factory()->marketing()->create();
     $product = Product::factory()->create(['name' => 'Jasa Desain Logo']);
 
-    \Livewire\Livewire::actingAs($user)
+    Livewire::actingAs($user)
         ->test(Index::class)
         ->assertSeeText('Jasa Desain Logo');
 });
@@ -34,7 +35,7 @@ test('products index search filters results', function () {
     Product::factory()->create(['name' => 'Jasa Cetak']);
     Product::factory()->create(['name' => 'Jasa Video']);
 
-    \Livewire\Livewire::actingAs($user)
+    Livewire::actingAs($user)
         ->test(Index::class)
         ->set('search', 'Cetak')
         ->assertSeeText('Jasa Cetak')
@@ -46,7 +47,7 @@ test('products index search filters results', function () {
 test('super admin can create a product', function () {
     $superAdmin = User::factory()->superAdmin()->create();
 
-    \Livewire\Livewire::actingAs($superAdmin)
+    Livewire::actingAs($superAdmin)
         ->test(Form::class)
         ->call('loadProduct')
         ->set('form.name', 'Jasa Konsultasi')
@@ -60,7 +61,7 @@ test('super admin can create a product', function () {
 test('admin cannot create a product', function () {
     $admin = User::factory()->admin()->create();
 
-    \Livewire\Livewire::actingAs($admin)
+    Livewire::actingAs($admin)
         ->test(Form::class)
         ->call('loadProduct')
         ->assertForbidden();
@@ -69,7 +70,7 @@ test('admin cannot create a product', function () {
 test('product name is required', function () {
     $superAdmin = User::factory()->superAdmin()->create();
 
-    \Livewire\Livewire::actingAs($superAdmin)
+    Livewire::actingAs($superAdmin)
         ->test(Form::class)
         ->call('loadProduct')
         ->set('form.name', '')
@@ -80,7 +81,7 @@ test('product name is required', function () {
 test('product price must be numeric and non-negative', function () {
     $superAdmin = User::factory()->superAdmin()->create();
 
-    \Livewire\Livewire::actingAs($superAdmin)
+    Livewire::actingAs($superAdmin)
         ->test(Form::class)
         ->call('loadProduct')
         ->set('form.name', 'Test Produk')
@@ -95,7 +96,7 @@ test('super admin can update a product', function () {
     $superAdmin = User::factory()->superAdmin()->create();
     $product = Product::factory()->create(['name' => 'Nama Lama']);
 
-    \Livewire\Livewire::actingAs($superAdmin)
+    Livewire::actingAs($superAdmin)
         ->test(Form::class)
         ->call('loadProduct', $product->id)
         ->set('form.name', 'Nama Baru')
@@ -111,7 +112,7 @@ test('super admin can soft delete a product', function () {
     $superAdmin = User::factory()->superAdmin()->create();
     $product = Product::factory()->create();
 
-    \Livewire\Livewire::actingAs($superAdmin)
+    Livewire::actingAs($superAdmin)
         ->test(Index::class)
         ->call('confirmDelete', $product->id)
         ->call('delete');
@@ -124,7 +125,7 @@ test('super admin can restore a soft-deleted product', function () {
     $product = Product::factory()->create();
     $product->delete();
 
-    \Livewire\Livewire::actingAs($superAdmin)
+    Livewire::actingAs($superAdmin)
         ->test(Index::class)
         ->call('restore', $product->id);
 
