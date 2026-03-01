@@ -96,6 +96,40 @@ class Dashboard extends Component
             ->get();
     }
 
+    #[Computed]
+    public function draftInvoicesCount(): int
+    {
+        return Invoice::query()
+            ->where('status', InvoiceStatus::Draft)
+            ->count();
+    }
+
+    #[Computed]
+    public function overdueClientsCount(): int
+    {
+        return Invoice::query()
+            ->where('status', InvoiceStatus::Overdue)
+            ->distinct('client_id')
+            ->count('client_id');
+    }
+
+    #[Computed]
+    public function sentInvoicesCount(): int
+    {
+        return Invoice::query()
+            ->where('status', InvoiceStatus::Sent)
+            ->count();
+    }
+
+    #[Computed]
+    public function newClientsThisMonthCount(): int
+    {
+        return Client::query()
+            ->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->count();
+    }
+
     public function render(): \Illuminate\View\View
     {
         return view('livewire.dashboard');

@@ -23,7 +23,7 @@ test('authenticated users can visit the dashboard', function () {
 });
 
 test('dashboard shows total revenue from paid invoices', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->superAdmin()->create();
     $client = Client::factory()->create();
 
     Invoice::factory()->create([
@@ -46,7 +46,7 @@ test('dashboard shows total revenue from paid invoices', function () {
 });
 
 test('dashboard shows total active clients count', function () {
-    $admin = User::factory()->admin()->create();
+    $admin = User::factory()->superAdmin()->create();
     Client::factory()->count(3)->create();
 
     \Livewire\Livewire::actingAs($admin)

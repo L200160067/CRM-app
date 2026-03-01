@@ -2,12 +2,12 @@
 
 namespace App\Livewire\Forms;
 
-use App\Actions\Invoices\CalculateInvoiceTotalAction;
+use App\Actions\Invoices\CreateInvoiceAction;
+use App\Actions\Invoices\UpdateInvoiceAction;
+use App\DTOs\Invoice\InvoiceData;
 use App\Enums\DiscountType;
 use App\Enums\InvoiceStatus;
 use App\Models\Invoice;
-use App\Models\InvoiceItem;
-use Illuminate\Support\Facades\DB;
 use Livewire\Form;
 
 class InvoiceForm extends Form
@@ -104,55 +104,13 @@ class InvoiceForm extends Form
         })->toArray();
     }
 
-    // Helper to generate a dummy/fallback invoice number for new invoices
-    protected function generateInvoiceNumber(Invoice $invoice)
-    {
-        if (! $invoice->invoice_number || str_starts_with($invoice->invoice_number, 'TEMP-')) {
-            $datePrefix = date('Ymd');
-            $invoice->invoice_number = 'INV-'.$datePrefix.'-'.str_pad($invoice->id, 4, '0', STR_PAD_LEFT);
-            $invoice->saveQuietly();
-        }
-    }
-
     public function store()
     {
         $this->validate();
 
-        DB::transaction(function () {
-            // 1. Create the parent Invoice
-            $invoice = Invoice::create([
-                'client_id' => $this->client_id,
-                'created_by' => auth()->id(),
-                'invoice_number' => 'TEMP-'.uniqid(),
-                'issue_date' => $this->issue_date,
-                'due_date' => $this->due_date,
-                'status' => $this->status,
-                'discount_type' => $this->discount_type,
-                'discount_rate' => $this->discount_rate,
-                'discount' => $this->discount,
-                'tax_rate' => $this->tax_rate,
-                'notes' => $this->notes,
-            ]);
+        $data = InvoiceData::fromArray($this->all());
 
-            $this->generateInvoiceNumber($invoice);
-
-            // 2. Insert all Items (Tanpa memicu event model untuk mencegah N+1 Calculation)
-            InvoiceItem::withoutEvents(function () use ($invoice) {
-                foreach ($this->items as $itemData) {
-                    $invoice->items()->create([
-                        'product_id' => empty($itemData['product_id']) ? null : $itemData['product_id'],
-                        'item_name' => $itemData['item_name'],
-                        'quantity' => $itemData['quantity'],
-                        'unit_price' => $itemData['unit_price'],
-                        'total_price' => $itemData['quantity'] * $itemData['unit_price'], // Wajib diisi manual karena event saving dimatikan
-                        'description' => $itemData['description'] ?? null,
-                    ]);
-                }
-            });
-
-            // 3. Force final recalculation action manually SATU KALI SAJA
-            app(CalculateInvoiceTotalAction::class)->execute($invoice);
-        });
+        app(CreateInvoiceAction::class)->execute($data, auth()->id());
 
         $this->reset();
     }
@@ -161,45 +119,9 @@ class InvoiceForm extends Form
     {
         $this->validate();
 
-        DB::transaction(function () {
-            // 1. Update core invoice traits
-            $this->invoice->update([
-                'client_id' => $this->client_id,
-                'issue_date' => $this->issue_date,
-                'due_date' => $this->due_date,
-                'status' => $this->status,
-                'discount_type' => $this->discount_type,
-                'discount_rate' => $this->discount_type === 'percentage' ? $this->discount_rate : null,
-                'discount' => $this->discount_type === 'fixed' ? $this->discount : 0,
-                'tax_rate' => $this->tax_rate,
-                'notes' => $this->notes,
-            ]);
+        $data = InvoiceData::fromArray($this->all());
 
-            // 2. Synchronize Items
-            $receivedIds = collect($this->items)->pluck('id')->filter()->toArray();
-
-            // Gunakan withoutEvents agar proses hapus dan update masal tidak membanjiri server dengan kalkulasi
-            InvoiceItem::withoutEvents(function () use ($receivedIds) {
-                $this->invoice->items()->whereNotIn('id', $receivedIds)->delete();
-
-                foreach ($this->items as $itemData) {
-                    $this->invoice->items()->updateOrCreate(
-                        ['id' => $itemData['id'] ?? null],
-                        [
-                            'product_id' => empty($itemData['product_id']) ? null : $itemData['product_id'],
-                            'item_name' => $itemData['item_name'],
-                            'quantity' => $itemData['quantity'],
-                            'unit_price' => $itemData['unit_price'],
-                            'total_price' => $itemData['quantity'] * $itemData['unit_price'], // Wajib diisi manual karena event saving dimatikan
-                            'description' => $itemData['description'] ?? null,
-                        ]
-                    );
-                }
-            });
-
-            // 3. One final action recalculation SATU KALI SAJA
-            app(CalculateInvoiceTotalAction::class)->execute($this->invoice);
-        });
+        app(UpdateInvoiceAction::class)->execute($this->invoice, $data);
 
         $this->reset();
     }

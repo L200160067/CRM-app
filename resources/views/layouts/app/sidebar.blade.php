@@ -20,8 +20,8 @@
                     {{ __('Dashboard') }}
                 </flux:sidebar.item>
 
-                {{-- Klien: SuperAdmin & Marketing --}}
-                @if (auth()->user()->isSuperAdmin() || auth()->user()->isMarketing())
+                {{-- Klien: SuperAdmin, Admin & Marketing --}}
+                @if (auth()->user()->isSuperAdmin() || auth()->user()->isAdmin() || auth()->user()->isMarketing())
                     <flux:sidebar.item icon="users" :href="route('clients.index')"
                         :current="request()->routeIs('clients.*')" wire:navigate>
                         {{ __('Clients') }}
@@ -55,14 +55,9 @@
         <flux:spacer />
 
         <flux:sidebar.nav>
-            <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit"
+            <flux:sidebar.item icon="book-open-text" href="#"
                 target="_blank">
-                {{ __('Repository') }}
-            </flux:sidebar.item>
-
-            <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire"
-                target="_blank">
-                {{ __('Documentation') }}
+                {{ __('Panduan Sistem') }}
             </flux:sidebar.item>
         </flux:sidebar.nav>
 
