@@ -16,6 +16,11 @@ class Index extends Component
 
     public string $search = '';
 
+    public function mount()
+    {
+        $this->authorize('viewAny', Client::class);
+    }
+
     // Filter status table
     public string $status = 'active';
 

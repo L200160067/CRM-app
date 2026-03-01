@@ -13,11 +13,13 @@
                 class="w-64" clearable />
 
             @if($status === 'active')
-                <flux:button x-on:click="$flux.modal('client-import-modal').show()" icon="arrow-up-tray">Import CSV
-                </flux:button>
-                <flux:button wire:click="$dispatchTo('client.form', 'load-client-form')"
-                    x-on:click="$flux.modal('client-form-modal').show()" variant="primary" icon="user-plus">Tambah Klien
-                </flux:button>
+                @can('create', App\Models\Client::class)
+                    <flux:button x-on:click="$flux.modal('client-import-modal').show()" icon="arrow-up-tray">Import CSV
+                    </flux:button>
+                    <flux:button wire:click="$dispatchTo('client.form', 'load-client-form')"
+                        x-on:click="$flux.modal('client-form-modal').show()" variant="primary" icon="user-plus">Tambah Klien
+                    </flux:button>
+                @endcan
             @endif
         </div>
     </div>
@@ -52,19 +54,27 @@
                                     <flux:menu.item icon="eye"
                                         wire:click="$dispatchTo('client.show', 'load-client-show', { id: {{ $client->id }} })"
                                         x-on:click="$flux.modal('client-show-modal').show()">Lihat</flux:menu.item>
-                                    <flux:menu.item icon="pencil-square"
-                                        wire:click="$dispatchTo('client.form', 'load-client-form', { id: {{ $client->id }} })"
-                                        x-on:click="$flux.modal('client-form-modal').show()">Edit</flux:menu.item>
-                                    <flux:menu.separator />
-                                    <flux:menu.item icon="trash" variant="danger" wire:click="confirmDelete({{ $client->id }})"
-                                        x-on:click="$flux.modal('client-delete-modal').show()">Hapus</flux:menu.item>
+                                    @can('update', $client)
+                                        <flux:menu.item icon="pencil-square"
+                                            wire:click="$dispatchTo('client.form', 'load-client-form', { id: {{ $client->id }} })"
+                                            x-on:click="$flux.modal('client-form-modal').show()">Edit</flux:menu.item>
+                                    @endcan
+                                    @can('delete', $client)
+                                        <flux:menu.separator />
+                                        <flux:menu.item icon="trash" variant="danger" wire:click="confirmDelete({{ $client->id }})"
+                                            x-on:click="$flux.modal('client-delete-modal').show()">Hapus</flux:menu.item>
+                                    @endcan
                                 @else
-                                    <flux:menu.item icon="arrow-path" wire:click="restore({{ $client->id }})">Pulihkan
-                                    </flux:menu.item>
-                                    <flux:menu.item icon="trash" variant="danger"
-                                        wire:click="confirmForceDelete({{ $client->id }})"
-                                        x-on:click="$flux.modal('client-force-delete-modal').show()">Hapus Permanen
-                                    </flux:menu.item>
+                                    @can('restore', $client)
+                                        <flux:menu.item icon="arrow-path" wire:click="restore({{ $client->id }})">Pulihkan
+                                        </flux:menu.item>
+                                    @endcan
+                                    @can('forceDelete', $client)
+                                        <flux:menu.item icon="trash" variant="danger"
+                                            wire:click="confirmForceDelete({{ $client->id }})"
+                                            x-on:click="$flux.modal('client-force-delete-modal').show()">Hapus Permanen
+                                        </flux:menu.item>
+                                    @endcan
                                 @endif
                             </flux:menu>
                         </flux:dropdown>
@@ -83,9 +93,11 @@
                                 <flux:text class="text-zinc-500 dark:text-zinc-400 text-center mb-6 max-w-sm">Anda belum
                                     menambahkan data klien satupun. Tambahkan klien pertama Anda untuk mulai mengatur data
                                     penagihan.</flux:text>
-                                <flux:button wire:click="$dispatchTo('client.form', 'load-client-form')"
-                                    x-on:click="$flux.modal('client-form-modal').show()" variant="primary" icon="user-plus"
-                                    class="shadow-sm">Tambah Klien</flux:button>
+                                @can('create', App\Models\Client::class)
+                                    <flux:button wire:click="$dispatchTo('client.form', 'load-client-form')"
+                                        x-on:click="$flux.modal('client-form-modal').show()" variant="primary" icon="user-plus"
+                                        class="shadow-sm">Tambah Klien</flux:button>
+                                @endcan
                             @else
                                 <div
                                     class="p-4 rounded-full bg-zinc-100 dark:bg-zinc-800/50 outline outline-1 outline-zinc-200 dark:outline-zinc-700/50 mb-5 text-zinc-400 dark:text-zinc-500">

@@ -192,7 +192,7 @@
     @elseif (auth()->user()->isAdmin())
 
         {{-- Stat Cards --}}
-        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4 mb-6">
+        <div class="grid gap-4 md:grid-cols-3 mb-6">
             {{-- Draft Invoices --}}
             <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-5">
                 <div class="flex items-center justify-between mb-3">
@@ -233,20 +233,6 @@
                     {{ $this->sentInvoicesCount }} <span class="text-base font-normal text-zinc-500">Dokumen</span>
                 </div>
                 <flux:text class="text-xs text-zinc-400 dark:text-zinc-500 mt-1">Status: Terkirim</flux:text>
-            </div>
-
-            {{-- New Clients --}}
-            <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-5">
-                <div class="flex items-center justify-between mb-3">
-                    <flux:text class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Aktivitas Klien Baru</flux:text>
-                    <div class="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
-                        <flux:icon name="user-plus" class="size-5" />
-                    </div>
-                </div>
-                <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
-                    {{ $this->newClientsThisMonthCount }} <span class="text-base font-normal text-zinc-500">Klien</span>
-                </div>
-                <flux:text class="text-xs text-zinc-400 dark:text-zinc-500 mt-1">Ditambahkan bulan ini</flux:text>
             </div>
         </div>
 
@@ -361,10 +347,24 @@
 
         {{-- Stat Cards --}}
         <div class="grid gap-4 md:grid-cols-2 mb-6">
+            {{-- Target: Klien Baru Bulan Ini --}}
+            <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-5">
+                <div class="flex items-center justify-between mb-3">
+                    <flux:text class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Klien Baru Bulan Ini</flux:text>
+                    <div class="p-2 rounded-lg bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+                        <flux:icon name="user-plus" class="size-5" />
+                    </div>
+                </div>
+                <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+                    {{ $this->newClientsThisMonthCount }} <span class="text-base font-normal text-zinc-500">Klien</span>
+                </div>
+                <flux:text class="text-xs text-zinc-400 dark:text-zinc-500 mt-1">Target Sales & Marketing</flux:text>
+            </div>
+
             {{-- Total Klien --}}
             <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-5">
                 <div class="flex items-center justify-between mb-3">
-                    <flux:text class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Total Klien</flux:text>
+                    <flux:text class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Total Klien Terdaftar</flux:text>
                     <div class="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
                         <flux:icon name="users" class="size-5" />
                     </div>
@@ -372,21 +372,7 @@
                 <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
                     {{ $this->totalClients }}
                 </div>
-                <flux:text class="text-xs text-zinc-400 dark:text-zinc-500 mt-1">klien terdaftar</flux:text>
-            </div>
-
-            {{-- Total Produk --}}
-            <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-5">
-                <div class="flex items-center justify-between mb-3">
-                    <flux:text class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Total Produk</flux:text>
-                    <div class="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
-                        <flux:icon name="squares-2x2" class="size-5" />
-                    </div>
-                </div>
-                <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
-                    {{ $this->totalProducts }}
-                </div>
-                <flux:text class="text-xs text-zinc-400 dark:text-zinc-500 mt-1">produk tersedia</flux:text>
+                <flux:text class="text-xs text-zinc-400 dark:text-zinc-500 mt-1">Semua data klien di sistem</flux:text>
             </div>
         </div>
 
@@ -446,21 +432,8 @@
         ============================================= --}}
     @else
 
-        {{-- Stat Cards --}}
-        <div class="grid gap-4 md:grid-cols-2 mb-6">
-            {{-- Total Produk --}}
-            <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-5">
-                <div class="flex items-center justify-between mb-3">
-                    <flux:text class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Total Produk</flux:text>
-                    <div class="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
-                        <flux:icon name="squares-2x2" class="size-5" />
-                    </div>
-                </div>
-                <div class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
-                    {{ $this->totalProducts }}
-                </div>
-                <flux:text class="text-xs text-zinc-400 dark:text-zinc-500 mt-1">produk terdaftar</flux:text>
-            </div>
+        {{-- Stat Cards (Hanya Layanan untuk Server Manager) --}}
+        <div class="mb-6">
 
             {{-- Total Layanan Aktif --}}
             <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-5">

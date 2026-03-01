@@ -26,7 +26,9 @@ test('client services index page can be rendered', function () {
 });
 
 test('a new client service can be created via form modal', function () {
-    Livewire::actingAs($this->user)
+    $superAdmin = User::factory()->superAdmin()->create();
+
+    Livewire::actingAs($superAdmin)
         ->test(Form::class)
         ->call('loadClientService')
         ->set('form.client_id', $this->client->id)
@@ -69,9 +71,10 @@ test('client service can be updated via form modal', function () {
 });
 
 test('client service can be deleted via index component', function () {
+    $superAdmin = User::factory()->superAdmin()->create();
     $service = ClientService::factory()->create();
 
-    Livewire::actingAs($this->user)
+    Livewire::actingAs($superAdmin)
         ->test(Index::class)
         ->call('confirmDelete', $service->id)
         ->call('delete');
@@ -82,7 +85,9 @@ test('client service can be deleted via index component', function () {
 });
 
 test('client service validation fails when required fields are missing', function () {
-    Livewire::actingAs($this->user)
+    $superAdmin = User::factory()->superAdmin()->create();
+
+    Livewire::actingAs($superAdmin)
         ->test(Form::class)
         ->call('loadClientService')
         ->set('form.client_id', null)

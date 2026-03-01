@@ -17,6 +17,11 @@ class Index extends Component
 
     public string $search = '';
 
+    public function mount()
+    {
+        $this->authorize('viewAny', ClientService::class);
+    }
+
     public ?int $clientServiceIdToDelete = null;
 
     public function updatedSearch(): void

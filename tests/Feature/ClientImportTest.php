@@ -10,10 +10,10 @@ use Livewire\Livewire;
 
 // --- Authorization ---
 
-test('admin cannot import clients', function () {
-    $admin = User::factory()->admin()->create();
+test('server manager cannot import clients', function () {
+    $user = User::factory()->serverManager()->create();
 
-    Livewire::actingAs($admin)
+    Livewire::actingAs($user)
         ->test(Import::class)
         ->call('processImport')
         ->assertForbidden();
@@ -135,4 +135,3 @@ test('import resets state after completion', function () {
     expect($component->get('rows'))->toBeEmpty()
         ->and($component->get('importDone'))->toBeTrue();
 });
-

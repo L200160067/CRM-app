@@ -26,10 +26,10 @@
                 </flux:tooltip>
                 <flux:tooltip :content="__('Panduan Sistem')" position="bottom">
                     <flux:navbar.item
-                        class="h-10 max-lg:hidden [&>div>svg]:size-5"
+                        class="!h-10 max-lg:hidden [&>div>svg]:size-5"
                         icon="book-open-text"
-                        href="#"
-                        target="_blank"
+                        :href="route('guide')"
+                        wire:navigate
                         :label="__('Panduan Sistem')"
                     />
                 </flux:tooltip>
@@ -59,7 +59,7 @@
             <flux:spacer />
 
             <flux:sidebar.nav>
-                <flux:sidebar.item icon="book-open-text" href="#" target="_blank">
+                <flux:sidebar.item icon="book-open-text" :href="route('guide')" :current="request()->routeIs('guide')" wire:navigate>
                     {{ __('Panduan Sistem') }}
                 </flux:sidebar.item>
             </flux:sidebar.nav>

@@ -16,6 +16,11 @@ class Index extends Component
 
     public string $search = '';
 
+    public function mount()
+    {
+        $this->authorize('viewAny', Product::class);
+    }
+
     public string $status = 'active';
 
     public ?int $productIdToDelete = null;

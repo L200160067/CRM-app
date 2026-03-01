@@ -59,13 +59,16 @@ test('marketing can create a client', function () {
     $this->assertDatabaseHas('clients', ['name' => 'PT Maju Jaya', 'email' => 'contact@majujaya.id']);
 });
 
-test('admin cannot create a client', function () {
+test('admin can create a client', function () {
     $admin = User::factory()->admin()->create();
 
     \Livewire\Livewire::actingAs($admin)
         ->test(Form::class)
         ->call('loadClient')
-        ->assertForbidden();
+        ->set('form.name', 'PT Admin Jaya')
+        ->set('form.email', 'adminj@majujaya.id')
+        ->call('save')
+        ->assertDispatched('client-saved');
 });
 
 test('client name is required', function () {
@@ -95,28 +98,29 @@ test('marketing can update a client', function () {
     $this->assertDatabaseHas('clients', ['id' => $client->id, 'name' => 'Baru']);
 });
 
-test('admin cannot update a client', function () {
+test('admin can update a client', function () {
     $admin = User::factory()->admin()->create();
-    $client = Client::factory()->create();
+    $client = Client::factory()->create(['name' => 'Lama']);
 
     \Livewire\Livewire::actingAs($admin)
         ->test(Form::class)
         ->call('loadClient', $client->id)
-        ->assertForbidden();
+        ->set('form.name', 'Admin Baru')
+        ->call('save')
+        ->assertDispatched('client-saved');
 });
 
 // --- Delete & Restore (SoftDeletes) ---
 
-test('marketing can soft delete a client', function () {
+test('marketing cannot delete a client', function () {
     $marketing = User::factory()->marketing()->create();
     $client = Client::factory()->create();
 
     \Livewire\Livewire::actingAs($marketing)
         ->test(Index::class)
         ->call('confirmDelete', $client->id)
-        ->call('delete');
-
-    $this->assertSoftDeleted('clients', ['id' => $client->id]);
+        ->call('delete')
+        ->assertForbidden();
 });
 
 test('admin cannot delete a client', function () {
@@ -130,14 +134,13 @@ test('admin cannot delete a client', function () {
         ->assertForbidden();
 });
 
-test('marketing can restore a soft-deleted client', function () {
+test('marketing cannot restore a soft-deleted client', function () {
     $marketing = User::factory()->marketing()->create();
     $client = Client::factory()->create();
     $client->delete();
 
     \Livewire\Livewire::actingAs($marketing)
         ->test(Index::class)
-        ->call('restore', $client->id);
-
-    $this->assertNotSoftDeleted('clients', ['id' => $client->id]);
+        ->call('restore', $client->id)
+        ->assertForbidden();
 });

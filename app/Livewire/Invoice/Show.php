@@ -14,6 +14,7 @@ class Show extends Component
     public function loadInvoice(int $id)
     {
         $this->invoice = Invoice::with(['client', 'creator', 'items.product'])->findOrFail($id);
+        $this->authorize('view', $this->invoice);
     }
 
     public function render()

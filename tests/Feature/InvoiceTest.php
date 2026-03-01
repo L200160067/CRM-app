@@ -17,9 +17,9 @@ test('guests cannot access invoices page', function () {
     $this->withoutVite()->get(route('invoices.index'))->assertRedirect(route('login'));
 });
 
-test('staff users can view the invoices page', function () {
+test('staff users cannot view the invoices page', function () {
     $user = User::factory()->staff()->create();
-    $this->withoutVite()->actingAs($user)->get(route('invoices.index'))->assertOk();
+    $this->withoutVite()->actingAs($user)->get(route('invoices.index'))->assertForbidden();
 });
 
 // --- Invoice Index (Livewire) ---
@@ -101,20 +101,11 @@ test('admin can restore a soft-deleted invoice', function () {
     $this->assertNotSoftDeleted('invoices', ['id' => $invoice->id]);
 });
 
-test('staff cannot delete an invoice', function () {
+test('staff cannot access the invoice index component', function () {
     $staff = User::factory()->staff()->create();
-    $client = Client::factory()->create();
-    $invoice = Invoice::factory()->create([
-        'client_id' => $client->id,
-        'created_by' => $staff->id,
-        'invoice_number' => 'INV-STF-0001',
-        'status' => InvoiceStatus::Draft,
-    ]);
 
     \Livewire\Livewire::actingAs($staff)
         ->test(Index::class)
-        ->call('confirmDelete', $invoice->id)
-        ->call('delete')
         ->assertForbidden();
 });
 

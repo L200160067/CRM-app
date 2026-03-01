@@ -20,6 +20,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Client Services
     Route::get('client-services', ClientServiceIndex::class)->name('client-services.index');
+
+    // System Guide
+    Route::view('guide', 'guide')->name('guide');
 });
 
 require __DIR__.'/settings.php';

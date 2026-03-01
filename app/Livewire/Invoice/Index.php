@@ -16,6 +16,11 @@ class Index extends Component
 
     public string $search = '';
 
+    public function mount()
+    {
+        $this->authorize('viewAny', Invoice::class);
+    }
+
     public string $status = 'all';
 
     public ?int $invoiceIdToDelete = null;

@@ -13,7 +13,7 @@ class ClientServicePolicy
      */
     public function viewAny(User $user): bool
     {
-        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager]);
+        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager, Role::Admin, Role::Marketing]);
     }
 
     /**
@@ -21,7 +21,7 @@ class ClientServicePolicy
      */
     public function view(User $user, ClientService $clientService): bool
     {
-        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager]);
+        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager, Role::Admin, Role::Marketing]);
     }
 
     /**
@@ -29,7 +29,7 @@ class ClientServicePolicy
      */
     public function create(User $user): bool
     {
-        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager]);
+        return $user->role === Role::SuperAdmin;
     }
 
     /**
@@ -45,7 +45,7 @@ class ClientServicePolicy
      */
     public function delete(User $user, ClientService $clientService): bool
     {
-        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager]);
+        return $user->role === Role::SuperAdmin;
     }
 
     /**
@@ -53,7 +53,7 @@ class ClientServicePolicy
      */
     public function restore(User $user, ClientService $clientService): bool
     {
-        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager]);
+        return $user->role === Role::SuperAdmin;
     }
 
     /**
@@ -61,6 +61,6 @@ class ClientServicePolicy
      */
     public function forceDelete(User $user, ClientService $clientService): bool
     {
-        return in_array($user->role, [Role::SuperAdmin, Role::ServerManager]);
+        return $user->role === Role::SuperAdmin;
     }
 }

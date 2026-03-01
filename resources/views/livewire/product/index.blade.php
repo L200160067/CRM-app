@@ -13,11 +13,13 @@
                 class="w-64" clearable />
 
             @if($status === 'active')
-                <flux:button x-on:click="$flux.modal('product-import-modal').show()" icon="arrow-up-tray">Import CSV
-                </flux:button>
-                <flux:button wire:click="$dispatchTo('product.form', 'load-product-form')"
-                    x-on:click="$flux.modal('product-form-modal').show()" variant="primary" icon="squares-plus">Tambah
-                    Produk</flux:button>
+                @can('create', App\Models\Product::class)
+                    <flux:button x-on:click="$flux.modal('product-import-modal').show()" icon="arrow-up-tray">Import CSV
+                    </flux:button>
+                    <flux:button wire:click="$dispatchTo('product.form', 'load-product-form')"
+                        x-on:click="$flux.modal('product-form-modal').show()" variant="primary" icon="squares-plus">Tambah
+                        Produk</flux:button>
+                @endcan
             @endif
         </div>
     </div>
@@ -52,19 +54,27 @@
                                     <flux:menu.item icon="eye"
                                         wire:click="$dispatchTo('product.show', 'load-product-show', { id: {{ $product->id }} })"
                                         x-on:click="$flux.modal('product-show-modal').show()">Lihat</flux:menu.item>
-                                    <flux:menu.item icon="pencil-square"
-                                        wire:click="$dispatchTo('product.form', 'load-product-form', { id: {{ $product->id }} })"
-                                        x-on:click="$flux.modal('product-form-modal').show()">Edit</flux:menu.item>
-                                    <flux:menu.separator />
-                                    <flux:menu.item icon="trash" variant="danger" wire:click="confirmDelete({{ $product->id }})"
-                                        x-on:click="$flux.modal('product-delete-modal').show()">Hapus</flux:menu.item>
+                                    @can('update', $product)
+                                        <flux:menu.item icon="pencil-square"
+                                            wire:click="$dispatchTo('product.form', 'load-product-form', { id: {{ $product->id }} })"
+                                            x-on:click="$flux.modal('product-form-modal').show()">Edit</flux:menu.item>
+                                    @endcan
+                                    @can('delete', $product)
+                                        <flux:menu.separator />
+                                        <flux:menu.item icon="trash" variant="danger" wire:click="confirmDelete({{ $product->id }})"
+                                            x-on:click="$flux.modal('product-delete-modal').show()">Hapus</flux:menu.item>
+                                    @endcan
                                 @else
-                                    <flux:menu.item icon="arrow-path" wire:click="restore({{ $product->id }})">Pulihkan
-                                    </flux:menu.item>
-                                    <flux:menu.item icon="trash" variant="danger"
-                                        wire:click="confirmForceDelete({{ $product->id }})"
-                                        x-on:click="$flux.modal('product-force-delete-modal').show()">Hapus Permanen
-                                    </flux:menu.item>
+                                    @can('restore', $product)
+                                        <flux:menu.item icon="arrow-path" wire:click="restore({{ $product->id }})">Pulihkan
+                                        </flux:menu.item>
+                                    @endcan
+                                    @can('forceDelete', $product)
+                                        <flux:menu.item icon="trash" variant="danger"
+                                            wire:click="confirmForceDelete({{ $product->id }})"
+                                            x-on:click="$flux.modal('product-force-delete-modal').show()">Hapus Permanen
+                                        </flux:menu.item>
+                                    @endcan
                                 @endif
                             </flux:menu>
                         </flux:dropdown>

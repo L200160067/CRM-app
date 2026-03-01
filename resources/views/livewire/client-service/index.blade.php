@@ -7,10 +7,12 @@
             <flux:input wire:model.live.debounce.300ms="search" icon="magnifying-glass"
                 placeholder="Cari layanan, domain, atau klien..." class="w-72" clearable />
 
-            <flux:button wire:click="$dispatchTo('client-service.form', 'load-client-service-form')"
-                x-on:click="$flux.modal('client-service-form-modal').show()" variant="primary" icon="plus">
-                Tambah Layanan
-            </flux:button>
+            @can('create', App\Models\ClientService::class)
+                <flux:button wire:click="$dispatchTo('client-service.form', 'load-client-service-form')"
+                    x-on:click="$flux.modal('client-service-form-modal').show()" variant="primary" icon="plus">
+                    Tambah Layanan
+                </flux:button>
+            @endcan
         </div>
     </div>
 
@@ -77,17 +79,23 @@
                     </flux:table.cell>
 
                     <flux:table.cell>
-                        <flux:dropdown position="bottom" align="end">
-                            <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal" inset="top bottom" />
-                            <flux:menu>
-                                <flux:menu.item icon="pencil-square"
-                                    wire:click="$dispatchTo('client-service.form', 'load-client-service-form', { id: {{ $service->id }} })"
-                                    x-on:click="$flux.modal('client-service-form-modal').show()">Edit</flux:menu.item>
-                                <flux:menu.separator />
-                                <flux:menu.item icon="trash" variant="danger" wire:click="confirmDelete({{ $service->id }})"
-                                    x-on:click="$flux.modal('client-service-delete-modal').show()">Hapus</flux:menu.item>
-                            </flux:menu>
-                        </flux:dropdown>
+                        @canany(['update', 'delete'], $service)
+                            <flux:dropdown position="bottom" align="end">
+                                <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal" inset="top bottom" />
+                                <flux:menu>
+                                    @can('update', $service)
+                                        <flux:menu.item icon="pencil-square"
+                                            wire:click="$dispatchTo('client-service.form', 'load-client-service-form', { id: {{ $service->id }} })"
+                                            x-on:click="$flux.modal('client-service-form-modal').show()">Edit</flux:menu.item>
+                                    @endcan
+                                    @can('delete', $service)
+                                        <flux:menu.separator />
+                                        <flux:menu.item icon="trash" variant="danger" wire:click="confirmDelete({{ $service->id }})"
+                                            x-on:click="$flux.modal('client-service-delete-modal').show()">Hapus</flux:menu.item>
+                                    @endcan
+                                </flux:menu>
+                            </flux:dropdown>
+                        @endcanany
                     </flux:table.cell>
                 </flux:table.row>
             @empty
@@ -102,9 +110,11 @@
                             <flux:text class="text-zinc-500 dark:text-zinc-400 text-center mb-6 max-w-sm">Anda belum
                                 mencatat layanan apapun. Mulai catat domain, server, atau hosting yang Anda kelola untuk
                                 klien.</flux:text>
-                            <flux:button wire:click="$dispatchTo('client-service.form', 'load-client-service-form')"
-                                x-on:click="$flux.modal('client-service-form-modal').show()" variant="primary" icon="plus"
-                                class="shadow-sm">Tambah Layanan</flux:button>
+                            @can('create', App\Models\ClientService::class)
+                                <flux:button wire:click="$dispatchTo('client-service.form', 'load-client-service-form')"
+                                    x-on:click="$flux.modal('client-service-form-modal').show()" variant="primary" icon="plus"
+                                    class="shadow-sm">Tambah Layanan</flux:button>
+                            @endcan
                         </div>
                     </flux:table.cell>
                 </flux:table.row>

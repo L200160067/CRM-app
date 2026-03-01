@@ -28,9 +28,11 @@ class Form extends Component
         if ($id) {
             $this->mode = 'edit';
             $clientService = ClientService::findOrFail($id);
+            $this->authorize('update', $clientService);
             $this->form->setClientService($clientService);
         } else {
             $this->mode = 'create';
+            $this->authorize('create', ClientService::class);
             $this->form->started_at = today()->format('Y-m-d');
             $this->form->expires_at = today()->addYear()->format('Y-m-d');
         }
