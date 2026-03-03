@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Enums\Role;
-use App\Models\Client;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -55,20 +54,23 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // 5. Buat 100 Data Client realistis
-        $this->command->info('Seeding 100 Indonesian Clients...');
-        Client::factory()->count(100)->create();
+        // --- DUMMY DATA ---
+        // Jika Anda butuh data dummy (Klien & Produk) untuk testing, silakan uncomment baris di bawah ini:
+        
+        // // 5. Buat 100 Data Client realistis
+        // $this->command->info('Seeding 100 Indonesian Clients...');
+        // Client::factory()->count(100)->create();
 
-        $this->command->info('Seeding typical Software House Products...');
-        $this->call([
-            ProductSeeder::class,
-        ]);
+        // $this->command->info('Seeding typical Software House Products...');
+        // $this->call([
+        //     ProductSeeder::class,
+        // ]);
 
         $this->command->info('Database Seeding Completed Successfully!');
         $this->command->table(
             ['Role', 'Email', 'Password'],
             [
-                [Role::SuperAdmin->label(), 'admin@m-onesolution.com', 'password'],
+                [Role::SuperAdmin->label(), 'admin@m-onesolution.com', 'yourtruesolution'],
                 [Role::Admin->label(), 'admin-billing@m-onesolution.com', 'password'],
                 [Role::Marketing->label(), 'marketing@m-onesolution.com', 'password'],
                 [Role::ServerManager->label(), 'server@m-onesolution.com', 'password'],
