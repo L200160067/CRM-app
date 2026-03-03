@@ -4,9 +4,9 @@
 
 use App\Livewire\Product\Form;
 use App\Livewire\Product\Index;
-use Livewire\Livewire;
 use App\Models\Product;
 use App\Models\User;
+use Livewire\Livewire;
 
 // --- Authorization ---
 

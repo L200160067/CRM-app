@@ -11,7 +11,7 @@ enum ServiceStatus: string
 
     public function label(): string
     {
-        return match($this) {
+        return match ($this) {
             self::Active => 'Aktif',
             self::Pending => 'Tertunda',
             self::Suspended => 'Ditangguhkan',

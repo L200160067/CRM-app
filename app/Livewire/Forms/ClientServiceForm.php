@@ -2,7 +2,11 @@
 
 namespace App\Livewire\Forms;
 
+use App\Enums\ServiceBillingCycle;
+use App\Enums\ServiceStatus;
 use App\Models\ClientService;
+use App\Models\Product;
+use Illuminate\Validation\Rule;
 use Livewire\Form;
 
 class ClientServiceForm extends Form
@@ -15,9 +19,9 @@ class ClientServiceForm extends Form
 
     public ?string $domain_name = null;
 
-    public string $status = \App\Enums\ServiceStatus::Active->value;
+    public string $status = ServiceStatus::Active->value;
 
-    public string $billing_cycle = \App\Enums\ServiceBillingCycle::Yearly->value;
+    public string $billing_cycle = ServiceBillingCycle::Yearly->value;
 
     public ?float $recurring_price = null;
 
@@ -31,8 +35,8 @@ class ClientServiceForm extends Form
             'client_id' => ['required', 'exists:clients,id'],
             'product_id' => ['required', 'exists:products,id'],
             'domain_name' => ['nullable', 'string', 'max:255'],
-            'status' => ['required', \Illuminate\Validation\Rule::enum(\App\Enums\ServiceStatus::class)],
-            'billing_cycle' => ['required', \Illuminate\Validation\Rule::enum(\App\Enums\ServiceBillingCycle::class)],
+            'status' => ['required', Rule::enum(ServiceStatus::class)],
+            'billing_cycle' => ['required', Rule::enum(ServiceBillingCycle::class)],
             'recurring_price' => ['nullable', 'numeric', 'min:0'],
             'started_at' => ['required', 'date'],
             'expires_at' => ['required', 'date', 'after_or_equal:started_at'],
@@ -71,9 +75,9 @@ class ClientServiceForm extends Form
 
         try {
             $start = \Carbon\Carbon::parse($this->started_at);
-            if ($this->billing_cycle === \App\Enums\ServiceBillingCycle::Monthly->value) {
+            if ($this->billing_cycle === ServiceBillingCycle::Monthly->value) {
                 $this->expires_at = $start->addMonth()->format('Y-m-d');
-            } elseif ($this->billing_cycle === \App\Enums\ServiceBillingCycle::Yearly->value) {
+            } elseif ($this->billing_cycle === ServiceBillingCycle::Yearly->value) {
                 $this->expires_at = $start->addYear()->format('Y-m-d');
             }
         } catch (\Exception $e) {
@@ -84,7 +88,7 @@ class ClientServiceForm extends Form
     public function autoFillPrice(): void
     {
         if ($this->product_id) {
-            $product = \App\Models\Product::find($this->product_id);
+            $product = Product::find($this->product_id);
             if ($product) {
                 $this->recurring_price = (float) $product->default_price;
             }
