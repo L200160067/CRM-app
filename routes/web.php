@@ -21,6 +21,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Client Services
     Route::get('client-services', ClientServiceIndex::class)->name('client-services.index');
 
+    // User Management (Super Admin Only)
+    Route::middleware(['superadmin'])->group(function () {
+        Route::get('users', \App\Livewire\UserManagement\Index::class)->name('users.index');
+    });
+
     // System Guide
     Route::view('guide', 'guide')->name('guide');
 });

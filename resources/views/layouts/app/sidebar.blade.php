@@ -47,6 +47,14 @@
                         {{ __('Invoices') }}
                     </flux:sidebar.item>
                 @endif
+
+                {{-- User Management: SuperAdmin Only --}}
+                @if (auth()->user()->isSuperAdmin())
+                    <flux:sidebar.item icon="user-group" :href="route('users.index')"
+                        :current="request()->routeIs('users.*')" wire:navigate>
+                        {{ __('Manage Users') }}
+                    </flux:sidebar.item>
+                @endif
             </flux:sidebar.group>
         </flux:sidebar.nav>
 
