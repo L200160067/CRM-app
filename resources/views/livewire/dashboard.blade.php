@@ -134,61 +134,63 @@
                         <flux:text class="text-zinc-400 dark:text-zinc-500">Belum ada invoice</flux:text>
                     </div>
                 @else
-                    <flux:table>
-                        <flux:table.columns>
-                            <flux:table.column>Invoice / Klien</flux:table.column>
-                            <flux:table.column>Status</flux:table.column>
-                            <flux:table.column>Total</flux:table.column>
-                        </flux:table.columns>
+                    <div class="overflow-x-auto -mx-3 px-3 sm:mx-0 sm:px-0">
+                        <flux:table>
+                            <flux:table.columns>
+                                <flux:table.column>Invoice / Klien</flux:table.column>
+                                <flux:table.column>Status</flux:table.column>
+                                <flux:table.column>Total</flux:table.column>
+                            </flux:table.columns>
 
-                        <flux:table.rows>
-                            @foreach ($this->recentInvoices as $invoice)
-                                <flux:table.row wire:key="recent-{{ $invoice->id }}">
-                                    <flux:table.cell>
-                                        <div class="font-medium text-indigo-600 dark:text-indigo-400 text-sm">
-                                            {{ $invoice->invoice_number }}
-                                        </div>
-                                        <div class="text-xs text-zinc-500">
-                                            {{ $invoice->client?->name ?? '-' }}
-                                        </div>
-                                    </flux:table.cell>
-                                    <flux:table.cell>
-                                        @php
-                                            $color = match ($invoice->status->value) {
-                                                'draft' => 'zinc',
-                                                'sent' => 'blue',
-                                                'paid' => 'green',
-                                                'overdue' => 'red',
-                                                'canceled' => 'stone',
-                                                default => 'zinc',
-                                            };
-                                            $label = match ($invoice->status->value) {
-                                                'draft' => 'Draft',
-                                                'sent' => 'Terkirim',
-                                                'paid' => 'Lunas',
-                                                'overdue' => 'Jatuh Tempo',
-                                                'canceled' => 'Dibatalkan',
-                                                default => 'Unknown',
-                                            };
-                                        @endphp
-                                        <flux:badge color="{{ $color }}" size="sm">{{ $label }}</flux:badge>
-                                    </flux:table.cell>
-                                    <flux:table.cell>
-                                        <div class="text-sm font-semibold">
-                                            Rp {{ number_format($invoice->grand_total, 0, ',', '.') }}
-                                        </div>
-                                    </flux:table.cell>
-                                </flux:table.row>
-                            @endforeach
-                        </flux:table.rows>
-                    </flux:table>
+                            <flux:table.rows>
+                                @foreach ($this->recentInvoices as $invoice)
+                                    <flux:table.row wire:key="recent-{{ $invoice->id }}">
+                                        <flux:table.cell>
+                                            <div class="font-medium text-indigo-600 dark:text-indigo-400 text-sm">
+                                                {{ $invoice->invoice_number }}
+                                            </div>
+                                            <div class="text-xs text-zinc-500">
+                                                {{ $invoice->client?->name ?? '-' }}
+                                            </div>
+                                        </flux:table.cell>
+                                        <flux:table.cell>
+                                            @php
+                                                $color = match ($invoice->status->value) {
+                                                    'draft' => 'zinc',
+                                                    'sent' => 'blue',
+                                                    'paid' => 'green',
+                                                    'overdue' => 'red',
+                                                    'canceled' => 'stone',
+                                                    default => 'zinc',
+                                                };
+                                                $label = match ($invoice->status->value) {
+                                                    'draft' => 'Draft',
+                                                    'sent' => 'Terkirim',
+                                                    'paid' => 'Lunas',
+                                                    'overdue' => 'Jatuh Tempo',
+                                                    'canceled' => 'Dibatalkan',
+                                                    default => 'Unknown',
+                                                };
+                                            @endphp
+                                            <flux:badge color="{{ $color }}" size="sm">{{ $label }}</flux:badge>
+                                        </flux:table.cell>
+                                        <flux:table.cell>
+                                            <div class="text-sm font-semibold">
+                                                Rp {{ number_format($invoice->grand_total, 0, ',', '.') }}
+                                            </div>
+                                        </flux:table.cell>
+                                    </flux:table.row>
+                                @endforeach
+                            </flux:table.rows>
+                        </flux:table>
+                    </div>
                 @endif
             </div>
         </div>
 
-    {{-- =============================================
-    ADMIN: Operational dashboard
-    ============================================= --}}
+        {{-- =============================================
+        ADMIN: Operational dashboard
+        ============================================= --}}
     @elseif (auth()->user()->isAdmin())
 
         {{-- Stat Cards --}}
@@ -288,54 +290,56 @@
                         <flux:text class="text-zinc-400 dark:text-zinc-500">Belum ada invoice</flux:text>
                     </div>
                 @else
-                    <flux:table>
-                        <flux:table.columns>
-                            <flux:table.column>Invoice / Klien</flux:table.column>
-                            <flux:table.column>Status</flux:table.column>
-                            <flux:table.column>Tenggat Waktu</flux:table.column>
-                        </flux:table.columns>
+                    <div class="overflow-x-auto -mx-3 px-3 sm:mx-0 sm:px-0">
+                        <flux:table>
+                            <flux:table.columns>
+                                <flux:table.column>Invoice / Klien</flux:table.column>
+                                <flux:table.column>Status</flux:table.column>
+                                <flux:table.column>Tenggat Waktu</flux:table.column>
+                            </flux:table.columns>
 
-                        <flux:table.rows>
-                            @foreach ($this->recentInvoices as $invoice)
-                                <flux:table.row wire:key="recent-{{ $invoice->id }}">
-                                    <flux:table.cell>
-                                        <div class="font-medium text-indigo-600 dark:text-indigo-400 text-sm">
-                                            {{ $invoice->invoice_number }}
-                                        </div>
-                                        <div class="text-xs text-zinc-500">
-                                            {{ $invoice->client?->name ?? '-' }}
-                                        </div>
-                                    </flux:table.cell>
-                                    <flux:table.cell>
-                                        @php
-                                            $color = match ($invoice->status->value) {
-                                                'draft' => 'zinc',
-                                                'sent' => 'blue',
-                                                'paid' => 'green',
-                                                'overdue' => 'red',
-                                                'canceled' => 'stone',
-                                                default => 'zinc',
-                                            };
-                                            $label = match ($invoice->status->value) {
-                                                'draft' => 'Draft',
-                                                'sent' => 'Terkirim',
-                                                'paid' => 'Lunas',
-                                                'overdue' => 'Jatuh Tempo',
-                                                'canceled' => 'Dibatalkan',
-                                                default => 'Unknown',
-                                            };
-                                        @endphp
-                                        <flux:badge color="{{ $color }}" size="sm">{{ $label }}</flux:badge>
-                                    </flux:table.cell>
-                                    <flux:table.cell>
-                                        <div class="text-sm">
-                                            {{ $invoice->due_date ? $invoice->due_date->format('d M Y') : '-' }}
-                                        </div>
-                                    </flux:table.cell>
-                                </flux:table.row>
-                            @endforeach
-                        </flux:table.rows>
-                    </flux:table>
+                            <flux:table.rows>
+                                @foreach ($this->recentInvoices as $invoice)
+                                    <flux:table.row wire:key="recent-{{ $invoice->id }}">
+                                        <flux:table.cell>
+                                            <div class="font-medium text-indigo-600 dark:text-indigo-400 text-sm">
+                                                {{ $invoice->invoice_number }}
+                                            </div>
+                                            <div class="text-xs text-zinc-500">
+                                                {{ $invoice->client?->name ?? '-' }}
+                                            </div>
+                                        </flux:table.cell>
+                                        <flux:table.cell>
+                                            @php
+                                                $color = match ($invoice->status->value) {
+                                                    'draft' => 'zinc',
+                                                    'sent' => 'blue',
+                                                    'paid' => 'green',
+                                                    'overdue' => 'red',
+                                                    'canceled' => 'stone',
+                                                    default => 'zinc',
+                                                };
+                                                $label = match ($invoice->status->value) {
+                                                    'draft' => 'Draft',
+                                                    'sent' => 'Terkirim',
+                                                    'paid' => 'Lunas',
+                                                    'overdue' => 'Jatuh Tempo',
+                                                    'canceled' => 'Dibatalkan',
+                                                    default => 'Unknown',
+                                                };
+                                            @endphp
+                                            <flux:badge color="{{ $color }}" size="sm">{{ $label }}</flux:badge>
+                                        </flux:table.cell>
+                                        <flux:table.cell>
+                                            <div class="text-sm">
+                                                {{ $invoice->due_date ? $invoice->due_date->format('d M Y') : '-' }}
+                                            </div>
+                                        </flux:table.cell>
+                                    </flux:table.row>
+                                @endforeach
+                            </flux:table.rows>
+                        </flux:table>
+                    </div>
                 @endif
             </div>
         </div>
@@ -364,7 +368,8 @@
             {{-- Total Klien --}}
             <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-5">
                 <div class="flex items-center justify-between mb-3">
-                    <flux:text class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Total Klien Terdaftar</flux:text>
+                    <flux:text class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Total Klien Terdaftar
+                    </flux:text>
                     <div class="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
                         <flux:icon name="users" class="size-5" />
                     </div>
@@ -393,37 +398,39 @@
                     <flux:text class="text-zinc-400 dark:text-zinc-500">Belum ada klien</flux:text>
                 </div>
             @else
-                <flux:table>
-                    <flux:table.columns>
-                        <flux:table.column>Nama</flux:table.column>
-                        <flux:table.column>Email</flux:table.column>
-                        <flux:table.column>Telepon</flux:table.column>
-                        <flux:table.column>Bergabung</flux:table.column>
-                    </flux:table.columns>
+                <div class="overflow-x-auto -mx-3 px-3 sm:mx-0 sm:px-0">
+                    <flux:table>
+                        <flux:table.columns>
+                            <flux:table.column>Nama</flux:table.column>
+                            <flux:table.column>Email</flux:table.column>
+                            <flux:table.column>Telepon</flux:table.column>
+                            <flux:table.column>Bergabung</flux:table.column>
+                        </flux:table.columns>
 
-                    <flux:table.rows>
-                        @foreach ($this->recentClients as $client)
-                            <flux:table.row wire:key="client-{{ $client->id }}">
-                                <flux:table.cell>
-                                    <div class="font-medium text-sm text-zinc-900 dark:text-zinc-100">
-                                        {{ $client->name }}
-                                    </div>
-                                </flux:table.cell>
-                                <flux:table.cell>
-                                    <flux:text class="text-sm">{{ $client->email ?? '-' }}</flux:text>
-                                </flux:table.cell>
-                                <flux:table.cell>
-                                    <flux:text class="text-sm">{{ $client->phone ?? '-' }}</flux:text>
-                                </flux:table.cell>
-                                <flux:table.cell>
-                                    <flux:text class="text-sm text-zinc-500">
-                                        {{ $client->created_at->format('d M Y') }}
-                                    </flux:text>
-                                </flux:table.cell>
-                            </flux:table.row>
-                        @endforeach
-                    </flux:table.rows>
-                </flux:table>
+                        <flux:table.rows>
+                            @foreach ($this->recentClients as $client)
+                                <flux:table.row wire:key="client-{{ $client->id }}">
+                                    <flux:table.cell>
+                                        <div class="font-medium text-sm text-zinc-900 dark:text-zinc-100">
+                                            {{ $client->name }}
+                                        </div>
+                                    </flux:table.cell>
+                                    <flux:table.cell>
+                                        <flux:text class="text-sm">{{ $client->email ?? '-' }}</flux:text>
+                                    </flux:table.cell>
+                                    <flux:table.cell>
+                                        <flux:text class="text-sm">{{ $client->phone ?? '-' }}</flux:text>
+                                    </flux:table.cell>
+                                    <flux:table.cell>
+                                        <flux:text class="text-sm text-zinc-500">
+                                            {{ $client->created_at->format('d M Y') }}
+                                        </flux:text>
+                                    </flux:table.cell>
+                                </flux:table.row>
+                            @endforeach
+                        </flux:table.rows>
+                    </flux:table>
+                </div>
             @endif
         </div>
 
@@ -469,41 +476,43 @@
                     </flux:text>
                 </div>
             @else
-                <flux:table>
-                    <flux:table.columns>
-                        <flux:table.column>Klien</flux:table.column>
-                        <flux:table.column>Produk / Domain</flux:table.column>
-                        <flux:table.column>Expired</flux:table.column>
-                    </flux:table.columns>
+                <div class="overflow-x-auto -mx-3 px-3 sm:mx-0 sm:px-0">
+                    <flux:table>
+                        <flux:table.columns>
+                            <flux:table.column>Klien</flux:table.column>
+                            <flux:table.column>Produk / Domain</flux:table.column>
+                            <flux:table.column>Expired</flux:table.column>
+                        </flux:table.columns>
 
-                    <flux:table.rows>
-                        @foreach ($this->expiringSoonServices as $service)
-                            <flux:table.row wire:key="service-{{ $service->id }}">
-                                <flux:table.cell>
-                                    <div class="font-medium text-sm text-zinc-900 dark:text-zinc-100">
-                                        {{ $service->client?->name ?? '-' }}
-                                    </div>
-                                </flux:table.cell>
-                                <flux:table.cell>
-                                    <div class="text-sm">{{ $service->product?->name ?? '-' }}</div>
-                                    @if ($service->domain_name)
-                                        <div class="text-xs text-zinc-400">{{ $service->domain_name }}</div>
-                                    @endif
-                                </flux:table.cell>
-                                <flux:table.cell>
-                                    @php
-                                        $daysLeft = now()->diffInDays($service->expires_at, false);
-                                        $urgencyColor = $daysLeft <= 7 ? 'red' : ($daysLeft <= 14 ? 'amber' : 'zinc');
-                                    @endphp
-                                    <flux:badge color="{{ $urgencyColor }}" size="sm">
-                                        {{ $service->expires_at->format('d M Y') }}
-                                    </flux:badge>
-                                    <div class="text-xs text-zinc-400 mt-1">{{ $daysLeft }} hari lagi</div>
-                                </flux:table.cell>
-                            </flux:table.row>
-                        @endforeach
-                    </flux:table.rows>
-                </flux:table>
+                        <flux:table.rows>
+                            @foreach ($this->expiringSoonServices as $service)
+                                <flux:table.row wire:key="service-{{ $service->id }}">
+                                    <flux:table.cell>
+                                        <div class="font-medium text-sm text-zinc-900 dark:text-zinc-100">
+                                            {{ $service->client?->name ?? '-' }}
+                                        </div>
+                                    </flux:table.cell>
+                                    <flux:table.cell>
+                                        <div class="text-sm">{{ $service->product?->name ?? '-' }}</div>
+                                        @if ($service->domain_name)
+                                            <div class="text-xs text-zinc-400">{{ $service->domain_name }}</div>
+                                        @endif
+                                    </flux:table.cell>
+                                    <flux:table.cell>
+                                        @php
+                                            $daysLeft = now()->diffInDays($service->expires_at, false);
+                                            $urgencyColor = $daysLeft <= 7 ? 'red' : ($daysLeft <= 14 ? 'amber' : 'zinc');
+                                        @endphp
+                                        <flux:badge color="{{ $urgencyColor }}" size="sm">
+                                            {{ $service->expires_at->format('d M Y') }}
+                                        </flux:badge>
+                                        <div class="text-xs text-zinc-400 mt-1">{{ $daysLeft }} hari lagi</div>
+                                    </flux:table.cell>
+                                </flux:table.row>
+                            @endforeach
+                        </flux:table.rows>
+                    </flux:table>
+                </div>
             @endif
         </div>
 

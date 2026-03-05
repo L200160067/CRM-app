@@ -1,28 +1,31 @@
 <div>
-    <flux:modal name="invoice-form-modal" class="md:w-[60rem]">
+    <flux:modal name="invoice-form-modal" class="w-full md:w-[60rem]">
         <div class="mb-6">
             <flux:heading size="lg">{{ $mode === 'create' ? 'Buat Invoice Baru' : 'Edit Invoice' }}</flux:heading>
             <flux:subheading>Isi detail penagihan dan tambahkan produk/layanan di bawah ini.</flux:subheading>
         </div>
 
         <form wire:submit="save" class="space-y-6">
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <flux:select wire:model="form.client_id" label="Pilih Klien *">
                     <option value="">-- Pilih --</option>
                     @foreach($this->clients as $client)
-                        <option value="{{ $client->id }}" wire:key="inv-client-{{ $client->id }}">{{ $client->name }} {{ $client->company_name ? "({$client->company_name})" : '' }}</option>
+                        <option value="{{ $client->id }}" wire:key="inv-client-{{ $client->id }}">{{ $client->name }}
+                            {{ $client->company_name ? "({$client->company_name})" : '' }}
+                        </option>
                     @endforeach
                 </flux:select>
-                
-                <flux:input wire:model="form.invoice_number" label="Nomor Invoice" placeholder="Otomatis Dihasilkan" disabled />
+
+                <flux:input wire:model="form.invoice_number" label="Nomor Invoice" placeholder="Otomatis Dihasilkan"
+                    disabled />
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <flux:input wire:model="form.issue_date" type="date" label="Tanggal Terbit *" />
                 <flux:input wire:model="form.due_date" type="date" label="Jatuh Tempo *" />
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <flux:select wire:model="form.status" label="Status Invoice *">
                     <option value="draft">Draft</option>
                     <option value="sent">Terkirim</option>
@@ -35,19 +38,17 @@
             <flux:separator variant="subtle" />
 
             <!-- ALPINE REPEATER START -->
-            <div 
-                x-data="invoiceRepeater(
+            <div x-data="invoiceRepeater(
                     @entangle('form.items'),
                     {{ $this->products->toJson() }}
-                )"
-                class="space-y-4"
-            >
+                )" class="space-y-4">
                 <div class="flex items-center justify-between">
                     <flux:heading size="md">Item Tagihan</flux:heading>
-                    <flux:button type="button" size="sm" variant="subtle" icon="plus" @click="addItem()">Tambah Baris</flux:button>
+                    <flux:button type="button" size="sm" variant="subtle" icon="plus" @click="addItem()">Tambah Baris
+                    </flux:button>
                 </div>
 
-                <div class="border rounded-lg overflow-hidden border-zinc-200 dark:border-zinc-700">
+                <div class="border rounded-lg overflow-hidden overflow-x-auto border-zinc-200 dark:border-zinc-700">
                     <table class="w-full text-sm">
                         <thead class="bg-zinc-50 dark:bg-zinc-800 text-left">
                             <tr>
@@ -65,7 +66,7 @@
                                     Belum ada item tagihan yang ditambahkan.
                                 </td>
                             </tr>
-                            
+
                             {{-- Alpine Loop --}}
                             <template x-for="(item, index) in items" :key="index">
                                 <tr>
@@ -77,28 +78,35 @@
                                                     <option :value="prod.id" x-text="prod.name"></option>
                                                 </template>
                                             </flux:select>
-                                            <flux:input x-model="item.item_name" placeholder="Nama Layanan/Produk" required />
-                                            <flux:textarea x-model="item.description" placeholder="Deskripsi tambahan (opsional)" rows="1" />
+                                            <flux:input x-model="item.item_name" placeholder="Nama Layanan/Produk"
+                                                required />
+                                            <flux:textarea x-model="item.description"
+                                                placeholder="Deskripsi tambahan (opsional)" rows="1" />
                                         </div>
                                     </td>
                                     <td class="p-2 align-top">
-                                        <flux:input x-model.number="item.quantity" type="number" step="0.01" min="0.01" class="min-w-[4rem]" required />
+                                        <flux:input x-model.number="item.quantity" type="number" step="0.01" min="0.01"
+                                            class="min-w-[4rem]" required />
                                     </td>
                                     <td class="p-2 align-top">
-                                        <flux:input x-model.number="item.unit_price" type="number" step="100" min="0" class="min-w-[8rem]" required />
+                                        <flux:input x-model.number="item.unit_price" type="number" step="100" min="0"
+                                            class="min-w-[8rem]" required />
                                     </td>
-                                    <td class="p-2 align-top text-right pt-4 font-semibold text-zinc-700 dark:text-zinc-300 whitespace-nowrap">
+                                    <td
+                                        class="p-2 align-top text-right pt-4 font-semibold text-zinc-700 dark:text-zinc-300 whitespace-nowrap">
                                         Rp <span x-text="formatCurrency(item.quantity * item.unit_price)"></span>
                                     </td>
                                     <td class="p-2 align-top text-center pt-3">
-                                        <flux:button type="button" variant="ghost" icon="trash" size="sm" @click="removeItem(index)" class="text-red-500 hover:text-red-700" />
+                                        <flux:button type="button" variant="ghost" icon="trash" size="sm"
+                                            @click="removeItem(index)" class="text-red-500 hover:text-red-700" />
                                     </td>
                                 </tr>
                             </template>
                         </tbody>
                         <tfoot class="bg-zinc-50 dark:bg-zinc-800">
                             <tr>
-                                <td colspan="3" class="p-3 text-right font-medium text-zinc-500">Total Item Tagihan:</td>
+                                <td colspan="3" class="p-3 text-right font-medium text-zinc-500">Total Item Tagihan:
+                                </td>
                                 <td colspan="2" class="p-3 text-right font-bold text-lg">
                                     Rp <span x-text="formatCurrency(calculateSubtotal())"></span>
                                 </td>
@@ -122,7 +130,7 @@
                     Alpine.data('invoiceRepeater', (entangledItems, productsList) => ({
                         items: entangledItems,
                         productsList: productsList,
-                        
+
                         init() {
                             // First render happens automatically via entangle
                         },
@@ -173,30 +181,35 @@
 
             <flux:separator variant="subtle" />
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="space-y-4">
-                    <flux:textarea wire:model="form.notes" label="Catatan Tambahan" rows="3" placeholder="Terima kasih atas kepercayaan Anda..." />
+                    <flux:textarea wire:model="form.notes" label="Catatan Tambahan" rows="3"
+                        placeholder="Terima kasih atas kepercayaan Anda..." />
                 </div>
-                
-                <div class="space-y-4 bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-lg border border-zinc-200 dark:border-zinc-700">
+
+                <div
+                    class="space-y-4 bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-lg border border-zinc-200 dark:border-zinc-700">
                     <flux:heading size="md">Pengaturan Penagihan</flux:heading>
-                    
+
                     <flux:select wire:model.live="form.discount_type" label="Tipe Diskon">
                         <option value="fixed">Nominal Valid (Rp)</option>
                         <option value="percentage">Persentase (%)</option>
                     </flux:select>
 
-                    <div class="grid grid-cols-2 gap-2">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         @if($form->discount_type === 'percentage')
-                            <flux:input wire:model="form.discount_rate" label="Diskon (%)" type="number" step="0.01" min="0" max="100" />
+                            <flux:input wire:model="form.discount_rate" label="Diskon (%)" type="number" step="0.01" min="0"
+                                max="100" />
                         @else
                             <flux:input wire:model="form.discount" label="Diskon (Rp)" type="number" step="1000" min="0" />
                         @endif
-                        
-                        <flux:input wire:model="form.tax_rate" label="Pajak (%)" type="number" step="0.01" min="0" max="100" />
+
+                        <flux:input wire:model="form.tax_rate" label="Pajak (%)" type="number" step="0.01" min="0"
+                            max="100" />
                     </div>
                     <div class="text-xs text-zinc-500 mt-2">
-                        *Catatan: Kalkulasi tagihan akhir (Pajak + Diskon) akan dihitung otomatis oleh server setelah Invoice disimpan. Total akan terlihat di halaman Detail.
+                        *Catatan: Kalkulasi tagihan akhir (Pajak + Diskon) akan dihitung otomatis oleh server setelah
+                        Invoice disimpan. Total akan terlihat di halaman Detail.
                     </div>
                 </div>
             </div>

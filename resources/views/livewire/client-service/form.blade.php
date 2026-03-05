@@ -1,5 +1,5 @@
 <div>
-    <flux:modal name="client-service-form-modal" class="md:w-[42rem]">
+    <flux:modal name="client-service-form-modal" class="w-full md:w-[42rem]">
         <div class="mb-6">
             <flux:heading size="lg">{{ $mode === 'create' ? 'Tambah Layanan' : 'Edit Layanan' }}</flux:heading>
             <flux:subheading>Catat layanan domain, server, atau hosting yang diberikan kepada klien.</flux:subheading>
@@ -25,9 +25,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <flux:input wire:model="form.domain_name" label="Nama Domain"
                     placeholder="contoh: namadomain.com (opsional)" />
-                    
-                <flux:input type="number" step="1000" min="0" wire:model="form.recurring_price" label="Harga Langganan (Rp)" 
-                    placeholder="Otomatis dari produk..." />
+
+                <flux:input type="number" step="1000" min="0" wire:model="form.recurring_price"
+                    label="Harga Langganan (Rp)" placeholder="Otomatis dari produk..." />
             </div>
 
             <flux:radio.group wire:model="form.status" label="Status" variant="segmented">
@@ -45,7 +45,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <flux:input type="date" wire:model.live="form.started_at" label="Tanggal Mulai *" />
-                <flux:input type="date" wire:model="form.expires_at" label="Tanggal Berakhir *" readonly 
+                <flux:input type="date" wire:model="form.expires_at" label="Tanggal Berakhir *" readonly
                     description="Otomatis dihitung mesin, bisa disesuaikan manual." />
             </div>
 

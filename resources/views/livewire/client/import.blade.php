@@ -1,5 +1,5 @@
 <div>
-    <flux:modal name="client-import-modal" class="md:w-[52rem]">
+    <flux:modal name="client-import-modal" class="w-full md:w-[52rem]">
         <div class="mb-5">
             <flux:heading size="lg">Import Klien dari CSV</flux:heading>
             <flux:subheading>Upload file CSV untuk menambahkan banyak klien sekaligus. Hanya kolom <strong>name</strong>
@@ -8,7 +8,7 @@
 
         {{-- Download Template --}}
         <div
-            class="flex items-center justify-between p-3 rounded-lg bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 mb-5">
+            class="flex flex-wrap items-center justify-between gap-2 p-3 rounded-lg bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 mb-5">
             <div class="text-sm text-zinc-600 dark:text-zinc-400">
                 Belum punya template? Download contoh file CSV-nya.
             </div>
@@ -22,12 +22,12 @@
             <flux:field class="mb-5">
                 <flux:label>Pilih File CSV</flux:label>
                 <input type="file" wire:model="csvFile" accept=".csv,text/csv" class="block w-full text-sm text-zinc-700 dark:text-zinc-300
-                               file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0
-                               file:text-sm file:font-medium
-                               file:bg-zinc-100 file:text-zinc-700
-                               dark:file:bg-zinc-700 dark:file:text-zinc-200
-                               hover:file:bg-zinc-200 dark:hover:file:bg-zinc-600
-                               cursor-pointer" />
+                                   file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0
+                                   file:text-sm file:font-medium
+                                   file:bg-zinc-100 file:text-zinc-700
+                                   dark:file:bg-zinc-700 dark:file:text-zinc-200
+                                   hover:file:bg-zinc-200 dark:hover:file:bg-zinc-600
+                                   cursor-pointer" />
                 <div wire:loading wire:target="csvFile" class="text-sm text-zinc-500 mt-1">
                     <flux:icon name="arrow-path" class="size-4 inline animate-spin" /> Memproses file...
                 </div>
@@ -52,7 +52,7 @@
                 </div>
 
                 <div
-                    class="border border-zinc-200 dark:border-zinc-700 rounded-lg overflow-hidden max-h-72 overflow-y-auto">
+                    class="border border-zinc-200 dark:border-zinc-700 rounded-lg overflow-hidden overflow-x-auto max-h-72 overflow-y-auto">
                     <table class="w-full text-sm">
                         <thead class="bg-zinc-50 dark:bg-zinc-800 sticky top-0">
                             <tr>

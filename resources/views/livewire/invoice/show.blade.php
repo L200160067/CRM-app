@@ -1,5 +1,5 @@
 <div>
-    <flux:modal name="invoice-show-modal" class="md:w-[50rem]">
+    <flux:modal name="invoice-show-modal" class="w-full md:w-[50rem]">
         @if($invoice)
             <!-- Absolute Top Right Status Badge -->
             <div class="absolute top-6 right-6">
@@ -77,7 +77,7 @@
                 </h1>
             </div>
 
-            <div class="grid grid-cols-2 gap-8 mb-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
                 <div>
                     <div class="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-2">Ditagihkan Kepada</div>
                     <div class="font-bold text-lg text-zinc-900 dark:text-white mb-1">{{ $invoice->client->name }}</div>
@@ -101,8 +101,8 @@
                 </div>
             </div>
 
-            <!-- Items Table -->
-            <div class="border rounded-lg overflow-hidden border-zinc-200 dark:border-zinc-700 mb-6">
+            {{-- Items Table --}}
+            <div class="border rounded-lg overflow-hidden border-zinc-200 dark:border-zinc-700 mb-6 overflow-x-auto">
                 <table class="w-full text-sm">
                     <thead class="bg-zinc-50 dark:bg-zinc-800 text-left">
                         <tr>
@@ -134,7 +134,7 @@
 
             <!-- Totals -->
             <div class="flex justify-end mb-8">
-                <div class="w-1/2 space-y-3">
+                <div class="w-full sm:w-1/2 space-y-3">
                     <div class="flex justify-between text-sm">
                         <span class="text-zinc-500">Subtotal</span>
                         <span>Rp {{ number_format($invoice->subtotal, 2, ',', '.') }}</span>

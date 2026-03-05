@@ -1,11 +1,11 @@
 <div>
-    <div class="flex justify-between items-center mb-6">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
         <div>
             <flux:heading size="xl" level="1">Manajemen Layanan</flux:heading>
         </div>
-        <div class="flex items-center space-x-4">
+        <div class="flex flex-wrap items-center gap-2">
             <flux:input wire:model.live.debounce.300ms="search" icon="magnifying-glass"
-                placeholder="Cari layanan, domain, atau klien..." class="w-72" clearable />
+                placeholder="Cari layanan, domain, atau klien..." class="w-full sm:w-72" clearable />
 
             @can('create', App\Models\ClientService::class)
                 <flux:button wire:click="$dispatchTo('client-service.form', 'load-client-service-form')"
@@ -20,65 +20,146 @@
         <flux:pagination :paginator="$this->services" />
     </div>
 
-    <flux:table>
-        <flux:table.columns>
-            <flux:table.column>Klien</flux:table.column>
-            <flux:table.column>Produk / Domain</flux:table.column>
-            <flux:table.column>Siklus Tagihan</flux:table.column>
-            <flux:table.column>Status</flux:table.column>
-            <flux:table.column>Tanggal Berakhir</flux:table.column>
-            <flux:table.column>Aksi</flux:table.column>
-        </flux:table.columns>
+    {{-- Desktop Table --}}
+    <div class="hidden sm:block">
+        <flux:table>
+            <flux:table.columns>
+                <flux:table.column>Klien</flux:table.column>
+                <flux:table.column>Produk / Domain</flux:table.column>
+                <flux:table.column>Siklus Tagihan</flux:table.column>
+                <flux:table.column>Status</flux:table.column>
+                <flux:table.column>Tanggal Berakhir</flux:table.column>
+                <flux:table.column>Aksi</flux:table.column>
+            </flux:table.columns>
 
-        <flux:table.rows>
-            @forelse ($this->services as $service)
-                <flux:table.row wire:key="service-{{ $service->id }}">
-                    <flux:table.cell>
-                        <div class="font-medium">{{ $service->client->name }}</div>
-                        <div class="text-sm text-zinc-500">{{ $service->client->company_name ?? '-' }}</div>
-                    </flux:table.cell>
+            <flux:table.rows>
+                @forelse ($this->services as $service)
+                    <flux:table.row wire:key="service-{{ $service->id }}">
+                        <flux:table.cell>
+                            <div class="font-medium">{{ $service->client->name }}</div>
+                            <div class="text-sm text-zinc-500">{{ $service->client->company_name ?? '-' }}</div>
+                        </flux:table.cell>
 
-                    <flux:table.cell>
-                        <div class="font-medium">{{ $service->product->name }}</div>
+                        <flux:table.cell>
+                            <div class="font-medium">{{ $service->product->name }}</div>
+                            @if ($service->domain_name)
+                                <div class="text-sm text-zinc-500">{{ $service->domain_name }}</div>
+                            @endif
+                        </flux:table.cell>
+
+                        <flux:table.cell>
+                            <div class="text-sm">{{ $service->billing_cycle === 'Monthly' ? 'Bulanan' : 'Tahunan' }}</div>
+                        </flux:table.cell>
+
+                        <flux:table.cell>
+                            @php
+                                $color = match ($service->status) {
+                                    'Active' => 'green',
+                                    'Suspended' => 'red',
+                                    'Expired' => 'zinc',
+                                    'Pending' => 'yellow',
+                                    default => 'zinc',
+                                };
+                                $label = match ($service->status) {
+                                    'Active' => 'Aktif',
+                                    'Suspended' => 'Ditangguhkan',
+                                    'Expired' => 'Kadaluarsa',
+                                    'Pending' => 'Pending',
+                                    default => $service->status,
+                                };
+                            @endphp
+                            <flux:badge :color="$color" size="sm" inset="top bottom">{{ $label }}</flux:badge>
+                        </flux:table.cell>
+
+                        <flux:table.cell>
+                            <div class="text-sm">{{ $service->expires_at->format('d M Y') }}</div>
+                            @if ($service->expires_at->isPast())
+                                <div class="text-xs text-red-500 font-medium">Sudah kadaluarsa</div>
+                            @elseif ($service->expires_at->diffInDays(now()) <= 14)
+                                <div class="text-xs text-yellow-500 font-medium">Segera berakhir</div>
+                            @endif
+                        </flux:table.cell>
+
+                        <flux:table.cell>
+                            @canany(['update', 'delete'], $service)
+                                <flux:dropdown position="bottom" align="end">
+                                    <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal" inset="top bottom" />
+                                    <flux:menu>
+                                        @can('update', $service)
+                                            <flux:menu.item icon="pencil-square"
+                                                wire:click="$dispatchTo('client-service.form', 'load-client-service-form', { id: {{ $service->id }} })"
+                                                x-on:click="$flux.modal('client-service-form-modal').show()">Edit</flux:menu.item>
+                                        @endcan
+                                        @can('delete', $service)
+                                            <flux:menu.separator />
+                                            <flux:menu.item icon="trash" variant="danger"
+                                                wire:click="confirmDelete({{ $service->id }})"
+                                                x-on:click="$flux.modal('client-service-delete-modal').show()">Hapus
+                                            </flux:menu.item>
+                                        @endcan
+                                    </flux:menu>
+                                </flux:dropdown>
+                            @endcanany
+                        </flux:table.cell>
+                    </flux:table.row>
+                @empty
+                    <flux:table.row>
+                        <flux:table.cell colspan="6" class="p-0">
+                            <div class="flex flex-col items-center justify-center py-20 whitespace-normal">
+                                <div
+                                    class="p-4 rounded-full bg-zinc-100 dark:bg-zinc-800/50 outline outline-1 outline-zinc-200 dark:outline-zinc-700/50 mb-5 text-zinc-400 dark:text-zinc-500">
+                                    <flux:icon name="server-stack" class="size-8" />
+                                </div>
+                                <flux:heading size="lg" class="mb-2 dark:text-zinc-200">Belum ada Layanan</flux:heading>
+                                <flux:text class="text-zinc-500 dark:text-zinc-400 text-center mb-6 max-w-sm">Anda belum
+                                    mencatat layanan apapun. Mulai catat domain, server, atau hosting yang Anda kelola untuk
+                                    klien.</flux:text>
+                                @can('create', App\Models\ClientService::class)
+                                    <flux:button wire:click="$dispatchTo('client-service.form', 'load-client-service-form')"
+                                        x-on:click="$flux.modal('client-service-form-modal').show()" variant="primary"
+                                        icon="plus" class="shadow-sm">Tambah Layanan</flux:button>
+                                @endcan
+                            </div>
+                        </flux:table.cell>
+                    </flux:table.row>
+                @endforelse
+            </flux:table.rows>
+        </flux:table>
+    </div>
+
+    {{-- Mobile Card List --}}
+    <div class="sm:hidden space-y-3">
+        @forelse ($this->services as $service)
+            @php
+                $color = match ($service->status) {
+                    'Active' => 'green',
+                    'Suspended' => 'red',
+                    'Expired' => 'zinc',
+                    'Pending' => 'yellow',
+                    default => 'zinc',
+                };
+                $label = match ($service->status) {
+                    'Active' => 'Aktif',
+                    'Suspended' => 'Ditangguhkan',
+                    'Expired' => 'Kadaluarsa',
+                    'Pending' => 'Pending',
+                    default => $service->status,
+                };
+            @endphp
+            <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-4"
+                wire:key="mobile-service-{{ $service->id }}">
+                <div class="flex items-start justify-between gap-2 mb-2">
+                    <div>
+                        <div class="font-medium text-zinc-900 dark:text-zinc-100">{{ $service->client->name }}</div>
+                        <div class="text-xs text-zinc-500">{{ $service->client->company_name ?? '-' }}</div>
+                        <div class="mt-1 font-medium text-sm text-zinc-700 dark:text-zinc-300">{{ $service->product->name }}
+                        </div>
                         @if ($service->domain_name)
-                            <div class="text-sm text-zinc-500">{{ $service->domain_name }}</div>
+                            <div class="text-xs text-zinc-400">{{ $service->domain_name }}</div>
                         @endif
-                    </flux:table.cell>
-
-                    <flux:table.cell>
-                        <div class="text-sm">{{ $service->billing_cycle === 'Monthly' ? 'Bulanan' : 'Tahunan' }}</div>
-                    </flux:table.cell>
-
-                    <flux:table.cell>
-                        @php
-                            $color = match ($service->status) {
-                                'Active' => 'green',
-                                'Suspended' => 'red',
-                                'Expired' => 'zinc',
-                                'Pending' => 'yellow',
-                                default => 'zinc',
-                            };
-                            $label = match ($service->status) {
-                                'Active' => 'Aktif',
-                                'Suspended' => 'Ditangguhkan',
-                                'Expired' => 'Kadaluarsa',
-                                'Pending' => 'Pending',
-                                default => $service->status,
-                            };
-                        @endphp
-                        <flux:badge :color="$color" size="sm" inset="top bottom">{{ $label }}</flux:badge>
-                    </flux:table.cell>
-
-                    <flux:table.cell>
-                        <div class="text-sm">{{ $service->expires_at->format('d M Y') }}</div>
-                        @if ($service->expires_at->isPast())
-                            <div class="text-xs text-red-500 font-medium">Sudah kadaluarsa</div>
-                        @elseif ($service->expires_at->diffInDays(now()) <= 14)
-                            <div class="text-xs text-yellow-500 font-medium">Segera berakhir</div>
-                        @endif
-                    </flux:table.cell>
-
-                    <flux:table.cell>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <flux:badge :color="$color" size="sm">{{ $label }}</flux:badge>
                         @canany(['update', 'delete'], $service)
                             <flux:dropdown position="bottom" align="end">
                                 <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal" inset="top bottom" />
@@ -96,36 +177,44 @@
                                 </flux:menu>
                             </flux:dropdown>
                         @endcanany
-                    </flux:table.cell>
-                </flux:table.row>
-            @empty
-                <flux:table.row>
-                    <flux:table.cell colspan="6" class="p-0">
-                        <div class="flex flex-col items-center justify-center py-20 whitespace-normal">
-                            <div
-                                class="p-4 rounded-full bg-zinc-100 dark:bg-zinc-800/50 outline outline-1 outline-zinc-200 dark:outline-zinc-700/50 mb-5 text-zinc-400 dark:text-zinc-500">
-                                <flux:icon name="server-stack" class="size-8" />
-                            </div>
-                            <flux:heading size="lg" class="mb-2 dark:text-zinc-200">Belum ada Layanan</flux:heading>
-                            <flux:text class="text-zinc-500 dark:text-zinc-400 text-center mb-6 max-w-sm">Anda belum
-                                mencatat layanan apapun. Mulai catat domain, server, atau hosting yang Anda kelola untuk
-                                klien.</flux:text>
-                            @can('create', App\Models\ClientService::class)
-                                <flux:button wire:click="$dispatchTo('client-service.form', 'load-client-service-form')"
-                                    x-on:click="$flux.modal('client-service-form-modal').show()" variant="primary" icon="plus"
-                                    class="shadow-sm">Tambah Layanan</flux:button>
-                            @endcan
-                        </div>
-                    </flux:table.cell>
-                </flux:table.row>
-            @endforelse
-        </flux:table.rows>
-    </flux:table>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-3 pt-3 border-t border-zinc-100 dark:border-zinc-800">
+                    <div class="text-xs text-zinc-400">{{ $service->billing_cycle === 'Monthly' ? 'Bulanan' : 'Tahunan' }}
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                            {{ $service->expires_at->format('d M Y') }}</div>
+                        @if ($service->expires_at->isPast())
+                            <div class="text-xs text-red-500 font-medium">Sudah kadaluarsa</div>
+                        @elseif ($service->expires_at->diffInDays(now()) <= 14)
+                            <div class="text-xs text-yellow-500 font-medium">Segera berakhir</div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="flex flex-col items-center justify-center py-16 text-center">
+                <div
+                    class="p-4 rounded-full bg-zinc-100 dark:bg-zinc-800/50 outline outline-1 outline-zinc-200 dark:outline-zinc-700/50 mb-5 text-zinc-400 dark:text-zinc-500">
+                    <flux:icon name="server-stack" class="size-8" />
+                </div>
+                <flux:heading size="lg" class="mb-2 dark:text-zinc-200">Belum ada Layanan</flux:heading>
+                <flux:text class="text-zinc-500 dark:text-zinc-400 text-center mb-6 max-w-sm">Anda belum mencatat layanan
+                    apapun.</flux:text>
+                @can('create', App\Models\ClientService::class)
+                    <flux:button wire:click="$dispatchTo('client-service.form', 'load-client-service-form')"
+                        x-on:click="$flux.modal('client-service-form-modal').show()" variant="primary" icon="plus"
+                        class="shadow-sm">Tambah Layanan</flux:button>
+                @endcan
+            </div>
+        @endforelse
+    </div>
 
     <livewire:client-service.form />
 
     <!-- Modal Konfirmasi Hapus -->
-    <flux:modal name="client-service-delete-modal" class="md:w-[32rem]">
+    <flux:modal name="client-service-delete-modal" class="w-full md:w-[32rem]">
         <div class="mb-6">
             <flux:heading size="lg">Konfirmasi Hapus</flux:heading>
             <flux:subheading>Apakah Anda yakin ingin menghapus data layanan ini? Tindakan ini tidak dapat dibatalkan.
