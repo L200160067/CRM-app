@@ -37,6 +37,62 @@
 
             <flux:separator variant="subtle" />
 
+            <!-- ALPINE REPEATER SCRIPT -->
+            <script>
+                (function () {
+                    function registerInvoiceRepeater() {
+                        Alpine.data('invoiceRepeater', (entangledItems, productsList) => ({
+                            items: entangledItems,
+                            productsList: productsList,
+
+                            addItem() {
+                                this.items.push({
+                                    id: null,
+                                    product_id: '',
+                                    item_name: '',
+                                    quantity: 1,
+                                    unit_price: 0,
+                                    description: ''
+                                });
+                            },
+
+                            removeItem(index) {
+                                this.items.splice(index, 1);
+                            },
+
+                            onProductSelect(index) {
+                                const item = this.items[index];
+                                if (item.product_id) {
+                                    const product = this.productsList.find(p => p.id == item.product_id);
+                                    if (product) {
+                                        item.item_name = product.name;
+                                        item.unit_price = product.default_price;
+                                        item.description = product.description;
+                                    }
+                                }
+                            },
+
+                            calculateSubtotal() {
+                                return this.items.reduce((total, item) => {
+                                    const q = parseFloat(item.quantity) || 0;
+                                    const p = parseFloat(item.unit_price) || 0;
+                                    return total + (q * p);
+                                }, 0);
+                            },
+
+                            formatCurrency(value) {
+                                return new Intl.NumberFormat('id-ID', { maximumFractionDigits: 2 }).format(value);
+                            }
+                        }));
+                    }
+
+                    if (typeof Alpine !== 'undefined' && Alpine.data) {
+                        registerInvoiceRepeater();
+                    } else {
+                        document.addEventListener('alpine:init', registerInvoiceRepeater, { once: true });
+                    }
+                })();
+            </script>
             <!-- ALPINE REPEATER START -->
             <div x-data="invoiceRepeater(
                     @entangle('form.items'),
@@ -124,59 +180,6 @@
                 @enderror
             </div>
 
-            <!-- ALPINE REPEATER SCRIPT -->
-            <script>
-                document.addEventListener('alpine:init', () => {
-                    Alpine.data('invoiceRepeater', (entangledItems, productsList) => ({
-                        items: entangledItems,
-                        productsList: productsList,
-
-                        init() {
-                            // First render happens automatically via entangle
-                        },
-
-                        addItem() {
-                            this.items.push({
-                                id: null,
-                                product_id: '',
-                                item_name: '',
-                                quantity: 1,
-                                unit_price: 0,
-                                description: ''
-                            });
-                        },
-
-                        removeItem(index) {
-                            this.items.splice(index, 1);
-                        },
-
-                        onProductSelect(index) {
-                            const item = this.items[index];
-                            if (item.product_id) {
-                                // Find product details in our cached list
-                                const product = this.productsList.find(p => p.id == item.product_id);
-                                if (product) {
-                                    item.item_name = product.name;
-                                    item.unit_price = product.default_price;
-                                    item.description = product.description;
-                                }
-                            }
-                        },
-
-                        calculateSubtotal() {
-                            return this.items.reduce((total, item) => {
-                                const q = parseFloat(item.quantity) || 0;
-                                const p = parseFloat(item.unit_price) || 0;
-                                return total + (q * p);
-                            }, 0);
-                        },
-
-                        formatCurrency(value) {
-                            return new Intl.NumberFormat('id-ID', { maximumFractionDigits: 2 }).format(value);
-                        }
-                    }));
-                });
-            </script>
             <!-- ALPINE REPEATER END -->
 
             <flux:separator variant="subtle" />

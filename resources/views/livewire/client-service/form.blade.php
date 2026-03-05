@@ -7,7 +7,7 @@
 
         <form wire:submit="save" class="space-y-4">
             <flux:select wire:model="form.client_id" label="Klien *">
-                <option value="" disabled selected>Pilih klien...</option>
+                <option value="">Pilih klien...</option>
                 @foreach ($clients as $client)
                     <option value="{{ $client->id }}" wire:key="client-{{ $client->id }}">
                         {{ $client->name }}{{ $client->company_name ? ' — ' . $client->company_name : '' }}
@@ -16,7 +16,7 @@
             </flux:select>
 
             <flux:select wire:model.live="form.product_id" label="Produk / Layanan *">
-                <option value="" disabled selected>Pilih produk...</option>
+                <option value="">Pilih produk...</option>
                 @foreach ($products as $product)
                     <option value="{{ $product->id }}" wire:key="product-{{ $product->id }}">{{ $product->name }}</option>
                 @endforeach
@@ -45,8 +45,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <flux:input type="date" wire:model.live="form.started_at" label="Tanggal Mulai *" />
-                <flux:input type="date" wire:model="form.expires_at" label="Tanggal Berakhir *" readonly
-                    description="Otomatis dihitung mesin, bisa disesuaikan manual." />
+                <flux:input type="date" wire:model="form.expires_at" label="Tanggal Berakhir *" />
             </div>
 
             <div class="flex justify-end space-x-2 pt-4">
