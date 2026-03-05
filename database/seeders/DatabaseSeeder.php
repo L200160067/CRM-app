@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
 
         // --- DUMMY DATA ---
         // Jika Anda butuh data dummy (Klien & Produk) untuk testing, silakan uncomment baris di bawah ini:
-        
+
         // // 5. Buat 100 Data Client realistis
         // $this->command->info('Seeding 100 Indonesian Clients...');
         // Client::factory()->count(100)->create();

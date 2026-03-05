@@ -1,0 +1,48 @@
+
+   FAIL  Tests\Feature\UserManagementTest
+  Γ£ô super admin can view user managemΓÇª 1.32s  
+  Γ£ô non super admin cannot view userΓÇª  0.05s  
+  Γ£ô super admin can create a user      0.68s  
+  Γ£ô super admin can update a user      0.59s  
+  Γ¿» super admin cannot change their oΓÇª 0.42s  
+  Γ£ô super admin can delete a user      0.32s  
+  Γ¿» super admin cannot delete themselΓÇª 0.33s  
+  Γ£ô non super admin cannot perform usΓÇª 0.94s  
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\UserManagementTesΓÇª   
+  Failed asserting that null matches expected 'Anda tidak dapat mengubah role akun Anda sendiri.'.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\Testable.php:417
+    413Γûò         if (static::hasMacro($method)) {
+    414Γûò             return $this->macroCall($method, $params);
+    415Γûò         }
+    416Γûò 
+  Γ₧£ 417Γûò         $this->lastState->getResponse()->{$method}(...$params);
+    418Γûò 
+    419Γûò         return $this;
+    420Γûò     }
+    421Γûò }
+
+  1   tests\Feature\UserManagementTest.php:73
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\UserManagementTesΓÇª   
+  Failed asserting that null matches expected 'Anda tidak dapat menghapus akun Anda sendiri.'.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\Testable.php:417
+    413Γûò         if (static::hasMacro($method)) {
+    414Γûò             return $this->macroCall($method, $params);
+    415Γûò         }
+    416Γûò 
+  Γ₧£ 417Γûò         $this->lastState->getResponse()->{$method}(...$params);
+    418Γûò 
+    419Γûò         return $this;
+    420Γûò     }
+    421Γûò }
+
+  1   tests\Feature\UserManagementTest.php:100
+
+
+  Tests:    2 failed, 6 passed (16 assertions)
+  Duration: 5.08s
+

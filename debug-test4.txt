@@ -1,0 +1,50 @@
+
+   FAIL  Tests\Feature\UserManagementTest
+  Γ£ô super admin can view user managemΓÇª 1.06s  
+  Γ£ô non super admin cannot view userΓÇª  0.04s  
+  Γ£ô super admin can create a user      0.54s  
+  Γ£ô super admin can update a user      0.42s  
+  Γ¿» super admin cannot change their oΓÇª 0.34s  
+  Γ£ô super admin can delete a user      0.26s  
+  Γ¿» super admin cannot delete themselΓÇª 0.25s  
+  Γ£ô non super admin cannot perform usΓÇª 0.71s  
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\UserManagementTesΓÇª   
+  Failed asserting that null matches expected 'Anda tidak dapat mengubah role akun Anda sendiri.'.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\Testable.php:417
+    413Γûò         if (static::hasMacro($method)) {
+    414Γûò             return $this->macroCall($method, $params);
+    415Γûò         }
+    416Γûò 
+  Γ₧£ 417Γûò         $this->lastState->getResponse()->{$method}(...$params);
+    418Γûò 
+    419Γûò         return $this;
+    420Γûò     }
+    421Γûò }
+
+  1   tests\Feature\UserManagementTest.php:74
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\UserManagementTesΓÇª   
+  Failed asserting that an event [user-deleted] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\UserManagementTest.php:102
+
+
+  Tests:    2 failed, 6 passed (18 assertions)
+  Duration: 3.98s
+

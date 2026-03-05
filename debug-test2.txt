@@ -1,0 +1,116 @@
+
+   FAIL  Tests\Feature\UserManagementTest
+  Γ£ô super admin can view user managemΓÇª 1.28s  
+  Γ£ô non super admin cannot view userΓÇª  0.04s  
+  Γ¿» super admin can create a user      0.15s  
+  Γ¿» super admin can update a user      0.15s  
+  Γ¿» super admin cannot change their oΓÇª 0.12s  
+  Γ¿» super admin can delete a user      0.14s  
+  Γ¿» super admin cannot delete themselΓÇª 0.13s  
+  Γ¿» non super admin cannot perform usΓÇª 0.15s  
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\UserManageΓÇª  Error   
+  Call to a member function set() on null
+
+  at tests\Feature\UserManagementTest.php:30
+     26Γûò     $superAdmin = User::factory()->create(['role' => Role::SuperAdmin]);
+     27Γûò 
+     28Γûò     Livewire::test(Index::class)
+     29Γûò         ->actingAs($superAdmin)
+  Γ₧£  30Γûò         ->set('name', 'New Staff')
+     31Γûò         ->set('email', 'staff@example.com')
+     32Γûò         ->set('role', Role::Admin->value)
+     33Γûò         ->set('password', 'password123')
+     34Γûò         ->set('password_confirmation', 'password123')
+
+  1   tests\Feature\UserManagementTest.php:30
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\UserManageΓÇª  Error   
+  Call to a member function call() on null
+
+  at tests\Feature\UserManagementTest.php:51
+     47Γûò     $user = User::factory()->create(['role' => Role::Marketing]);
+     48Γûò 
+     49Γûò     Livewire::test(Index::class)
+     50Γûò         ->actingAs($superAdmin)
+  Γ₧£  51Γûò         ->call('edit', $user)
+     52Γûò         ->set('name', 'Updated Name')
+     53Γûò         ->set('role', Role::Admin->value)
+     54Γûò         ->call('save')
+     55Γûò         ->assertHasNoErrors()
+
+  1   tests\Feature\UserManagementTest.php:51
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\UserManageΓÇª  Error   
+  Call to a member function call() on null
+
+  at tests\Feature\UserManagementTest.php:70
+     66Γûò     $superAdmin = User::factory()->create(['role' => Role::SuperAdmin]);
+     67Γûò 
+     68Γûò     Livewire::test(Index::class)
+     69Γûò         ->actingAs($superAdmin)
+  Γ₧£  70Γûò         ->call('edit', $superAdmin)
+     71Γûò         ->set('role', Role::Admin->value)
+     72Γûò         ->call('save')
+     73Γûò         ->assertSessionHas('error', 'Anda tidak dapat mengubah role akun Anda sendiri.');
+     74Γûò
+
+  1   tests\Feature\UserManagementTest.php:70
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\UserManageΓÇª  Error   
+  Call to a member function call() on null
+
+  at tests\Feature\UserManagementTest.php:84
+     80Γûò     $user = User::factory()->create();
+     81Γûò 
+     82Γûò     Livewire::test(Index::class)
+     83Γûò         ->actingAs($superAdmin)
+  Γ₧£  84Γûò         ->call('confirmDelete', $user)
+     85Γûò         ->call('delete')
+     86Γûò         ->assertDispatched('user-deleted');
+     87Γûò 
+     88Γûò     $this->assertDatabaseMissing('users', [
+
+  1   tests\Feature\UserManagementTest.php:84
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\UserManageΓÇª  Error   
+  Call to a member function call() on null
+
+  at tests\Feature\UserManagementTest.php:98
+     94Γûò     $superAdmin = User::factory()->create(['role' => Role::SuperAdmin]);
+     95Γûò 
+     96Γûò     Livewire::test(Index::class)
+     97Γûò         ->actingAs($superAdmin)
+  Γ₧£  98Γûò         ->call('confirmDelete', $superAdmin)
+     99Γûò         ->call('delete')
+    100Γûò         ->assertSessionHas('error', 'Anda tidak dapat menghapus akun Anda sendiri.');
+    101Γûò 
+    102Γûò     $this->assertDatabaseHas('users', [
+
+  1   tests\Feature\UserManagementTest.php:98
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\UserManageΓÇª  Error   
+  Call to a member function set() on null
+
+  at tests\Feature\UserManagementTest.php:113
+    109Γûò     $targetUser = User::factory()->create();
+    110Γûò 
+    111Γûò     Livewire::test(Index::class)
+    112Γûò         ->actingAs($admin)
+  Γ₧£ 113Γûò         ->set('name', 'Hack')
+    114Γûò         ->set('email', 'hack@mail.com')
+    115Γûò         ->set('role', Role::Marketing->value)
+    116Γûò         ->set('password', 'password')
+    117Γûò         ->set('password_confirmation', 'password')
+
+  1   tests\Feature\UserManagementTest.php:113
+
+
+  Tests:    6 failed, 2 passed (4 assertions)
+  Duration: 2.54s
+

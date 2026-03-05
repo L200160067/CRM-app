@@ -1,0 +1,1956 @@
+
+   PASS  Tests\Unit\ExampleTest
+  Γ£ô that true is true                  0.03s  
+
+   FAIL  Tests\Feature\Auth\AuthenticationTest
+  Γ¿» login screen can be rendered       0.78s  
+  Γ¿» users can authenticate using theΓÇª  0.07s  
+  Γ¿» users can not authenticate with iΓÇª 0.03s  
+  Γ¿» users with two factor enabled areΓÇª 0.03s  
+  Γ¿» users can logout                   0.04s  
+
+   FAIL  Tests\Feature\Auth\EmailVerificationTest
+  Γ¿» email verification screen can beΓÇª  0.04s  
+  Γ¿» email can be verified              0.05s  
+  Γ£ô email is not verified with invaliΓÇª 0.04s  
+  Γ¿» already verified user visiting veΓÇª 0.04s  
+
+   FAIL  Tests\Feature\Auth\PasswordConfirmationTest
+  Γ¿» confirm password screen can be reΓÇª 0.04s  
+
+   FAIL  Tests\Feature\Auth\PasswordResetTest
+  Γ¿» reset password link screen can beΓÇª 0.04s  
+  Γ¿» reset password link can be requesΓÇª 0.04s  
+  Γ¿» reset password screen can be rendΓÇª 0.04s  
+  Γ¿» password can be reset with validΓÇª  0.04s  
+
+   FAIL  Tests\Feature\Auth\RegistrationTest
+  Γ¿» registration screen can be renderΓÇª 0.04s  
+  Γ¿» new users can register             0.03s  
+
+   FAIL  Tests\Feature\Auth\TwoFactorChallengeTest
+  Γ¿» two factor challenge redirects toΓÇª 0.03s  
+  Γ¿» two factor challenge can be rendeΓÇª 0.03s  
+
+   FAIL  Tests\Feature\ClientImportTest
+  Γ¿» server manager cannot import clieΓÇª 0.05s  
+  Γ¿» uploading a valid csv parses rowsΓÇª 0.10s  
+  Γ¿» row with missing name is marked iΓÇª 0.05s  
+  Γ¿» row with duplicate email is markeΓÇª 0.07s  
+  Γ¿» admin can import valid csv rows iΓÇª 0.06s  
+  Γ¿» invalid rows are skipped during iΓÇª 0.06s  
+  Γ¿» import resets state after completΓÇª 0.06s  
+
+   FAIL  Tests\Feature\ClientServiceTest
+  Γ¿» client services index page can beΓÇª 0.06s  
+  Γ¿» a new client service can be creatΓÇª 0.06s  
+  Γ¿» client service can be updated viaΓÇª 0.04s  
+  Γ¿» client service can be deleted viaΓÇª 0.04s  
+  Γ¿» client service validation fails wΓÇª 0.06s  
+
+   FAIL  Tests\Feature\ClientTest
+  Γ¿» guests cannot access clients page  0.05s  
+  Γ¿» marketing users can view the clieΓÇª 0.05s  
+  Γ¿» clients index shows list of clienΓÇª 0.04s  
+  Γ¿» clients index search filters resuΓÇª 0.04s  
+  Γ¿» marketing can create a client      0.04s  
+  Γ¿» admin can create a client          0.04s  
+  Γ¿» client name is required            0.04s  
+  Γ¿» marketing can update a client      0.04s  
+  Γ¿» admin can update a client          0.04s  
+  Γ¿» marketing cannot delete a client   0.04s  
+  Γ¿» admin cannot delete a client       0.04s  
+  Γ¿» marketing cannot restore a soft-dΓÇª 0.04s  
+
+   FAIL  Tests\Feature\DashboardTest
+  Γ¿» guests are redirected to the logiΓÇª 0.04s  
+  Γ¿» authenticated users can visit theΓÇª 0.03s  
+  Γ¿» dashboard shows total revenue froΓÇª 0.04s  
+  Γ£ô dashboard shows total active clieΓÇª 0.03s  
+  Γ¿» dashboard shows five most recentΓÇª  0.04s  
+  Γ¿» dashboard overdue count only inclΓÇª 0.04s  
+  Γ£ô marketing user does not see finanΓÇª 0.03s  
+  Γ¿» marketing user sees recent clientΓÇª 0.03s  
+  Γ£ô server manager does not see finanΓÇª 0.03s  
+  Γ¿» server manager sees expiring servΓÇª 0.04s  
+
+   FAIL  Tests\Feature\ExampleTest
+  Γ¿» returns a successful response      0.04s  
+
+   FAIL  Tests\Feature\InvoiceTest
+  Γ¿» guests cannot access invoices pagΓÇª 0.03s  
+  Γ¿» staff users cannot view the invoiΓÇª 0.03s  
+  Γ¿» invoices index shows invoice numbΓÇª 0.03s  
+  Γ¿» invoices index can be searched byΓÇª 0.03s  
+  Γ¿» admin can soft delete a draft invΓÇª 0.04s  
+  Γ¿» admin can restore a soft-deletedΓÇª  0.03s  
+  Γ¿» staff cannot access the invoice iΓÇª 0.03s  
+  Γ£ô paid invoice cannot be deleted     0.03s  
+  Γ£ô invoice total is calculated correΓÇª 0.04s  
+  Γ£ô invoice total is calculated correΓÇª 0.03s  
+  Γ£ô discount cannot exceed subtotal    0.03s  
+  Γ¿» guests cannot access invoice prinΓÇª 0.04s  
+  Γ¿» staff can access invoice print paΓÇª 0.05s  
+  Γ¿» invoice print page displays invoiΓÇª 0.04s  
+
+   FAIL  Tests\Feature\ProductImportTest
+  Γ¿» staff cannot import products       0.05s  
+  Γ¿» uploading a valid product csv parΓÇª 0.05s  
+  Γ¿» row with missing name is marked iΓÇª 0.05s  
+  Γ¿» row with missing price is markedΓÇª  0.07s  
+  Γ¿» row with non-numeric price is marΓÇª 0.06s  
+  Γ¿» admin can import valid product csΓÇª 0.06s  
+  Γ¿» invalid product rows are skippedΓÇª  0.06s  
+  Γ¿» product import resets state afterΓÇª 0.06s  
+
+   FAIL  Tests\Feature\ProductTest
+  Γ¿» guests cannot access products pagΓÇª 0.06s  
+  Γ¿» all authenticated users can viewΓÇª  0.03s  
+  Γ¿» products index shows list of prodΓÇª 0.03s  
+  Γ¿» products index search filters resΓÇª 0.03s  
+  Γ¿» super admin can create a product   0.04s  
+  Γ¿» admin cannot create a product      0.03s  
+  Γ¿» product name is required           0.04s  
+  Γ¿» product price must be numeric andΓÇª 0.04s  
+  Γ¿» super admin can update a product   0.03s  
+  Γ¿» super admin can soft delete a proΓÇª 0.04s  
+  Γ¿» super admin can restore a soft-deΓÇª 0.03s  
+
+   FAIL  Tests\Feature\RegistrationRestrictionTest
+  Γ£ô public registration route is disaΓÇª 0.05s  
+  Γ£ô public registration post is disabΓÇª 0.03s  
+  Γ¿» user management index is restrictΓÇª 0.03s  
+
+   FAIL  Tests\Feature\Settings\PasswordUpdateTest
+  Γ¿» password can be updated            0.05s  
+  Γ¿» correct password must be providedΓÇª 0.04s  
+
+   FAIL  Tests\Feature\Settings\ProfileUpdateTest
+  Γ¿» profile page is displayed          0.03s  
+  Γ¿» profile information can be updateΓÇª 0.05s  
+  Γ£ô email verification status is unchΓÇª 0.04s  
+  Γ¿» user can delete their account      0.04s  
+  Γ¿» correct password must be providedΓÇª 0.04s  
+
+   FAIL  Tests\Feature\Settings\TwoFactorAuthenticationTest
+  Γ¿» two factor settings page can be rΓÇª 0.04s  
+  Γ¿» two factor settings page requiresΓÇª 0.04s  
+  Γ¿» two factor settings page returnsΓÇª  0.05s  
+  Γ¿» two factor authentication disableΓÇª 0.04s  
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\AuthenticatiΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Auth\AuthenticationTest.php:9
+      5Γûò 
+      6Γûò test('login screen can be rendered', function () {
+      7Γûò     $response = $this->get(route('login'));
+      8Γûò 
+  Γ₧£   9Γûò     $response->assertOk();
+     10Γûò });
+     11Γûò 
+     12Γûò test('users can authenticate using the login screen', function () {
+     13Γûò     $user = User::factory()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\AuthenticatiΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\Auth\AuthenticationTest.php:22
+     18Γûò     ]);
+     19Γûò 
+     20Γûò     $response
+     21Γûò         ->assertSessionHasNoErrors()
+  Γ₧£  22Γûò         ->assertRedirect(route('dashboard', absolute: false));
+     23Γûò 
+     24Γûò     $this->assertAuthenticated();
+     25Γûò });
+     26Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\AuthenticatiΓÇª   
+  Session is missing expected key [errors].
+Failed asserting that false is true.
+
+  at tests\Feature\Auth\AuthenticationTest.php:35
+     31Γûò         'email' => $user->email,
+     32Γûò         'password' => 'wrong-password',
+     33Γûò     ]);
+     34Γûò 
+  Γ₧£  35Γûò     $response->assertSessionHasErrorsIn('email');
+     36Γûò 
+     37Γûò     $this->assertGuest();
+     38Γûò });
+     39Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\AuthenticatiΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\Auth\AuthenticationTest.php:57
+     53Γûò         'email' => $user->email,
+     54Γûò         'password' => 'password',
+     55Γûò     ]);
+     56Γûò 
+  Γ₧£  57Γûò     $response->assertRedirect(route('two-factor.login'));
+     58Γûò     $this->assertGuest();
+     59Γûò });
+     60Γûò 
+     61Γûò test('users can logout', function () {
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\AuthenticatiΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\Auth\AuthenticationTest.php:66
+     62Γûò     $user = User::factory()->create();
+     63Γûò 
+     64Γûò     $response = $this->actingAs($user)->post(route('logout'));
+     65Γûò 
+  Γ₧£  66Γûò     $response->assertRedirect(route('home'));
+     67Γûò 
+     68Γûò     $this->assertGuest();
+     69Γûò });
+     70Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\EmailVerificΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Auth\EmailVerificationTest.php:13
+      9Γûò     $user = User::factory()->unverified()->create();
+     10Γûò 
+     11Γûò     $response = $this->actingAs($user)->get(route('verification.notice'));
+     12Γûò 
+  Γ₧£  13Γûò     $response->assertOk();
+     14Γûò });
+     15Γûò 
+     16Γûò test('email can be verified', function () {
+     17Γûò     $user = User::factory()->unverified()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\EmailVerificΓÇª   
+  The expected [Illuminate\Auth\Events\Verified] event was not dispatched.
+Failed asserting that false is true.
+
+  at vendor\laravel\framework\src\Illuminate\Support\Testing\Fakes\EventFake.php:144
+    140Γûò         if (is_int($callback)) {
+    141Γûò             return $this->assertDispatchedTimes($event, $callback);
+    142Γûò         }
+    143Γûò 
+  Γ₧£ 144Γûò         PHPUnit::assertTrue(
+    145Γûò             $this->dispatched($event, $callback)->count() > 0,
+    146Γûò             "The expected [{$event}] event was not dispatched."
+    147Γûò         );
+    148Γûò     }
+
+  1   vendor\laravel\framework\src\Illuminate\Support\Testing\Fakes\EventFake.php:144
+  2   vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php:363
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\EmailVerificΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\Auth\EmailVerificationTest.php:63
+     59Γûò         ['id' => $user->id, 'hash' => sha1($user->email)]
+     60Γûò     );
+     61Γûò 
+     62Γûò     $this->actingAs($user)->get($verificationUrl)
+  Γ₧£  63Γûò         ->assertRedirect(route('dashboard', absolute: false).'?verified=1');
+     64Γûò 
+     65Γûò     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
+     66Γûò     Event::assertNotDispatched(Verified::class);
+     67Γûò });
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\PasswordConfΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Auth\PasswordConfirmationTest.php:10
+      6Γûò     $user = User::factory()->create();
+      7Γûò 
+      8Γûò     $response = $this->actingAs($user)->get(route('password.confirm'));
+      9Γûò 
+  Γ₧£  10Γûò     $response->assertOk();
+     11Γûò });
+     12Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\PasswordReseΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Auth\PasswordResetTest.php:10
+      6Γûò 
+      7Γûò test('reset password link screen can be rendered', function () {
+      8Γûò     $response = $this->get(route('password.request'));
+      9Γûò 
+  Γ₧£  10Γûò     $response->assertOk();
+     11Γûò });
+     12Γûò 
+     13Γûò test('reset password link can be requested', function () {
+     14Γûò     Notification::fake();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\PasswordReseΓÇª   
+  The expected [Illuminate\Auth\Notifications\ResetPassword] notification was not sent.
+Failed asserting that false is true.
+
+  at vendor\laravel\framework\src\Illuminate\Support\Testing\Fakes\NotificationFake.php:89
+     85Γûò         if (is_numeric($callback)) {
+     86Γûò             return $this->assertSentToTimes($notifiable, $notification, $callback);
+     87Γûò         }
+     88Γûò 
+  Γ₧£  89Γûò         PHPUnit::assertTrue(
+     90Γûò             $this->sent($notifiable, $notification, $callback)->count() > 0,
+     91Γûò             "The expected [{$notification}] notification was not sent."
+     92Γûò         );
+     93Γûò     }
+
+  1   vendor\laravel\framework\src\Illuminate\Support\Testing\Fakes\NotificationFake.php:89
+  2   vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php:363
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\PasswordReseΓÇª   
+  The expected [Illuminate\Auth\Notifications\ResetPassword] notification was not sent.
+Failed asserting that false is true.
+
+  at vendor\laravel\framework\src\Illuminate\Support\Testing\Fakes\NotificationFake.php:89
+     85Γûò         if (is_numeric($callback)) {
+     86Γûò             return $this->assertSentToTimes($notifiable, $notification, $callback);
+     87Γûò         }
+     88Γûò 
+  Γ₧£  89Γûò         PHPUnit::assertTrue(
+     90Γûò             $this->sent($notifiable, $notification, $callback)->count() > 0,
+     91Γûò             "The expected [{$notification}] notification was not sent."
+     92Γûò         );
+     93Γûò     }
+
+  1   vendor\laravel\framework\src\Illuminate\Support\Testing\Fakes\NotificationFake.php:89
+  2   vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php:363
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\PasswordReseΓÇª   
+  The expected [Illuminate\Auth\Notifications\ResetPassword] notification was not sent.
+Failed asserting that false is true.
+
+  at vendor\laravel\framework\src\Illuminate\Support\Testing\Fakes\NotificationFake.php:89
+     85Γûò         if (is_numeric($callback)) {
+     86Γûò             return $this->assertSentToTimes($notifiable, $notification, $callback);
+     87Γûò         }
+     88Γûò 
+  Γ₧£  89Γûò         PHPUnit::assertTrue(
+     90Γûò             $this->sent($notifiable, $notification, $callback)->count() > 0,
+     91Γûò             "The expected [{$notification}] notification was not sent."
+     92Γûò         );
+     93Γûò     }
+
+  1   vendor\laravel\framework\src\Illuminate\Support\Testing\Fakes\NotificationFake.php:89
+  2   vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php:363
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\RegistrationΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Auth\RegistrationTest.php:6
+      2Γûò 
+      3Γûò test('registration screen can be rendered', function () {
+      4Γûò     $response = $this->get(route('register'));
+      5Γûò 
+  Γ₧£   6Γûò     $response->assertOk();
+      7Γûò });
+      8Γûò 
+      9Γûò test('new users can register', function () {
+     10Γûò     $response = $this->post(route('register.store'), [
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\RegistrationΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\Auth\RegistrationTest.php:18
+     14Γûò         'password_confirmation' => 'password',
+     15Γûò     ]);
+     16Γûò 
+     17Γûò     $response->assertSessionHasNoErrors()
+  Γ₧£  18Γûò         ->assertRedirect(route('dashboard', absolute: false));
+     19Γûò 
+     20Γûò     $this->assertAuthenticated();
+     21Γûò });
+     22Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\TwoFactorChaΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\Auth\TwoFactorChallengeTest.php:13
+      9Γûò     }
+     10Γûò 
+     11Γûò     $response = $this->get(route('two-factor.login'));
+     12Γûò 
+  Γ₧£  13Γûò     $response->assertRedirect(route('login'));
+     14Γûò });
+     15Γûò 
+     16Γûò test('two factor challenge can be rendered', function () {
+     17Γûò     if (! Features::canManageTwoFactorAuthentication()) {
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Auth\TwoFactorChaΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\Auth\TwoFactorChallengeTest.php:31
+     27Γûò 
+     28Γûò     $this->post(route('login.store'), [
+     29Γûò         'email' => $user->email,
+     30Γûò         'password' => 'password',
+  Γ₧£  31Γûò     ])->assertRedirect(route('two-factor.login'));
+     32Γûò });
+     33Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientImportTestΓÇª    
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\Testable.php:417
+    413Γûò         if (static::hasMacro($method)) {
+    414Γûò             return $this->macroCall($method, $params);
+    415Γûò         }
+    416Γûò 
+  Γ₧£ 417Γûò         $this->lastState->getResponse()->{$method}(...$params);
+    418Γûò 
+    419Γûò         return $this;
+    420Γûò     }
+    421Γûò }
+
+  1   tests\Feature\ClientImportTest.php:19
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests</>ΓÇª  InvalidExpectationValue   
+  Invalid expectation value type. Expected [countable|iterable].
+
+  at tests\Feature\ClientImportTest.php:39
+     35Γûò         ->set('csvFile', $file);
+     36Γûò 
+     37Γûò     $rows = $component->get('rows');
+     38Γûò 
+  Γ₧£  39Γûò     expect($rows)->toHaveCount(2)
+     40Γûò         ->and($rows[0]['name'])->toBe('Budi Santoso')
+     41Γûò         ->and($rows[0]['valid'])->toBeTrue()
+     42Γûò         ->and($rows[1]['name'])->toBe('Ani Wulandari')
+     43Γûò         ->and($rows[1]['valid'])->toBeTrue();
+
+  1   tests\Feature\ClientImportTest.php:39
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\CΓÇª  ErrorException   
+  Trying to access array offset on null
+
+  at tests\Feature\ClientImportTest.php:60
+     56Γûò         ->set('csvFile', $file);
+     57Γûò 
+     58Γûò     $rows = $component->get('rows');
+     59Γûò 
+  Γ₧£  60Γûò     expect($rows[0]['valid'])->toBeFalse()
+     61Γûò         ->and($rows[0]['errors'])->not->toBeEmpty();
+     62Γûò });
+     63Γûò 
+     64Γûò test('row with duplicate email is marked invalid', function () {
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\CΓÇª  ErrorException   
+  Trying to access array offset on null
+
+  at tests\Feature\ClientImportTest.php:79
+     75Γûò         ->set('csvFile', $file);
+     76Γûò 
+     77Γûò     $rows = $component->get('rows');
+     78Γûò 
+  Γ₧£  79Γûò     expect($rows[0]['valid'])->toBeFalse();
+     80Γûò });
+     81Γûò 
+     82Γûò // --- Process Import ---
+     83Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientImportTestΓÇª    
+  Failed asserting that an event [client-saved] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\ClientImportTest.php:97
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientImportTestΓÇª    
+  Failed asserting that null is identical to 1.
+
+  at tests\Feature\ClientImportTest.php:118
+    114Γûò         ->test(Import::class)
+    115Γûò         ->set('csvFile', $file)
+    116Γûò         ->call('processImport');
+    117Γûò 
+  Γ₧£ 118Γûò     expect($component->get('importedCount'))->toBe(1)
+    119Γûò         ->and($component->get('skippedCount'))->toBeGreaterThanOrEqual(1);
+    120Γûò 
+    121Γûò     $this->assertDatabaseHas('clients', ['name' => 'Klien Valid']);
+    122Γûò });
+
+  1   tests\Feature\ClientImportTest.php:118
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientImportTestΓÇª    
+  Failed asserting that null is true.
+
+  at tests\Feature\ClientImportTest.php:136
+    132Γûò         ->set('csvFile', $file)
+    133Γûò         ->call('processImport');
+    134Γûò 
+    135Γûò     expect($component->get('rows'))->toBeEmpty()
+  Γ₧£ 136Γûò         ->and($component->get('importDone'))->toBeTrue();
+    137Γûò });
+    138Γûò
+
+  1   tests\Feature\ClientImportTest.php:136
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientServiceTestΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\ClientServiceTest.php:24
+     20Γûò     ClientService::factory()->count(3)->create();
+     21Γûò 
+     22Γûò     $this->actingAs($this->user)
+     23Γûò         ->get('/client-services')
+  Γ₧£  24Γûò         ->assertStatus(200)
+     25Γûò         ->assertSeeLivewire(Index::class);
+     26Γûò });
+     27Γûò 
+     28Γûò test('a new client service can be created via form modal', function () {
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientServiceTestΓÇª   
+  Failed asserting that an event [client-service-saved] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\ClientServiceTest.php:42
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientServiceTestΓÇª   
+  Failed asserting that an event [client-service-saved] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\ClientServiceTest.php:64
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientServiceTestΓÇª   
+  Failed asserting that a row in the table [client_services] does not match the attributes {
+    "id": 1
+}.
+
+Found similar results: [
+    {
+        "id": 1
+    }
+].
+
+  at tests\Feature\ClientServiceTest.php:82
+     78Γûò         ->test(Index::class)
+     79Γûò         ->call('confirmDelete', $service->id)
+     80Γûò         ->call('delete');
+     81Γûò 
+  Γ₧£  82Γûò     $this->assertDatabaseMissing('client_services', [
+     83Γûò         'id' => $service->id,
+     84Γûò     ]);
+     85Γûò });
+     86Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientServiceTestΓÇª   
+  Component has no errors.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+     36Γûò     public function assertHasErrors($keys = [])
+     37Γûò     {
+     38Γûò         $errors = $this->errors();
+     39Γûò 
+  Γ₧£  40Γûò         PHPUnit::assertTrue($errors->isNotEmpty(), 'Component has no errors.');
+     41Γûò 
+     42Γûò         $keys = (array) $keys;
+     43Γûò 
+     44Γûò         foreach ($keys as $key => $value) {
+
+  1   vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+  2   tests\Feature\ClientServiceTest.php:98
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > guesΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\ClientTest.php:13
+      9Γûò 
+     10Γûò // --- Authorization ---
+     11Γûò 
+     12Γûò test('guests cannot access clients page', function () {
+  Γ₧£  13Γûò     $this->withoutVite()->get(route('clients.index'))->assertRedirect(route('login'));
+     14Γûò });
+     15Γûò 
+     16Γûò test('marketing users can view the clients page', function () {
+     17Γûò     $user = User::factory()->marketing()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > markΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\ClientTest.php:18
+     14Γûò });
+     15Γûò 
+     16Γûò test('marketing users can view the clients page', function () {
+     17Γûò     $user = User::factory()->marketing()->create();
+  Γ₧£  18Γûò     $this->withoutVite()->actingAs($user)->get(route('clients.index'))->assertOk();
+     19Γûò });
+     20Γûò 
+     21Γûò // --- Client Index (Livewire) ---
+     22Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > clieΓÇª   
+  Expected: \n
+\n
+    \n
+        \n
+        \n
+\n
+        Not Found\n
+\n
+        \n
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-300 { --text-opacity: 1; color: #e2e8f0; color: rgba(226,232,240,var(--text-opacity)) }}\n
+        \n
+\n
+        \n
+            body {\n
+                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";\n
+            }\n
+        \n
+    \n
+    \n
+        \n
+            \n
+                \n
+                    \n
+                        404                    \n
+\n
+                    \n
+                        Not Found                    \n
+                \n
+            \n
+        \n
+    \n
+\n
+
+
+  To contain: Raina Pudjiastuti S.T.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+     75Γûò         $content = $this->html();
+     76Γûò 
+     77Γûò         tap(strip_tags($content), function ($content) use ($values) {
+     78Γûò             foreach ($values as $value) {
+  Γ₧£  79Γûò                 PHPUnit::assertStringContainsString((string) $value, $content);
+     80Γûò             }
+     81Γûò         });
+     82Γûò 
+     83Γûò         return $this;
+
+  1   vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+  2   vendor\laravel\framework\src\Illuminate\Support\helpers.php:388
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > clieΓÇª   
+  Expected: 
+
+  To contain: Budi Santoso
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+     75Γûò         $content = $this->html();
+     76Γûò 
+     77Γûò         tap(strip_tags($content), function ($content) use ($values) {
+     78Γûò             foreach ($values as $value) {
+  Γ₧£  79Γûò                 PHPUnit::assertStringContainsString((string) $value, $content);
+     80Γûò             }
+     81Γûò         });
+     82Γûò 
+     83Γûò         return $this;
+
+  1   vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+  2   vendor\laravel\framework\src\Illuminate\Support\helpers.php:388
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > markΓÇª   
+  Failed asserting that an event [client-saved] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\ClientTest.php:57
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > admiΓÇª   
+  Failed asserting that an event [client-saved] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\ClientTest.php:71
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > clieΓÇª   
+  Component has no errors.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+     36Γûò     public function assertHasErrors($keys = [])
+     37Γûò     {
+     38Γûò         $errors = $this->errors();
+     39Γûò 
+  Γ₧£  40Γûò         PHPUnit::assertTrue($errors->isNotEmpty(), 'Component has no errors.');
+     41Γûò 
+     42Γûò         $keys = (array) $keys;
+     43Γûò 
+     44Γûò         foreach ($keys as $key => $value) {
+
+  1   vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+  2   tests\Feature\ClientTest.php:82
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > markΓÇª   
+  Failed asserting that an event [client-saved] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\ClientTest.php:96
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > admiΓÇª   
+  Failed asserting that an event [client-saved] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\ClientTest.php:110
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > markΓÇª   
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\Testable.php:417
+    413Γûò         if (static::hasMacro($method)) {
+    414Γûò             return $this->macroCall($method, $params);
+    415Γûò         }
+    416Γûò 
+  Γ₧£ 417Γûò         $this->lastState->getResponse()->{$method}(...$params);
+    418Γûò 
+    419Γûò         return $this;
+    420Γûò     }
+    421Γûò }
+
+  1   tests\Feature\ClientTest.php:123
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > admiΓÇª   
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\Testable.php:417
+    413Γûò         if (static::hasMacro($method)) {
+    414Γûò             return $this->macroCall($method, $params);
+    415Γûò         }
+    416Γûò 
+  Γ₧£ 417Γûò         $this->lastState->getResponse()->{$method}(...$params);
+    418Γûò 
+    419Γûò         return $this;
+    420Γûò     }
+    421Γûò }
+
+  1   tests\Feature\ClientTest.php:134
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ClientTest > markΓÇª   
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\Testable.php:417
+    413Γûò         if (static::hasMacro($method)) {
+    414Γûò             return $this->macroCall($method, $params);
+    415Γûò         }
+    416Γûò 
+  Γ₧£ 417Γûò         $this->lastState->getResponse()->{$method}(...$params);
+    418Γûò 
+    419Γûò         return $this;
+    420Γûò     }
+    421Γûò }
+
+  1   tests\Feature\ClientTest.php:145
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\DashboardTest > gΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\DashboardTest.php:14
+     10Γûò use App\Models\User;
+     11Γûò 
+     12Γûò test('guests are redirected to the login page', function () {
+     13Γûò     $response = $this->get(route('dashboard'));
+  Γ₧£  14Γûò     $response->assertRedirect(route('login'));
+     15Γûò });
+     16Γûò 
+     17Γûò test('authenticated users can visit the dashboard', function () {
+     18Γûò     $user = User::factory()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\DashboardTest > aΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\DashboardTest.php:22
+     18Γûò     $user = User::factory()->create();
+     19Γûò     $this->actingAs($user);
+     20Γûò 
+     21Γûò     $response = $this->get(route('dashboard'));
+  Γ₧£  22Γûò     $response->assertOk();
+     23Γûò });
+     24Γûò 
+     25Γûò test('dashboard shows total revenue from paid invoices', function () {
+     26Γûò     $admin = User::factory()->superAdmin()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\DashboardTest > dΓÇª   
+  Expected: \n
+\n
+    \n
+        \n
+        \n
+\n
+        Not Found\n
+\n
+        \n
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-300 { --text-opacity: 1; color: #e2e8f0; color: rgba(226,232,240,var(--text-opacity)) }}\n
+        \n
+\n
+        \n
+            body {\n
+                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";\n
+            }\n
+        \n
+    \n
+    \n
+        \n
+            \n
+                \n
+                    \n
+                        404                    \n
+\n
+                    \n
+                        Not Found                    \n
+                \n
+            \n
+        \n
+    \n
+\n
+
+
+  To contain: 1.000.000
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+     75Γûò         $content = $this->html();
+     76Γûò 
+     77Γûò         tap(strip_tags($content), function ($content) use ($values) {
+     78Γûò             foreach ($values as $value) {
+  Γ₧£  79Γûò                 PHPUnit::assertStringContainsString((string) $value, $content);
+     80Γûò             }
+     81Γûò         });
+     82Γûò 
+     83Γûò         return $this;
+
+  1   vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+  2   vendor\laravel\framework\src\Illuminate\Support\helpers.php:388
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\DΓÇª  ErrorException   
+  Attempt to read property "recentInvoices" on null
+
+  at tests\Feature\DashboardTest.php:69
+     65Γûò     ]);
+     66Γûò 
+     67Γûò     $component = \Livewire\Livewire::actingAs($admin)->test(Dashboard::class);
+     68Γûò 
+  Γ₧£  69Γûò     expect($component->instance()->recentInvoices)->toHaveCount(5);
+     70Γûò });
+     71Γûò 
+     72Γûò test('dashboard overdue count only includes overdue invoices', function () {
+     73Γûò     $admin = User::factory()->admin()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\DΓÇª  ErrorException   
+  Attempt to read property "overdueCount" on null
+
+  at tests\Feature\DashboardTest.php:90
+     86Γûò     ]);
+     87Γûò 
+     88Γûò     $component = \Livewire\Livewire::actingAs($admin)->test(Dashboard::class);
+     89Γûò 
+  Γ₧£  90Γûò     expect($component->instance()->overdueCount)->toBe(1);
+     91Γûò });
+     92Γûò 
+     93Γûò test('marketing user does not see financial data on dashboard', function () {
+     94Γûò     $marketing = User::factory()->marketing()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\DashboardTest > mΓÇª   
+  Expected: \n
+\n
+    \n
+        \n
+        \n
+\n
+        Not Found\n
+\n
+        \n
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-300 { --text-opacity: 1; color: #e2e8f0; color: rgba(226,232,240,var(--text-opacity)) }}\n
+        \n
+\n
+        \n
+            body {\n
+                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";\n
+            }\n
+        \n
+    \n
+    \n
+        \n
+            \n
+                \n
+                    \n
+                        404                    \n
+\n
+                    \n
+                        Not Found                    \n
+                \n
+            \n
+        \n
+    \n
+\n
+
+
+  To contain: Klien Terbaru
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+     75Γûò         $content = $this->html();
+     76Γûò 
+     77Γûò         tap(strip_tags($content), function ($content) use ($values) {
+     78Γûò             foreach ($values as $value) {
+  Γ₧£  79Γûò                 PHPUnit::assertStringContainsString((string) $value, $content);
+     80Γûò             }
+     81Γûò         });
+     82Γûò 
+     83Γûò         return $this;
+
+  1   vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+  2   vendor\laravel\framework\src\Illuminate\Support\helpers.php:388
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\DashboardTest > sΓÇª   
+  Expected: \n
+\n
+    \n
+        \n
+        \n
+\n
+        Not Found\n
+\n
+        \n
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-300 { --text-opacity: 1; color: #e2e8f0; color: rgba(226,232,240,var(--text-opacity)) }}\n
+        \n
+\n
+        \n
+            body {\n
+                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";\n
+            }\n
+        \n
+    \n
+    \n
+        \n
+            \n
+                \n
+                    \n
+                        404                    \n
+\n
+                    \n
+                        Not Found                    \n
+                \n
+            \n
+        \n
+    \n
+\n
+
+
+  To contain: Layanan Akan Expired
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+     75Γûò         $content = $this->html();
+     76Γûò 
+     77Γûò         tap(strip_tags($content), function ($content) use ($values) {
+     78Γûò             foreach ($values as $value) {
+  Γ₧£  79Γûò                 PHPUnit::assertStringContainsString((string) $value, $content);
+     80Γûò             }
+     81Γûò         });
+     82Γûò 
+     83Γûò         return $this;
+
+  1   vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+  2   vendor\laravel\framework\src\Illuminate\Support\helpers.php:388
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ExampleTest > retΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\ExampleTest.php:6
+      2Γûò 
+      3Γûò test('returns a successful response', function () {
+      4Γûò     $response = $this->get(route('home'));
+      5Γûò 
+  Γ₧£   6Γûò     $response->assertRedirect(route('dashboard'));
+      7Γûò });
+      8Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\InvoiceTest > gueΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\InvoiceTest.php:17
+     13Γûò 
+     14Γûò // --- Authorization ---
+     15Γûò 
+     16Γûò test('guests cannot access invoices page', function () {
+  Γ₧£  17Γûò     $this->withoutVite()->get(route('invoices.index'))->assertRedirect(route('login'));
+     18Γûò });
+     19Γûò 
+     20Γûò test('staff users cannot view the invoices page', function () {
+     21Γûò     $user = User::factory()->staff()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\InvoiceTest > staΓÇª   
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at tests\Feature\InvoiceTest.php:22
+     18Γûò });
+     19Γûò 
+     20Γûò test('staff users cannot view the invoices page', function () {
+     21Γûò     $user = User::factory()->staff()->create();
+  Γ₧£  22Γûò     $this->withoutVite()->actingAs($user)->get(route('invoices.index'))->assertForbidden();
+     23Γûò });
+     24Γûò 
+     25Γûò // --- Invoice Index (Livewire) ---
+     26Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\InvoiceTest > invΓÇª   
+  Expected: \n
+\n
+    \n
+        \n
+        \n
+\n
+        Not Found\n
+\n
+        \n
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-300 { --text-opacity: 1; color: #e2e8f0; color: rgba(226,232,240,var(--text-opacity)) }}\n
+        \n
+\n
+        \n
+            body {\n
+                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";\n
+            }\n
+        \n
+    \n
+    \n
+        \n
+            \n
+                \n
+                    \n
+                        404                    \n
+\n
+                    \n
+                        Not Found                    \n
+                \n
+            \n
+        \n
+    \n
+\n
+
+
+  To contain: INV-TEST-0001
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+     75Γûò         $content = $this->html();
+     76Γûò 
+     77Γûò         tap(strip_tags($content), function ($content) use ($values) {
+     78Γûò             foreach ($values as $value) {
+  Γ₧£  79Γûò                 PHPUnit::assertStringContainsString((string) $value, $content);
+     80Γûò             }
+     81Γûò         });
+     82Γûò 
+     83Γûò         return $this;
+
+  1   vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+  2   vendor\laravel\framework\src\Illuminate\Support\helpers.php:388
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\InvoiceTest > invΓÇª   
+  Expected: 
+
+  To contain: INV-2026-0001
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+     75Γûò         $content = $this->html();
+     76Γûò 
+     77Γûò         tap(strip_tags($content), function ($content) use ($values) {
+     78Γûò             foreach ($values as $value) {
+  Γ₧£  79Γûò                 PHPUnit::assertStringContainsString((string) $value, $content);
+     80Γûò             }
+     81Γûò         });
+     82Γûò 
+     83Γûò         return $this;
+
+  1   vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+  2   vendor\laravel\framework\src\Illuminate\Support\helpers.php:388
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\InvoiceTest > admΓÇª   
+  Failed asserting that any soft deleted row in the table [invoices] matches the attributes {"id":1}.
+
+Found: [
+    {
+        "id": 1,
+        "client_id": 1,
+        "created_by": 1,
+        "invoice_number": "INV-DEL-0001",
+        "issue_date": "2026-02-11 17:01:34",
+        "due_date": "2026-04-04 19:15:20",
+        "status": "draft",
+        "subtotal": 0,
+        "tax_rate": 11,
+        "tax": 0,
+        "discount_type": "fixed",
+        "discount_rate": 0,
+        "discount": 0,
+        "grand_total": 0,
+        "notes": null,
+        "paid_at": null,
+        "created_at": "2026-03-05 00:33:00",
+        "updated_at": "2026-03-05 00:33:00",
+        "deleted_at": null
+    }
+].
+
+  at tests\Feature\InvoiceTest.php:83
+     79Γûò         ->test(Index::class)
+     80Γûò         ->call('confirmDelete', $invoice->id)
+     81Γûò         ->call('delete');
+     82Γûò 
+  Γ₧£  83Γûò     $this->assertSoftDeleted('invoices', ['id' => $invoice->id]);
+     84Γûò });
+     85Γûò 
+     86Γûò test('admin can restore a soft-deleted invoice', function () {
+     87Γûò     $admin = User::factory()->admin()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\InvoiceTest > admΓÇª   
+  Failed asserting that any existing row in the table [invoices] matches the attributes {"id":1}.
+
+Found: [
+    {
+        "id": 1,
+        "client_id": 1,
+        "created_by": 1,
+        "invoice_number": "INV-RST-0001",
+        "issue_date": "2026-01-18 04:25:31",
+        "due_date": "2026-03-19 16:02:50",
+        "status": "draft",
+        "subtotal": 0,
+        "tax_rate": 11,
+        "tax": 0,
+        "discount_type": "fixed",
+        "discount_rate": 0,
+        "discount": 0,
+        "grand_total": 0,
+        "notes": null,
+        "paid_at": null,
+        "created_at": "2026-03-05 00:33:00",
+        "updated_at": "2026-03-05 00:33:00",
+        "deleted_at": "2026-03-05 00:33:00"
+    }
+].
+
+  at tests\Feature\InvoiceTest.php:101
+     97Γûò     \Livewire\Livewire::actingAs($admin)
+     98Γûò         ->test(Index::class)
+     99Γûò         ->call('restore', $invoice->id);
+    100Γûò 
+  Γ₧£ 101Γûò     $this->assertNotSoftDeleted('invoices', ['id' => $invoice->id]);
+    102Γûò });
+    103Γûò 
+    104Γûò test('staff cannot access the invoice index component', function () {
+    105Γûò     $staff = User::factory()->staff()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\InvoiceTest > staΓÇª   
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\Testable.php:417
+    413Γûò         if (static::hasMacro($method)) {
+    414Γûò             return $this->macroCall($method, $params);
+    415Γûò         }
+    416Γûò 
+  Γ₧£ 417Γûò         $this->lastState->getResponse()->{$method}(...$params);
+    418Γûò 
+    419Γûò         return $this;
+    420Γûò     }
+    421Γûò }
+
+  1   tests\Feature\InvoiceTest.php:109
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\InvoiceTest > gueΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\InvoiceTest.php:242
+    238Γûò     ]);
+    239Γûò 
+    240Γûò     $this->withoutVite()
+    241Γûò         ->get(route('invoices.print', $invoice))
+  Γ₧£ 242Γûò         ->assertRedirect(route('login'));
+    243Γûò });
+    244Γûò 
+    245Γûò test('staff can access invoice print page', function () {
+    246Γûò     $staff = User::factory()->staff()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\InvoiceTest > staΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\InvoiceTest.php:257
+    253Γûò 
+    254Γûò     $this->withoutVite()
+    255Γûò         ->actingAs($staff)
+    256Γûò         ->get(route('invoices.print', $invoice))
+  Γ₧£ 257Γûò         ->assertOk();
+    258Γûò });
+    259Γûò 
+    260Γûò test('invoice print page displays invoice number and client name', function () {
+    261Γûò     $admin = User::factory()->admin()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\InvoiceTest > invΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\InvoiceTest.php:273
+    269Γûò 
+    270Γûò     $this->withoutVite()
+    271Γûò         ->actingAs($admin)
+    272Γûò         ->get(route('invoices.print', $invoice))
+  Γ₧£ 273Γûò         ->assertOk()
+    274Γûò         ->assertSee('INV-PRINT-0001')
+    275Γûò         ->assertSee('PT Contoh Klien');
+    276Γûò });
+    277Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductImportTestΓÇª   
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\Testable.php:417
+    413Γûò         if (static::hasMacro($method)) {
+    414Γûò             return $this->macroCall($method, $params);
+    415Γûò         }
+    416Γûò 
+  Γ₧£ 417Γûò         $this->lastState->getResponse()->{$method}(...$params);
+    418Γûò 
+    419Γûò         return $this;
+    420Γûò     }
+    421Γûò }
+
+  1   tests\Feature\ProductImportTest.php:18
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests</>ΓÇª  InvalidExpectationValue   
+  Invalid expectation value type. Expected [countable|iterable].
+
+  at tests\Feature\ProductImportTest.php:38
+     34Γûò         ->set('csvFile', $file);
+     35Γûò 
+     36Γûò     $rows = $component->get('rows');
+     37Γûò 
+  Γ₧£  38Γûò     expect($rows)->toHaveCount(2)
+     39Γûò         ->and($rows[0]['name'])->toBe('Jasa Desain Web')
+     40Γûò         ->and($rows[0]['default_price'])->toBe('2500000')
+     41Γûò         ->and($rows[0]['valid'])->toBeTrue()
+     42Γûò         ->and($rows[1]['name'])->toBe('Jasa Maintenance')
+
+  1   tests\Feature\ProductImportTest.php:38
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\PΓÇª  ErrorException   
+  Trying to access array offset on null
+
+  at tests\Feature\ProductImportTest.php:60
+     56Γûò         ->set('csvFile', $file);
+     57Γûò 
+     58Γûò     $rows = $component->get('rows');
+     59Γûò 
+  Γ₧£  60Γûò     expect($rows[0]['valid'])->toBeFalse()
+     61Γûò         ->and($rows[0]['errors'])->not->toBeEmpty();
+     62Γûò });
+     63Γûò 
+     64Γûò test('row with missing price is marked invalid', function () {
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\PΓÇª  ErrorException   
+  Trying to access array offset on null
+
+  at tests\Feature\ProductImportTest.php:78
+     74Γûò         ->set('csvFile', $file);
+     75Γûò 
+     76Γûò     $rows = $component->get('rows');
+     77Γûò 
+  Γ₧£  78Γûò     expect($rows[0]['valid'])->toBeFalse();
+     79Γûò });
+     80Γûò 
+     81Γûò test('row with non-numeric price is marked invalid', function () {
+     82Γûò     $admin = User::factory()->superAdmin()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductImportTestΓÇª   
+  Failed asserting that null is false.
+
+  at tests\Feature\ProductImportTest.php:93
+     89Γûò     $component = Livewire::actingAs($admin)
+     90Γûò         ->test(Import::class)
+     91Γûò         ->set('csvFile', $file);
+     92Γûò 
+  Γ₧£  93Γûò     expect($component->get('rows.0.valid'))->toBeFalse();
+     94Γûò });
+     95Γûò 
+     96Γûò // --- Process Import ---
+     97Γûò
+
+  1   tests\Feature\ProductImportTest.php:93
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductImportTestΓÇª   
+  Failed asserting that an event [product-saved] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\ProductImportTest.php:111
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductImportTestΓÇª   
+  Failed asserting that null is identical to 1.
+
+  at tests\Feature\ProductImportTest.php:132
+    128Γûò         ->test(Import::class)
+    129Γûò         ->set('csvFile', $file)
+    130Γûò         ->call('processImport');
+    131Γûò 
+  Γ₧£ 132Γûò     expect($component->get('importedCount'))->toBe(1)
+    133Γûò         ->and($component->get('skippedCount'))->toBeGreaterThanOrEqual(1);
+    134Γûò 
+    135Γûò     $this->assertDatabaseHas('products', ['name' => 'Produk Valid']);
+    136Γûò });
+
+  1   tests\Feature\ProductImportTest.php:132
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductImportTestΓÇª   
+  Failed asserting that null is true.
+
+  at tests\Feature\ProductImportTest.php:150
+    146Γûò         ->set('csvFile', $file)
+    147Γûò         ->call('processImport');
+    148Γûò 
+    149Γûò     expect($component->get('rows'))->toBeEmpty()
+  Γ₧£ 150Γûò         ->and($component->get('importDone'))->toBeTrue();
+    151Γûò });
+    152Γûò
+
+  1   tests\Feature\ProductImportTest.php:150
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > gueΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\ProductTest.php:14
+     10Γûò 
+     11Γûò // --- Authorization ---
+     12Γûò 
+     13Γûò test('guests cannot access products page', function () {
+  Γ₧£  14Γûò     $this->withoutVite()->get(route('products.index'))->assertRedirect(route('login'));
+     15Γûò });
+     16Γûò 
+     17Γûò test('all authenticated users can view the products page', function () {
+     18Γûò     $user = User::factory()->marketing()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > allΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\ProductTest.php:19
+     15Γûò });
+     16Γûò 
+     17Γûò test('all authenticated users can view the products page', function () {
+     18Γûò     $user = User::factory()->marketing()->create();
+  Γ₧£  19Γûò     $this->withoutVite()->actingAs($user)->get(route('products.index'))->assertOk();
+     20Γûò });
+     21Γûò 
+     22Γûò // --- Product Index ---
+     23Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > proΓÇª   
+  Expected: \n
+\n
+    \n
+        \n
+        \n
+\n
+        Not Found\n
+\n
+        \n
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-300 { --text-opacity: 1; color: #e2e8f0; color: rgba(226,232,240,var(--text-opacity)) }}\n
+        \n
+\n
+        \n
+            body {\n
+                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";\n
+            }\n
+        \n
+    \n
+    \n
+        \n
+            \n
+                \n
+                    \n
+                        404                    \n
+\n
+                    \n
+                        Not Found                    \n
+                \n
+            \n
+        \n
+    \n
+\n
+
+
+  To contain: Jasa Desain Logo
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+     75Γûò         $content = $this->html();
+     76Γûò 
+     77Γûò         tap(strip_tags($content), function ($content) use ($values) {
+     78Γûò             foreach ($values as $value) {
+  Γ₧£  79Γûò                 PHPUnit::assertStringContainsString((string) $value, $content);
+     80Γûò             }
+     81Γûò         });
+     82Γûò 
+     83Γûò         return $this;
+
+  1   vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+  2   vendor\laravel\framework\src\Illuminate\Support\helpers.php:388
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > proΓÇª   
+  Expected: 
+
+  To contain: Jasa Cetak
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+     75Γûò         $content = $this->html();
+     76Γûò 
+     77Γûò         tap(strip_tags($content), function ($content) use ($values) {
+     78Γûò             foreach ($values as $value) {
+  Γ₧£  79Γûò                 PHPUnit::assertStringContainsString((string) $value, $content);
+     80Γûò             }
+     81Γûò         });
+     82Γûò 
+     83Γûò         return $this;
+
+  1   vendor\livewire\livewire\src\Features\SupportTesting\MakesAssertions.php:79
+  2   vendor\laravel\framework\src\Illuminate\Support\helpers.php:388
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > supΓÇª   
+  Failed asserting that an event [product-saved] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\ProductTest.php:56
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > admΓÇª   
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at vendor\livewire\livewire\src\Features\SupportTesting\Testable.php:417
+    413Γûò         if (static::hasMacro($method)) {
+    414Γûò             return $this->macroCall($method, $params);
+    415Γûò         }
+    416Γûò 
+  Γ₧£ 417Γûò         $this->lastState->getResponse()->{$method}(...$params);
+    418Γûò 
+    419Γûò         return $this;
+    420Γûò     }
+    421Γûò }
+
+  1   tests\Feature\ProductTest.php:67
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > proΓÇª   
+  Component has no errors.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+     36Γûò     public function assertHasErrors($keys = [])
+     37Γûò     {
+     38Γûò         $errors = $this->errors();
+     39Γûò 
+  Γ₧£  40Γûò         PHPUnit::assertTrue($errors->isNotEmpty(), 'Component has no errors.');
+     41Γûò 
+     42Γûò         $keys = (array) $keys;
+     43Γûò 
+     44Γûò         foreach ($keys as $key => $value) {
+
+  1   vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+  2   tests\Feature\ProductTest.php:78
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > proΓÇª   
+  Component has no errors.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+     36Γûò     public function assertHasErrors($keys = [])
+     37Γûò     {
+     38Γûò         $errors = $this->errors();
+     39Γûò 
+  Γ₧£  40Γûò         PHPUnit::assertTrue($errors->isNotEmpty(), 'Component has no errors.');
+     41Γûò 
+     42Γûò         $keys = (array) $keys;
+     43Γûò 
+     44Γûò         foreach ($keys as $key => $value) {
+
+  1   vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+  2   tests\Feature\ProductTest.php:90
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > supΓÇª   
+  Failed asserting that an event [product-saved] was fired.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+     19Γûò     public function assertDispatched($event, ...$params)
+     20Γûò     {
+     21Γûò         $result = $this->testDispatched($event, $params);
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertTrue($result['test'], "Failed asserting that an event [{$event}] was fired{$result['assertionSuffix']}");
+     24Γûò 
+     25Γûò         return $this;
+     26Γûò     }
+     27Γûò
+
+  1   vendor\livewire\livewire\src\Features\SupportEvents\TestsEvents.php:23
+  2   tests\Feature\ProductTest.php:104
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > supΓÇª   
+  Failed asserting that any soft deleted row in the table [products] matches the attributes {"id":1}.
+
+Found: [
+    {
+        "id": 1,
+        "name": "reiciendis voluptatibus dignissimos",
+        "description": "Aut culpa sit laudantium animi.",
+        "default_price": 4531602,
+        "created_at": "2026-03-05 00:33:01",
+        "updated_at": "2026-03-05 00:33:01",
+        "deleted_at": null
+    }
+].
+
+  at tests\Feature\ProductTest.php:120
+    116Γûò         ->test(Index::class)
+    117Γûò         ->call('confirmDelete', $product->id)
+    118Γûò         ->call('delete');
+    119Γûò 
+  Γ₧£ 120Γûò     $this->assertSoftDeleted('products', ['id' => $product->id]);
+    121Γûò });
+    122Γûò 
+    123Γûò test('super admin can restore a soft-deleted product', function () {
+    124Γûò     $superAdmin = User::factory()->superAdmin()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ProductTest > supΓÇª   
+  Failed asserting that any existing row in the table [products] matches the attributes {"id":1}.
+
+Found: [
+    {
+        "id": 1,
+        "name": "assumenda ipsa facilis",
+        "description": "Ab ducimus eligendi et ex quia.",
+        "default_price": 4498533,
+        "created_at": "2026-03-05 00:33:01",
+        "updated_at": "2026-03-05 00:33:01",
+        "deleted_at": "2026-03-05 00:33:01"
+    }
+].
+
+  at tests\Feature\ProductTest.php:132
+    128Γûò     Livewire::actingAs($superAdmin)
+    129Γûò         ->test(Index::class)
+    130Γûò         ->call('restore', $product->id);
+    131Γûò 
+  Γ₧£ 132Γûò     $this->assertNotSoftDeleted('products', ['id' => $product->id]);
+    133Γûò });
+    134Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\FΓÇª  RouteNotFoundException   
+  Route [users.index] not defined.
+
+  at vendor\laravel\framework\src\Illuminate\Routing\UrlGenerator.php:528
+    524Γûò             ! is_null($url = call_user_func($this->missingNamedRouteResolver, $name, $parameters, $absolute))) {
+    525Γûò             return $url;
+    526Γûò         }
+    527Γûò 
+  Γ₧£ 528Γûò         throw new RouteNotFoundException("Route [{$name}] not defined.");
+    529Γûò     }
+    530Γûò 
+    531Γûò     /**
+    532Γûò      * Get the URL for a given route instance.
+
+  1   vendor\laravel\framework\src\Illuminate\Routing\UrlGenerator.php:528
+  2   vendor\laravel\framework\src\Illuminate\Foundation\helpers.php:870
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Settings\PasswordΓÇª   
+  Failed asserting that false is true.
+
+  at tests\Feature\Settings\PasswordUpdateTest.php:22
+     18Γûò         ->call('updatePassword');
+     19Γûò 
+     20Γûò     $response->assertHasNoErrors();
+     21Γûò 
+  Γ₧£  22Γûò     expect(Hash::check('new-password', $user->refresh()->password))->toBeTrue();
+     23Γûò });
+     24Γûò 
+     25Γûò test('correct password must be provided to update password', function () {
+     26Γûò     $user = User::factory()->create([
+
+  1   tests\Feature\Settings\PasswordUpdateTest.php:22
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Settings\PasswordΓÇª   
+  Component has no errors.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+     36Γûò     public function assertHasErrors($keys = [])
+     37Γûò     {
+     38Γûò         $errors = $this->errors();
+     39Γûò 
+  Γ₧£  40Γûò         PHPUnit::assertTrue($errors->isNotEmpty(), 'Component has no errors.');
+     41Γûò 
+     42Γûò         $keys = (array) $keys;
+     43Γûò 
+     44Γûò         foreach ($keys as $key => $value) {
+
+  1   vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+  2   tests\Feature\Settings\PasswordUpdateTest.php:38
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Settings\ProfileUΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Settings\ProfileUpdateTest.php:9
+      5Γûò 
+      6Γûò test('profile page is displayed', function () {
+      7Γûò     $this->actingAs($user = User::factory()->create());
+      8Γûò 
+  Γ₧£   9Γûò     $this->get(route('profile.edit'))->assertOk();
+     10Γûò });
+     11Γûò 
+     12Γûò test('profile information can be updated', function () {
+     13Γûò     $user = User::factory()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Settings\ProfileUΓÇª   
+  Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+-'Test User'
++'Mrs. Camilla Bradtke Jr.'
+
+  at tests\Feature\Settings\ProfileUpdateTest.php:26
+     22Γûò     $response->assertHasNoErrors();
+     23Γûò 
+     24Γûò     $user->refresh();
+     25Γûò 
+  Γ₧£  26Γûò     expect($user->name)->toEqual('Test User');
+     27Γûò     expect($user->email)->toEqual('test@example.com');
+     28Γûò     expect($user->email_verified_at)->toBeNull();
+     29Γûò });
+     30Γûò
+
+  1   tests\Feature\Settings\ProfileUpdateTest.php:26
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Settings\ProfileUΓÇª   
+  Component did not perform a redirect.
+Failed asserting that an array has the key 'redirect'.
+
+  at vendor\livewire\livewire\src\Features\SupportRedirects\TestsRedirects.php:23
+     19Γûò 
+     20Γûò             return $this;
+     21Γûò         }
+     22Γûò 
+  Γ₧£  23Γûò         PHPUnit::assertArrayHasKey(
+     24Γûò             'redirect',
+     25Γûò             $this->effects,
+     26Γûò             'Component did not perform a redirect.'
+     27Γûò         );
+
+  1   vendor\livewire\livewire\src\Features\SupportRedirects\TestsRedirects.php:23
+  2   tests\Feature\Settings\ProfileUpdateTest.php:57
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Settings\ProfileUΓÇª   
+  Component has no errors.
+Failed asserting that false is true.
+
+  at vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+     36Γûò     public function assertHasErrors($keys = [])
+     37Γûò     {
+     38Γûò         $errors = $this->errors();
+     39Γûò 
+  Γ₧£  40Γûò         PHPUnit::assertTrue($errors->isNotEmpty(), 'Component has no errors.');
+     41Γûò 
+     42Γûò         $keys = (array) $keys;
+     43Γûò 
+     44Γûò         foreach ($keys as $key => $value) {
+
+  1   vendor\livewire\livewire\src\Features\SupportValidation\TestsValidation.php:40
+  2   tests\Feature\Settings\ProfileUpdateTest.php:72
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Settings\TwoFactoΓÇª   
+  Expected response status code [200] but received 404.
+Failed asserting that 404 is identical to 200.
+
+  at tests\Feature\Settings\TwoFactorAuthenticationTest.php:24
+     20Γûò 
+     21Γûò     $this->actingAs($user)
+     22Γûò         ->withSession(['auth.password_confirmed_at' => time()])
+     23Γûò         ->get(route('two-factor.show'))
+  Γ₧£  24Γûò         ->assertOk()
+     25Γûò         ->assertSee('Two Factor Authentication')
+     26Γûò         ->assertSee('Disabled');
+     27Γûò });
+     28Γûò
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Settings\TwoFactoΓÇª   
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 404.
+Failed asserting that false is true.
+
+  at tests\Feature\Settings\TwoFactorAuthenticationTest.php:35
+     31Γûò 
+     32Γûò     $response = $this->actingAs($user)
+     33Γûò         ->get(route('two-factor.show'));
+     34Γûò 
+  Γ₧£  35Γûò     $response->assertRedirect(route('password.confirm'));
+     36Γûò });
+     37Γûò 
+     38Γûò test('two factor settings page returns forbidden response when two factor is disabled', function () {
+     39Γûò     config(['fortify.features' => []]);
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Settings\TwoFactoΓÇª   
+  Expected response status code [403] but received 404.
+Failed asserting that 404 is identical to 403.
+
+  at tests\Feature\Settings\TwoFactorAuthenticationTest.php:47
+     43Γûò     $response = $this->actingAs($user)
+     44Γûò         ->withSession(['auth.password_confirmed_at' => time()])
+     45Γûò         ->get(route('two-factor.show'));
+     46Γûò 
+  Γ₧£  47Γûò     $response->assertForbidden();
+     48Γûò });
+     49Γûò 
+     50Γûò test('two factor authentication disabled when confirmation abandoned between requests', function () {
+     51Γûò     $user = User::factory()->create();
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\Settings\TwoFactoΓÇª   
+  Failed asserting that a row in the table [users] matches the attributes {
+    "id": 1,
+    "two_factor_secret": null,
+    "two_factor_recovery_codes": null
+}.
+
+Found similar results: [
+    {
+        "id": 1,
+        "two_factor_secret": "eyJpdiI6IkYwdUM2aXBuOW1wZVcrQkJXRzhwZUE9PSIsInZhbHVlIjoicy9oWlcyeGxZVytnYkxPTmRrQWtQZEFHbS9JVVlLWDNZcmN0N2NvN1V5QT0iLCJtYWMiOiIwZDkwMDcxMjBjZTY2ZDBmZDdmZDBiNzhmYWE4ZTMyNmZlMDE1Y2NkYTJlMTk3NDczOWNhY2FjYzIyZTQ5NzVjIiwidGFnIjoiIn0=",
+        "two_factor_recovery_codes": "eyJpdiI6Iko4SXBzY3J0a09mSE4wT2FPcXNvUUE9PSIsInZhbHVlIjoiMGNndFQ2OTU3dnkwUTFuTC93MHYrWkRGMTB2WVdOU3BITXlCN3dDeHU3QT0iLCJtYWMiOiJhZTRjM2VkMTNmMDBjYmFiNGIyNGNiYzRlNDc4NDRjMTg0ZmNiMzJkYTE4ZjZmZjRmOTEzODRkNGUzNTUzY2FiIiwidGFnIjoiIn0="
+    }
+].
+
+  at tests\Feature\Settings\TwoFactorAuthenticationTest.php:65
+     61Γûò     $component = Livewire::test('pages::settings.two-factor');
+     62Γûò 
+     63Γûò     $component->assertSet('twoFactorEnabled', false);
+     64Γûò 
+  Γ₧£  65Γûò     $this->assertDatabaseHas('users', [
+     66Γûò         'id' => $user->id,
+     67Γûò         'two_factor_secret' => null,
+     68Γûò         'two_factor_recovery_codes' => null,
+     69Γûò     ]);
+
+
+  Tests:    89 failed, 12 passed (112 assertions)
+  Duration: 5.40s
+

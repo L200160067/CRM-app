@@ -1,0 +1,297 @@
+
+   PASS  Tests\Unit\ExampleTest
+  Γ£ô that true is true                  0.03s  
+
+   PASS  Tests\Feature\Auth\AuthenticationTest
+  Γ£ô login screen can be rendered       0.88s  
+  Γ£ô users can authenticate using theΓÇª  0.10s  
+  Γ£ô users can not authenticate with iΓÇª 0.04s  
+  Γ£ô users with two factor enabled areΓÇª 0.03s  
+  Γ£ô users can logout                   0.04s  
+
+   PASS  Tests\Feature\Auth\EmailVerificationTest
+  Γ£ô email verification screen can beΓÇª  0.05s  
+  Γ£ô email can be verified              0.04s  
+  Γ£ô email is not verified with invaliΓÇª 0.04s  
+  Γ£ô already verified user visiting veΓÇª 0.03s  
+
+   PASS  Tests\Feature\Auth\PasswordConfirmationTest
+  Γ£ô confirm password screen can be reΓÇª 0.06s  
+
+   PASS  Tests\Feature\Auth\PasswordResetTest
+  Γ£ô reset password link screen can beΓÇª 0.06s  
+  Γ£ô reset password link can be requesΓÇª 0.26s  
+  Γ£ô reset password screen can be rendΓÇª 0.27s  
+  Γ£ô password can be reset with validΓÇª  0.26s  
+
+   FAIL  Tests\Feature\Auth\RegistrationTest
+  Γ¿» registration screen can be renderΓÇª 0.05s  
+  Γ¿» new users can register             0.03s  
+
+   PASS  Tests\Feature\Auth\TwoFactorChallengeTest
+  Γ£ô two factor challenge redirects toΓÇª 0.03s  
+  Γ£ô two factor challenge can be rendeΓÇª 0.04s  
+
+   PASS  Tests\Feature\ClientImportTest
+  Γ£ô server manager cannot import clieΓÇª 0.13s  
+  Γ£ô uploading a valid csv parses rowsΓÇª 0.17s  
+  Γ£ô row with missing name is marked iΓÇª 0.14s  
+  Γ£ô row with duplicate email is markeΓÇª 0.13s  
+  Γ£ô admin can import valid csv rows iΓÇª 0.16s  
+  Γ£ô invalid rows are skipped during iΓÇª 0.13s  
+  Γ£ô import resets state after completΓÇª 0.14s  
+
+   PASS  Tests\Feature\ClientServiceTest
+  Γ£ô client services index page can beΓÇª 0.33s  
+  Γ£ô a new client service can be creatΓÇª 0.46s  
+  Γ£ô client service can be updated viaΓÇª 0.27s  
+  Γ£ô client service can be deleted viaΓÇª 0.23s  
+  Γ£ô client service validation fails wΓÇª 0.34s  
+
+   PASS  Tests\Feature\ClientTest
+  Γ£ô guests cannot access clients page  0.03s  
+  Γ£ô marketing users can view the clieΓÇª 0.24s  
+  Γ£ô clients index shows list of clienΓÇª 0.20s  
+  Γ£ô clients index search filters resuΓÇª 0.25s  
+  Γ£ô marketing can create a client      0.26s  
+  Γ£ô admin can create a client          0.19s  
+  Γ£ô client name is required            0.18s  
+  Γ£ô marketing can update a client      0.17s  
+  Γ£ô admin can update a client          0.18s  
+  Γ£ô marketing cannot delete a client   0.26s  
+  Γ£ô admin cannot delete a client       0.26s  
+  Γ£ô marketing cannot restore a soft-dΓÇª 0.20s  
+
+   PASS  Tests\Feature\DashboardTest
+  Γ£ô guests are redirected to the logiΓÇª 0.04s  
+  Γ£ô authenticated users can visit theΓÇª 0.16s  
+  Γ£ô dashboard shows total revenue froΓÇª 0.14s  
+  Γ£ô dashboard shows total active clieΓÇª 0.10s  
+  Γ£ô dashboard shows five most recentΓÇª  0.11s  
+  Γ£ô dashboard overdue count only inclΓÇª 0.11s  
+  Γ£ô marketing user does not see finanΓÇª 0.08s  
+  Γ£ô marketing user sees recent clientΓÇª 0.11s  
+  Γ£ô server manager does not see finanΓÇª 0.12s  
+  Γ£ô server manager sees expiring servΓÇª 0.07s  
+
+   PASS  Tests\Feature\ExampleTest
+  Γ£ô returns a successful response      0.04s  
+
+   PASS  Tests\Feature\InvoiceTest
+  Γ£ô guests cannot access invoices pagΓÇª 0.03s  
+  Γ£ô staff users cannot view the invoiΓÇª 0.04s  
+  Γ£ô invoices index shows invoice numbΓÇª 0.25s  
+  Γ£ô invoices index can be searched byΓÇª 0.26s  
+  Γ£ô admin can soft delete a draft invΓÇª 0.28s  
+  Γ£ô admin can restore a soft-deletedΓÇª  0.28s  
+  Γ£ô staff cannot access the invoice iΓÇª 0.07s  
+  Γ£ô paid invoice cannot be deleted     0.04s  
+  Γ£ô invoice total is calculated correΓÇª 0.05s  
+  Γ£ô invoice total is calculated correΓÇª 0.04s  
+  Γ£ô discount cannot exceed subtotal    0.04s  
+  Γ£ô guests cannot access invoice prinΓÇª 0.04s  
+  Γ£ô staff can access invoice print paΓÇª 0.04s  
+  Γ£ô invoice print page displays invoiΓÇª 0.04s  
+
+   PASS  Tests\Feature\ProductImportTest
+  Γ£ô staff cannot import products       0.07s  
+  Γ£ô uploading a valid product csv parΓÇª 0.12s  
+  Γ£ô row with missing name is marked iΓÇª 0.12s  
+  Γ£ô row with missing price is markedΓÇª  0.14s  
+  Γ£ô row with non-numeric price is marΓÇª 0.12s  
+  Γ£ô admin can import valid product csΓÇª 0.15s  
+  Γ£ô invalid product rows are skippedΓÇª  0.16s  
+  Γ£ô product import resets state afterΓÇª 0.13s  
+
+   PASS  Tests\Feature\ProductTest
+  Γ£ô guests cannot access products pagΓÇª 0.05s  
+  Γ£ô all authenticated users can viewΓÇª  0.25s  
+  Γ£ô products index shows list of prodΓÇª 0.15s  
+  Γ£ô products index search filters resΓÇª 0.20s  
+  Γ£ô super admin can create a product   0.16s  
+  Γ£ô admin cannot create a product      0.07s  
+  Γ£ô product name is required           0.14s  
+  Γ£ô product price must be numeric andΓÇª 0.15s  
+  Γ£ô super admin can update a product   0.12s  
+  Γ£ô super admin can soft delete a proΓÇª 0.28s  
+  Γ£ô super admin can restore a soft-deΓÇª 0.20s  
+
+   FAIL  Tests\Feature\RegistrationRestrictionTest
+  Γ£ô public registration route is disaΓÇª 0.04s  
+  Γ£ô public registration post is disabΓÇª 0.05s  
+  Γ¿» user management index is restrictΓÇª 1.60s  
+
+   PASS  Tests\Feature\Settings\PasswordUpdateTest
+  Γ£ô password can be updated            0.20s  
+  Γ£ô correct password must be providedΓÇª 0.19s  
+
+   PASS  Tests\Feature\Settings\ProfileUpdateTest
+  Γ£ô profile page is displayed          0.18s  
+  Γ£ô profile information can be updateΓÇª 0.17s  
+  Γ£ô email verification status is unchΓÇª 0.24s  
+  Γ£ô user can delete their account      0.13s  
+  Γ£ô correct password must be providedΓÇª 0.15s  
+
+   PASS  Tests\Feature\Settings\TwoFactorAuthenticationTest
+  Γ£ô two factor settings page can be rΓÇª 0.24s  
+  Γ£ô two factor settings page requiresΓÇª 0.05s  
+  Γ£ô two factor settings page returnsΓÇª  0.06s  
+  Γ£ô two factor authentication disableΓÇª 0.10s  
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\FΓÇª  RouteNotFoundException   
+  Route [register] not defined.
+
+  at vendor\laravel\framework\src\Illuminate\Routing\UrlGenerator.php:528
+    524Γûò             ! is_null($url = call_user_func($this->missingNamedRouteResolver, $name, $parameters, $absolute))) {
+    525Γûò             return $url;
+    526Γûò         }
+    527Γûò 
+  Γ₧£ 528Γûò         throw new RouteNotFoundException("Route [{$name}] not defined.");
+    529Γûò     }
+    530Γûò 
+    531Γûò     /**
+    532Γûò      * Get the URL for a given route instance.
+
+  1   vendor\laravel\framework\src\Illuminate\Routing\UrlGenerator.php:528
+  2   vendor\laravel\framework\src\Illuminate\Foundation\helpers.php:870
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\FΓÇª  RouteNotFoundException   
+  Route [register.store] not defined.
+
+  at vendor\laravel\framework\src\Illuminate\Routing\UrlGenerator.php:528
+    524Γûò             ! is_null($url = call_user_func($this->missingNamedRouteResolver, $name, $parameters, $absolute))) {
+    525Γûò             return $url;
+    526Γûò         }
+    527Γûò 
+  Γ₧£ 528Γûò         throw new RouteNotFoundException("Route [{$name}] not defined.");
+    529Γûò     }
+    530Γûò 
+    531Γûò     /**
+    532Γûò      * Get the URL for a given route instance.
+
+  1   vendor\laravel\framework\src\Illuminate\Routing\UrlGenerator.php:528
+  2   vendor\laravel\framework\src\Illuminate\Foundation\helpers.php:870
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\RegistrationRestrΓÇª   
+  Expected response status code [200] but received 500.
+Failed asserting that 500 is identical to 200.
+
+The following exception occurred during the last request:
+
+InvalidArgumentException: Unable to locate a class or view for component [flux::toast]. in D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\Compilers\ComponentTagCompiler.php:315
+Stack trace:
+#0 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\Compilers\ComponentTagCompiler.php(235): Illuminate\View\Compilers\ComponentTagCompiler->componentClass('flux::toast')
+#1 D:\GitHub\CRM-app\vendor\livewire\flux\src\FluxTagCompiler.php(25): Illuminate\View\Compilers\ComponentTagCompiler->componentString('flux::toast', Array)
+#2 D:\GitHub\CRM-app\vendor\livewire\flux\src\FluxTagCompiler.php(88): Flux\FluxTagCompiler->componentString('flux::toast', Array)
+#3 [internal function]: Flux\FluxTagCompiler->{closure:Flux\FluxTagCompiler::compileOpeningTags():83}(Array)
+#4 D:\GitHub\CRM-app\vendor\livewire\flux\src\FluxTagCompiler.php(83): preg_replace_callback('/\n            <...', Object(Closure), '<div>\n    <div ...')
+#5 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\Compilers\ComponentTagCompiler.php(90): Flux\FluxTagCompiler->compileOpeningTags('<div>\n    <div ...')
+#6 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\Compilers\ComponentTagCompiler.php(76): Illuminate\View\Compilers\ComponentTagCompiler->compileTags('<div>\n    <div ...')
+#7 D:\GitHub\CRM-app\vendor\livewire\flux\src\FluxServiceProvider.php(78): Illuminate\View\Compilers\ComponentTagCompiler->compile('<div>\n    <div ...')
+#8 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\Compilers\BladeCompiler.php(293): Flux\FluxServiceProvider->{closure:Flux\FluxServiceProvider::bootTagCompiler():77}('<div>\n    <div ...')
+#9 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\Compilers\BladeCompiler.php(188): Illuminate\View\Compilers\BladeCompiler->compileString('<div>\n    <div ...')
+#10 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(68): Illuminate\View\Compilers\BladeCompiler->compile('D:\\GitHub\\CRM-a...')
+#11 D:\GitHub\CRM-app\vendor\livewire\livewire\src\Mechanisms\ExtendBlade\ExtendedCompilerEngine.php(16): Illuminate\View\Engines\CompilerEngine->get('D:\\GitHub\\CRM-a...', Array)
+#12 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\View.php(208): Livewire\Mechanisms\ExtendBlade\ExtendedCompilerEngine->get('D:\\GitHub\\CRM-a...', Array)
+#13 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\View.php(191): Illuminate\View\View->getContents()
+#14 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\View.php(160): Illuminate\View\View->renderContents()
+#15 D:\GitHub\CRM-app\vendor\livewire\livewire\src\Mechanisms\HandleComponents\HandleComponents.php(409): Illuminate\View\View->render(Object(Closure))
+#16 D:\GitHub\CRM-app\vendor\livewire\livewire\src\Mechanisms\HandleComponents\HandleComponents.php(460): Livewire\Mechanisms\HandleComponents\HandleComponents->{closure:Livewire\Mechanisms\HandleComponents\HandleComponents::render():401}()
+#17 D:\GitHub\CRM-app\vendor\livewire\livewire\src\Mechanisms\HandleComponents\HandleComponents.php(401): Livewire\Mechanisms\HandleComponents\HandleComponents->trackInRenderStack(Object(App\Livewire\UserManagement\Index), Object(Closure))
+#18 D:\GitHub\CRM-app\vendor\livewire\livewire\src\Mechanisms\HandleComponents\HandleComponents.php(80): Livewire\Mechanisms\HandleComponents\HandleComponents->render(Object(App\Livewire\UserManagement\Index), '<div></div>')
+#19 D:\GitHub\CRM-app\vendor\livewire\livewire\src\LivewireManager.php(102): Livewire\Mechanisms\HandleComponents\HandleComponents->mount('App\\Livewire\\Us...', Array, NULL, Array)
+#20 D:\GitHub\CRM-app\vendor\livewire\livewire\src\Features\SupportPageComponents\HandlesPageComponents.php(19): Livewire\LivewireManager->mount('App\\Livewire\\Us...', Array)
+#21 D:\GitHub\CRM-app\vendor\livewire\livewire\src\Features\SupportPageComponents\SupportPageComponents.php(118): Livewire\Component->{closure:Livewire\Features\SupportPageComponents\HandlesPageComponents::__invoke():14}()
+#22 D:\GitHub\CRM-app\vendor\livewire\livewire\src\Features\SupportPageComponents\HandlesPageComponents.php(14): Livewire\Features\SupportPageComponents\SupportPageComponents::interceptTheRenderOfTheComponentAndRetreiveTheLayoutConfiguration(Object(Closure))
+#23 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(46): Livewire\Component->__invoke()
+#24 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Routing\Route.php(265): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Livewire\UserManagement\Index), '__invoke')
+#25 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#26 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#27 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->{closure:Illuminate\Routing\Router::runRouteWithinStack():821}(Object(Illuminate\Http\Request))
+#28 D:\GitHub\CRM-app\app\Http\Middleware\EnsureUserIsSuperAdmin.php(22): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}(Object(Illuminate\Http\Request))
+#29 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): App\Http\Middleware\EnsureUserIsSuperAdmin->handle(Object(Illuminate\Http\Request), Object(Closure))
+#30 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Auth\Middleware\EnsureEmailIsVerified.php(41): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#31 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\EnsureEmailIsVerified->handle(Object(Illuminate\Http\Request), Object(Closure))
+#32 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#33 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#34 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#35 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(87): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#37 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#38 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(48): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#39 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(120): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#41 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(63): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#42 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#43 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(36): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#44 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#45 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(74): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#46 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#47 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#48 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#49 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#50 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#51 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#52 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#53 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->{closure:Illuminate\Foundation\Http\Kernel::dispatchToRouter():197}(Object(Illuminate\Http\Request))
+#54 D:\GitHub\CRM-app\vendor\livewire\livewire\src\Features\SupportDisablingBackButtonCache\DisableBackButtonCacheMiddleware.php(19): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}(Object(Illuminate\Http\Request))
+#55 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Livewire\Features\SupportDisablingBackButtonCache\DisableBackButtonCacheMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#56 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#57 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#58 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#59 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#60 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#61 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#62 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#63 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#64 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#65 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#66 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(61): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#67 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#68 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#69 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#70 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#71 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle(Object(Illuminate\Http\Request), Object(Closure))
+#72 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#73 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle(Object(Illuminate\Http\Request), Object(Closure))
+#74 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#75 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#76 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#77 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#78 D:\GitHub\CRM-app\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(368): Illuminate\Foundation\Testing\TestCase->call('GET', 'http://crm-app....', Array, Array, Array, Array)
+#79 D:\GitHub\CRM-app\tests\Feature\RegistrationRestrictionTest.php(50): Illuminate\Foundation\Testing\TestCase->get('http://crm-app....')
+#80 D:\GitHub\CRM-app\vendor\phpunit\phpunit\src\Framework\TestCase.php(1332): Tests\Feature\RegistrationRestrictionTest->test_user_management_index_is_restricted_to_super_admin()
+#81 D:\GitHub\CRM-app\vendor\phpunit\phpunit\src\Framework\TestCase.php(519): PHPUnit\Framework\TestCase->runTest()
+#82 D:\GitHub\CRM-app\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(99): PHPUnit\Framework\TestCase->runBare()
+#83 D:\GitHub\CRM-app\vendor\phpunit\phpunit\src\Framework\TestCase.php(359): PHPUnit\Framework\TestRunner->run(Object(Tests\Feature\RegistrationRestrictionTest))
+#84 D:\GitHub\CRM-app\vendor\phpunit\phpunit\src\Framework\TestSuite.php(374): PHPUnit\Framework\TestCase->run()
+#85 D:\GitHub\CRM-app\vendor\phpunit\phpunit\src\Framework\TestSuite.php(374): PHPUnit\Framework\TestSuite->run()
+#86 D:\GitHub\CRM-app\vendor\phpunit\phpunit\src\Framework\TestSuite.php(374): PHPUnit\Framework\TestSuite->run()
+#87 D:\GitHub\CRM-app\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#88 D:\GitHub\CRM-app\vendor\phpunit\phpunit\src\TextUI\Application.php(229): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#89 D:\GitHub\CRM-app\vendor\pestphp\pest\src\Kernel.php(103): PHPUnit\TextUI\Application->run(Array)
+#90 D:\GitHub\CRM-app\vendor\pestphp\pest\bin\pest(184): Pest\Kernel->handle(Array, Array)
+#91 D:\GitHub\CRM-app\vendor\pestphp\pest\bin\pest(192): {closure:D:\GitHub\CRM-app\vendor\pestphp\pest\bin\pest:18}()
+#92 D:\GitHub\CRM-app\vendor\bin\pest(119): include('D:\\GitHub\\CRM-a...')
+#93 {main}
+
+----------------------------------------------------------------------------------
+
+Unable to locate a class or view for component [flux::toast].
+
+  at tests\Feature\RegistrationRestrictionTest.php:51
+     47Γûò         $superAdmin = User::factory()->create(['role' => Role::SuperAdmin]);
+     48Γûò 
+     49Γûò         $this->actingAs($superAdmin)
+     50Γûò             ->get(route('users.index'))
+  Γ₧£  51Γûò             ->assertOk();
+     52Γûò     }
+     53Γûò }
+     54Γûò
+
+
+  Tests:    3 failed, 98 passed (206 assertions)
+  Duration: 16.49s
+

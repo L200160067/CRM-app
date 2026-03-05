@@ -34,20 +34,20 @@ class RegistrationRestrictionTest extends TestCase
     {
         // 1. Guest
         $this->get(route('users.index'))
-             ->assertRedirect(route('login'));
+            ->assertRedirect(route('login'));
 
         // 2. Normal User / Admin
         $admin = User::factory()->create(['role' => Role::Admin]);
-        
+
         $this->actingAs($admin)
-             ->get(route('users.index'))
-             ->assertForbidden();
+            ->get(route('users.index'))
+            ->assertForbidden();
 
         // 3. Super Admin
         $superAdmin = User::factory()->create(['role' => Role::SuperAdmin]);
-        
+
         $this->actingAs($superAdmin)
-             ->get(route('users.index'))
-             ->assertOk();
+            ->get(route('users.index'))
+            ->assertOk();
     }
 }
