@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             ['email' => 'admin@m-onesolution.com'],
             [
                 'name' => 'Super Admin',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('yourtruesolution'),
                 'role' => Role::SuperAdmin->value,
             ]
         );
