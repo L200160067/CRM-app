@@ -45,7 +45,18 @@
                         </flux:table.cell>
                         <flux:table.cell>
                             <div class="text-sm">{{ $client->email ?? '-' }}</div>
-                            <div class="text-sm text-zinc-500">{{ $client->phone ?? '-' }}</div>
+                            <div class="text-sm">
+                                @if($client->phone)
+                                    <a href="{{ $client->whatsapp_url }}" target="_blank"
+                                        class="inline-flex items-center gap-1.5 text-emerald-600 hover:text-emerald-700 dark:text-emerald-500 dark:hover:text-emerald-400 no-underline hover:underline transition-colors mt-0.5"
+                                        title="Hubungi via WhatsApp">
+                                        <flux:icon name="chat-bubble-left-ellipsis" class="size-3.5" />
+                                        <span>{{ $client->phone }}</span>
+                                    </a>
+                                @else
+                                    <span class="text-zinc-500">-</span>
+                                @endif
+                            </div>
                         </flux:table.cell>
                         <flux:table.cell>
                             <flux:dropdown position="bottom" align="end">

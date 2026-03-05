@@ -27,7 +27,18 @@
                     </div>
                     <div>
                         <flux:heading size="sm" class="text-zinc-500">Nomor Telepon</flux:heading>
-                        <flux:text>{{ $client->phone ?? '-' }}</flux:text>
+                        <flux:text>
+                            @if($client->phone)
+                                <a href="{{ $client->whatsapp_url }}" target="_blank"
+                                    class="inline-flex items-center gap-1.5 text-emerald-600 hover:text-emerald-700 dark:text-emerald-500 dark:hover:text-emerald-400 no-underline hover:underline transition-colors mt-1"
+                                    title="Hubungi via WhatsApp">
+                                    <flux:icon name="chat-bubble-left-ellipsis" class="size-4" />
+                                    <span>{{ $client->phone }}</span>
+                                </a>
+                            @else
+                                -
+                            @endif
+                        </flux:text>
                     </div>
                 </div>
 
