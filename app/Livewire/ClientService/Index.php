@@ -3,13 +3,14 @@
 namespace App\Livewire\ClientService;
 
 use App\Models\ClientService;
-use Flux;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+#[Layout('layouts.app')]
 class Index extends Component
 {
     use AuthorizesRequests;
@@ -41,8 +42,8 @@ class Index extends Component
             $this->authorize('delete', $service);
             $service->delete();
 
-            Flux::modal('client-service-delete-modal')->close();
-            Flux::toast('Layanan berhasil dihapus.');
+            \Flux::modal('client-service-delete-modal')->close();
+            \Flux::toast('Layanan berhasil dihapus.');
 
             $this->clientServiceIdToDelete = null;
             unset($this->services);
