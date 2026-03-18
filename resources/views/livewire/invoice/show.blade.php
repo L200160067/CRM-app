@@ -80,11 +80,11 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
                 <div>
                     <div class="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-2">Ditagihkan Kepada</div>
-                    <div class="font-bold text-lg text-zinc-900 dark:text-white mb-1">{{ $invoice->client->name }}</div>
-                    <div class="text-sm font-medium text-zinc-700 dark:text-zinc-300">{{ $invoice->client->company_name }}
+                    <div class="font-bold text-lg text-zinc-900 dark:text-white mb-1">{{ $invoice->client?->name ?? 'Klien Terhapus/Tidak Ditemukan' }}</div>
+                    <div class="text-sm font-medium text-zinc-700 dark:text-zinc-300">{{ $invoice->client?->company_name ?? '-' }}
                     </div>
-                    <div class="text-sm text-zinc-500 mt-1 whitespace-pre-line">{{ $invoice->client->address ?? '-' }}</div>
-                    <div class="text-sm text-zinc-500 mt-1">{{ $invoice->client->phone ?? '-' }}</div>
+                    <div class="text-sm text-zinc-500 mt-1 whitespace-pre-line">{{ $invoice->client?->address ?? '-' }}</div>
+                    <div class="text-sm text-zinc-500 mt-1">{{ $invoice->client?->phone ?? '-' }}</div>
                 </div>
 
                 <div class="space-y-3 text-sm">

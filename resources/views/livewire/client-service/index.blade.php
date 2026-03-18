@@ -36,12 +36,12 @@
                 @forelse ($this->services as $service)
                     <flux:table.row wire:key="service-{{ $service->id }}">
                         <flux:table.cell>
-                            <div class="font-medium">{{ $service->client->name }}</div>
-                            <div class="text-sm text-zinc-500">{{ $service->client->company_name ?? '-' }}</div>
+                            <div class="font-medium">{{ $service->client?->name ?? 'Klien Tidak Ditemukan' }}</div>
+                            <div class="text-sm text-zinc-500">{{ $service->client?->company_name ?? '-' }}</div>
                         </flux:table.cell>
 
                         <flux:table.cell>
-                            <div class="font-medium">{{ $service->product->name }}</div>
+                            <div class="font-medium">{{ $service->product?->name ?? 'Layanan Tidak Ditemukan' }}</div>
                             @if ($service->domain_name)
                                 <div class="text-sm text-zinc-500">{{ $service->domain_name }}</div>
                             @endif
@@ -150,9 +150,9 @@
                 wire:key="mobile-service-{{ $service->id }}">
                 <div class="flex items-start justify-between gap-2 mb-2">
                     <div>
-                        <div class="font-medium text-zinc-900 dark:text-zinc-100">{{ $service->client->name }}</div>
-                        <div class="text-xs text-zinc-500">{{ $service->client->company_name ?? '-' }}</div>
-                        <div class="mt-1 font-medium text-sm text-zinc-700 dark:text-zinc-300">{{ $service->product->name }}
+                        <div class="font-medium text-zinc-900 dark:text-zinc-100">{{ $service->client?->name ?? 'Klien Tidak Ditemukan' }}</div>
+                        <div class="text-xs text-zinc-500">{{ $service->client?->company_name ?? '-' }}</div>
+                        <div class="mt-1 font-medium text-sm text-zinc-700 dark:text-zinc-300">{{ $service->product?->name ?? 'Layanan/Produk Hilang' }}
                         </div>
                         @if ($service->domain_name)
                             <div class="text-xs text-zinc-400">{{ $service->domain_name }}</div>

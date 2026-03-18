@@ -50,8 +50,8 @@
                             <div class="text-xs text-zinc-500">Tempo: {{ $invoice->due_date->format('d M Y') }}</div>
                         </flux:table.cell>
                         <flux:table.cell>
-                            <div class="font-medium">{{ $invoice->client->name }}</div>
-                            <div class="text-sm text-zinc-500">{{ $invoice->client->company_name ?? '-' }}</div>
+                            <div class="font-medium">{{ $invoice->client?->name ?? 'Klien Terhapus/Tidak Ditemukan' }}</div>
+                            <div class="text-sm text-zinc-500">{{ $invoice->client?->company_name ?? '-' }}</div>
                         </flux:table.cell>
                         <flux:table.cell>
                             <div class="text-sm font-medium text-zinc-700 dark:text-zinc-300">
@@ -170,8 +170,8 @@
                     <div>
                         <div class="font-bold text-indigo-600 dark:text-indigo-400 text-sm">{{ $invoice->invoice_number }}
                         </div>
-                        <div class="font-medium text-zinc-900 dark:text-zinc-100 mt-0.5">{{ $invoice->client->name }}</div>
-                        <div class="text-xs text-zinc-500">{{ $invoice->client->company_name ?? '-' }}</div>
+                        <div class="font-medium text-zinc-900 dark:text-zinc-100 mt-0.5">{{ $invoice->client?->name ?? 'Klien Terhapus/Tidak Ditemukan' }}</div>
+                        <div class="text-xs text-zinc-500">{{ $invoice->client?->company_name ?? '-' }}</div>
                     </div>
                     <div class="flex items-center gap-2 shrink-0">
                         <flux:badge color="{{ $color }}" size="sm">{{ $label }}</flux:badge>

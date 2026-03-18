@@ -401,11 +401,11 @@
     <div class="billing-grid">
         <div class="billing-to">
             <div class="label-small">Ditagihkan Kepada</div>
-            <div class="client-name">{{ $invoice->client->name }}</div>
-            @if($invoice->client->company_name)
-                <div class="client-company">{{ $invoice->client->company_name }}</div>
+            <div class="client-name">{{ $invoice->client?->name ?? 'Klien Tidak Ditemukan' }}</div>
+            @if($invoice->client?->company_name)
+                <div class="client-company">{{ $invoice->client?->company_name }}</div>
             @endif
-            @if($invoice->client->address)
+            @if($invoice->client?->address)
                 <div class="client-detail">{{ $invoice->client->address }}</div>
             @endif
             @if($invoice->client->phone)
