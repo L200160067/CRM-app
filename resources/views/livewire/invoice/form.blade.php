@@ -201,10 +201,10 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         @if($form->discount_type === 'percentage')
-                            <flux:input wire:model="form.discount_rate" label="Diskon (%)" type="number" step="0.01" min="0"
+                            <flux:input wire:key="discount-input-percentage" wire:model="form.discount_rate" label="Diskon (%)" type="number" step="0.01" min="0"
                                 max="100" />
                         @else
-                            <flux:input wire:model="form.discount" label="Diskon (Rp)" type="number" step="1000" min="0" />
+                            <flux:input wire:key="discount-input-fixed" wire:model="form.discount" label="Diskon (Rp)" type="number" step="1000" min="0" />
                         @endif
 
                         <flux:input wire:model="form.tax_rate" label="Pajak (%)" type="number" step="0.01" min="0"

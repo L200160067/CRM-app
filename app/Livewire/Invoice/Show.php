@@ -17,6 +17,14 @@ class Show extends Component
         $this->authorize('view', $this->invoice);
     }
 
+    #[On('invoice-saved')]
+    public function refreshInvoice()
+    {
+        if ($this->invoice) {
+            $this->loadInvoice($this->invoice->id);
+        }
+    }
+
     public function render()
     {
         return view('livewire.invoice.show');

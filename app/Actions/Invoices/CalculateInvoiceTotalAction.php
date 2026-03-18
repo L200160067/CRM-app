@@ -15,11 +15,12 @@ class CalculateInvoiceTotalAction
 
         // 2. Kalkulasi Diskon yang Aman
         $discountAmount = 0;
+        $discountTypeStr = $invoice->discount_type instanceof DiscountType ? $invoice->discount_type->value : $invoice->discount_type;
 
-        if ($invoice->discount_type === DiscountType::Percentage) {
+        if ($discountTypeStr === 'percentage') {
             $discountRate = $invoice->discount_rate ?? 0;
             $discountAmount = ($subtotal * $discountRate) / 100;
-        } elseif ($invoice->discount_type === DiscountType::Fixed) {
+        } elseif ($discountTypeStr === 'fixed') {
             // Abaikan discount_rate (karena limit 999.99).
             // Ambil nominal langsung dari input diskon yang dimasukkan admin.
             $discountAmount = $invoice->discount ?? 0;
